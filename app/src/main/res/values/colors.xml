@@ -7,4 +7,7 @@
     <color name="black_overlay">#66000000</color>
     <color name="dg_select_pressed">#7ca9d1</color>
     <color name="dg_select_default">#3ca0da</color>
+
+    <color name="black">#000000</color>
+
 </resources>

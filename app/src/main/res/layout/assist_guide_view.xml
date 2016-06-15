@@ -1,0 +1,139 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:id="@+id/guide_parent"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="#80000000">
+
+    <ImageView
+        android:id="@+id/vertical_hand"
+        android:layout_width="33dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="80dp"
+        android:layout_marginStart="80dp"
+        android:src="@drawable/guide_anim_up"
+        />
+
+    <LinearLayout
+        android:id="@+id/second_scene_parent"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginStart="15dp"
+        android:orientation="vertical"
+        android:weightSum="3"
+        >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_guide_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:lines="2"
+                android:padding="3dp"
+                android:text="@string/guide_view_guide_text"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                />
+
+            <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_below="@id/tv_guide_user"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="3dp"
+                android:src="@drawable/guide_anim_arrow"/>
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            >
+            android:visibility="gone"
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
+                android:background="@android:color/white"
+                android:orientation="horizontal"
+                >
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/guide_anim_logo"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/guide_view_bla_bla"/>
+
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/open_process_indicator"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="35dp"
+                android:layout_height="12dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="32dp"
+                android:maxHeight="10dip"
+                android:minHeight="10dip"
+                android:progress="100"
+                android:progressDrawable="@drawable/guide_anim_progress_bar"
+                />
+
+            <ImageView
+                android:id="@+id/horizontal_hand"
+                android:layout_width="33dp"
+                android:layout_height="46dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/guide_anim_slide"
+                />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/stop_btn"
+        android:layout_width="178dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="37dp"
+        android:background="@drawable/guide_anim_btn_bg"
+        android:gravity="center"
+        android:text="@string/guide_view_got_it"
+        android:textAllCaps="false"
+        android:textColor="#e5e5e5"
+        android:textSize="18sp"
+        />
+</FrameLayout>

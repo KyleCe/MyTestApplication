@@ -10,4 +10,8 @@
 
     <string name="admin_label">Admin for blabla launcher</string>
     <string name="admin_description">Active admin for blabla launcher, power your phone lock</string>
+
+    <string name="guide_view_got_it">I got it</string>
+    <string name="guide_view_bla_bla">BlaBla Launcher</string>
+    <string name="guide_view_guide_text">Get your permission to save battery\nimprove your phone performance</string>
 </resources>
