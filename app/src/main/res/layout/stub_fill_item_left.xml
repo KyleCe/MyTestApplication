@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:text="left"
+        android:textColor="#33b5e5"
+        android:background="#aa1122"
+        android:textSize="50sp"
+        android:textStyle="bold"/>
+</FrameLayout>

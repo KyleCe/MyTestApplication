@@ -1,0 +1,103 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="#aa99cc"
+             tools:context="com.ce.game.myapplication.swipetochangeview.ViewStubWithAnimActivity">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+    <!--<include-->
+        <!--android:id="@+id/testInclude"-->
+        <!--layout="@layout/stub_fill_item"/>-->
+    <!--<include-->
+        <!--android:id="@+id/testInclude"-->
+        <!--layout="@layout/stub_fill_item_top"/>-->
+    <!--<include-->
+        <!--android:id="@+id/testInclude"-->
+        <!--layout="@layout/stub_fill_item_bottom"/>-->
+    <!--<include-->
+        <!--android:id="@+id/testInclude"-->
+        <!--layout="@layout/stub_fill_item_left"/>-->
+    <!--<include-->
+        <!--android:id="@+id/testInclude"-->
+        <!--layout="@layout/stub_fill_item_right"/>-->
+
+    <ViewStub
+        android:id="@+id/viewStub"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inflatedId="@+id/item_center"
+        android:layout="@layout/stub_fill_item"/>
+
+
+    <ViewStub
+        android:id="@+id/viewStubTop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inflatedId="@+id/item_top"
+        android:layout="@layout/stub_fill_item_top"/>
+
+    <ViewStub
+        android:id="@+id/viewStubBottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inflatedId="@+id/item_bottom"
+        android:layout="@layout/stub_fill_item_bottom"/>
+
+    <ViewStub
+        android:id="@+id/viewStubLeft"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inflatedId="@+id/item_left"
+        android:layout="@layout/stub_fill_item_left"/>
+
+    <ViewStub
+        android:id="@+id/viewStubRight"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inflatedId="@+id/item_right"
+        android:layout="@layout/stub_fill_item_right"/>
+
+    <TextView
+        android:id="@+id/fullscreen_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:text="BG"
+        android:textColor="#11b5e5"
+        android:textSize="50sp"
+        android:textStyle="bold"/>
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+            style="?metaButtonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@color/black_overlay"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <Button
+                android:id="@+id/dummy_button"
+                style="?metaButtonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/dummy_button"/>
+
+        </LinearLayout>
+    </FrameLayout>
+
+</FrameLayout>
