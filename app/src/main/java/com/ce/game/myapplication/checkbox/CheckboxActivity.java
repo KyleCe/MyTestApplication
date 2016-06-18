@@ -14,11 +14,32 @@ public class CheckboxActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkbox);
 
+        final View cover = findViewById(R.id.cover);
+        cover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DU.sd("cover", "cover");
+            }
+        });
+        final View layout = findViewById(R.id.checkbox);
+
         findViewById(R.id.parent).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DU.t(CheckboxActivity.this, "click parent");
+                DU.sd("parent", "click parent");
+
+                cover.setClickable(!cover.isClickable());
             }
         });
+
+        layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DU.sd("child", "click child");
+
+            }
+        });
+
+
     }
 }
