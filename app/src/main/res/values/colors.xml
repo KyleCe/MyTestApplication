@@ -12,4 +12,7 @@
 
     <color name="black">#000000</color>
 
+    <!--for app index-->
+    <color name="index_default">#52ffffff</color>
+    <color name="index_high_light">#ffffffff</color>
 </resources>

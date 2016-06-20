@@ -15,11 +15,8 @@
         android:id="@+id/side_index_text"
         android:layout_width="28dp"
         android:layout_height="match_parent"
-        android:background="@android:color/holo_blue_bright"
-        android:layout_gravity="right|end"
-        android:layout_marginRight="10dp"
-        android:layout_marginEnd="10dp"
-        android:text="#\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\nK\nL\nM\nN\nO\nP\nQ\nR\nS\nT\nU\nV\nW\nX\nY\nZ"
+        android:background="@android:color/transparent"
+        tools:text="#\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\nK\nL\nM\nN\nO\nP\nQ\nR\nS\nT\nU\nV\nW\nX\nY\nZ"
         />
 
 </RelativeLayout>
