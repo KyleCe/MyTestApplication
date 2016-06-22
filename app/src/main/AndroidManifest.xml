@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
 
     <application
         android:allowBackup="true"
@@ -100,6 +101,11 @@
         <activity android:name=".checkbox.CheckboxActivity">
         </activity>
         <activity android:name=".drawbg.DrawBackgroundActivity">
+        </activity>
+        <activity
+            android:name=".wallpaper.SetImageFromWallpaperActivity"
+            android:label="@string/title_activity_set_image_from_wallpaper"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 

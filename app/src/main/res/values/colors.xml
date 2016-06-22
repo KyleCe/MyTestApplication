@@ -11,6 +11,7 @@
     <color name="dg_unselect_pressed">#e4e3e8</color>
 
     <color name="black">#000000</color>
+    <color name="translucent_white">#33ffffff</color>
 
     <!--for app index-->
     <color name="index_default">#52ffffff</color>

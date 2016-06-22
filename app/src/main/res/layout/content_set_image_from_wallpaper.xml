@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,13 +9,13 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@color/translucent_white"
-    tools:context="com.ce.game.myapplication.drawbg.DrawBackgroundActivity">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.ce.game.myapplication.wallpaper.SetImageFromWallpaperActivity"
+    tools:showIn="@layout/activity_set_image_from_wallpaper">
 
+    <ImageView
+        android:id="@+id/image_to_set"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
-    <com.ce.game.myapplication.drawbg.CustomTextView
-        android:layout_width="400dp"
-        android:layout_height="400dp"
-        android:text="ABC"
-        />
 </RelativeLayout>
