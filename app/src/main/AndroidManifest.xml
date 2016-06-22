@@ -99,6 +99,8 @@
 
         <activity android:name=".checkbox.CheckboxActivity">
         </activity>
+        <activity android:name=".drawbg.DrawBackgroundActivity">
+        </activity>
     </application>
 
 </manifest>
