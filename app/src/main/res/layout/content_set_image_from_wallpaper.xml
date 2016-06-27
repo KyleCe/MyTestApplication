@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,11 +11,49 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.ce.game.myapplication.wallpaper.SetImageFromWallpaperActivity"
-    tools:showIn="@layout/activity_set_image_from_wallpaper">
+    tools:showIn="@layout/activity_set_image_from_wallpaper"
+    android:orientation="vertical"
+    android:weightSum="2"
+    >
 
-    <ImageView
-        android:id="@+id/image_to_set"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/original_wallpaper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="original wallpaper"
+            android:gravity="center"
+            />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/wallpaper_just_pick"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="wallpaper you pick"
+            android:gravity="center"
+            />
+    </FrameLayout>
+
+</LinearLayout>
