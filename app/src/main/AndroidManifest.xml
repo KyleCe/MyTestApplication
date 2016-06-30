@@ -107,6 +107,30 @@
             android:label="@string/title_activity_set_image_from_wallpaper"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".home.HomeActivity"
+            android:enabled="true"
+            android:launchMode="singleTask">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN"/>-->
+
+            <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--<category android:name="android.intent.category.HOME"/>-->
+            <!--<category android:name="android.intent.category.DEFAULT"/>-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity
+            android:name=".home.FakeHomeActivity"
+            android:enabled="false"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.HOME"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

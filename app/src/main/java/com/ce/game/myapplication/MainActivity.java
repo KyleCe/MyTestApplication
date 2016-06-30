@@ -1,11 +1,11 @@
 package com.ce.game.myapplication;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -16,16 +16,16 @@ import android.view.animation.AnimationSet;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.ce.game.myapplication.home.HomeActivity;
 import com.ce.game.myapplication.reverse.Rotate3dAnimation;
 import com.ce.game.myapplication.view.HorizontalSpacesItemDecoration;
 import com.ce.game.myapplication.view.MyRecyclerViewAdapter;
 import com.ce.game.myapplication.view.PageRecyclerView;
-import com.ce.game.myapplication.wallpaper.SetImageFromWallpaperActivity;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     private TextView tvHello;
 
@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         context = this;
 
@@ -187,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
     private void guideToDebugActivity() {
 //        startActivity(new Intent(context, LockOrOpenAdminSettingActivity.class));
 //        startActivity(new Intent(context, CameraResultActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-        startActivity(new Intent(context, SetImageFromWallpaperActivity.class));
+        startActivity(new Intent(context, HomeActivity.class));
 //        startActivity(new Intent(context, IndexActivity.class));
 //        startActivity(new Intent(context, CheckboxActivity.class));
 //        startActivity(new Intent(context, RollingAnimActivity.class));
