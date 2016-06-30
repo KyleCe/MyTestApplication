@@ -18,8 +18,6 @@ public class FakeHomeActivity extends Activity {
 
         mContext = FakeHomeActivity.this;
 
-        SettingHelper.clearDefaultHome(mContext);
         SettingHelper.fakeLauncherInstalledAndOpenChooser(mContext);
-//        SettingHelper.triggerHomeSetting(mContext);
     }
 }
