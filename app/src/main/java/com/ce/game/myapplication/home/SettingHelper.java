@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.provider.Settings;
 
 import com.ce.game.myapplication.util.DU;
 
@@ -74,7 +75,7 @@ public class SettingHelper {
                 break;
             case 4:
                 home = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_HOME);
-                home = home.createChooser(home,null);
+                home = home.createChooser(home, null);
                 break;
             case 5:
 //                if(.equals(""))
@@ -83,15 +84,21 @@ public class SettingHelper {
                 DU.sd(Build.BOOTLOADER);
                 DU.sd(Build.BRAND);
                 DU.sd(Build.DISPLAY);
-                DU.sd("HOST",Build.HOST);
+                DU.sd("HOST", Build.HOST);
                 DU.sd(Build.ID);
                 DU.sd(Build.MODEL);
                 DU.sd(Build.PRODUCT);
 
                 break;
             case 6:
-                break;
+                home = null;
+
+                fakeLauncherInstalledAndOpenChooser(context);
+            break;
             case 7:
+                home = null;
+
+                triggerHomeSetting(context);
                 break;
             default:
                 break;
@@ -99,9 +106,26 @@ public class SettingHelper {
         if (!(context instanceof Activity))
             home.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-        if(home != null) context.startActivity(home);
+        if (home != null) context.startActivity(home);
 
 //        pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
     }
 
+    public static void triggerHomeSetting(Context context) {
+        context.startActivity(new Intent(Settings.ACTION_HOME_SETTINGS).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+    }
+
+
+    public static void fakeLauncherInstalledAndOpenChooser (Context context){
+        PackageManager pm = context.getPackageManager();
+        ComponentName componentName = new ComponentName(context, FakeHomeActivity.class);
+        pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+
+        Intent home = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_HOME);
+        home.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        home.addFlags(Intent.FLAG_ACTIVITY_TASK_ON_HOME);
+        context.startActivity(home);
+
+        pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+    }
 }
