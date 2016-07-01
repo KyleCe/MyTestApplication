@@ -1,10 +1,14 @@
 package com.ce.game.myapplication.home;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.os.Build;
+
+import com.ce.game.myapplication.util.DU;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,17 +53,55 @@ public class SettingHelper {
         return new boolean[]{isCurrent, isDefault};
     }
 
-    public static void fakeLauncherInstalledAndOpenChooser(Context context) {
-        PackageManager pm = context.getPackageManager();
-        ComponentName componentName = new ComponentName(context, FakeHomeActivity.class);
-        pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+    public static void fakeLauncherInstalledAndOpenChooser(Context context, int type) {
+//        PackageManager pm = context.getPackageManager();
+//        ComponentName componentName = new ComponentName(context, FakeHomeActivity.class);
+//        pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
 
-        Intent home = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_HOME);
-        home.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        home.addFlags(Intent.FLAG_ACTIVITY_TASK_ON_HOME);
-        context.startActivity(home);
+        Intent home = null;
+        switch (type) {
+            case 1:
+                home = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_HOME);
+                break;
+            case 2:
+                ComponentName componentName1 = new ComponentName(context, HomeActivity.class);
+                home = Intent.makeMainActivity(componentName1);
+                break;
+            case 3:
+                home = new Intent(Intent.ACTION_MAIN);
+                home.addCategory(Intent.CATEGORY_HOME);
+                home.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                break;
+            case 4:
+                home = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_HOME);
+                home = home.createChooser(home,null);
+                break;
+            case 5:
+//                if(.equals(""))
+                DU.sd(Build.DEVICE);
+                DU.sd(Build.BOARD);
+                DU.sd(Build.BOOTLOADER);
+                DU.sd(Build.BRAND);
+                DU.sd(Build.DISPLAY);
+                DU.sd("HOST",Build.HOST);
+                DU.sd(Build.ID);
+                DU.sd(Build.MODEL);
+                DU.sd(Build.PRODUCT);
 
-        pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
+            default:
+                break;
+        }
+        if (!(context instanceof Activity))
+            home.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        if(home != null) context.startActivity(home);
+
+//        pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
     }
 
 }

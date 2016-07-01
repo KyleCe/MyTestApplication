@@ -18,6 +18,5 @@ public class FakeHomeActivity extends Activity {
 
         mContext = FakeHomeActivity.this;
 
-        SettingHelper.fakeLauncherInstalledAndOpenChooser(mContext);
     }
 }

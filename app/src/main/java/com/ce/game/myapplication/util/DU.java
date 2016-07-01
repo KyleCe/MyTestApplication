@@ -24,7 +24,6 @@ public class DU {
 
     public final static boolean ON = true;
 //    public final static boolean ON = false;
-//    public final static boolean ON = UrlAddress.HOST.equals("http://119.29.16.165/");
 
     public static Toast toast = null;
 
@@ -39,6 +38,14 @@ public class DU {
      */
     public static void t(Context context, String msg) {
         singleToast(context, msg);
+    }
+    public static void td(Context context, String msg) {
+        if(BuildConfig.DEBUG) singleToast(context, msg);
+    }
+
+    public static void tsd(Context context, String msg) {
+        t(context, msg);
+        sd(msg, msg);
     }
 
     /**
@@ -433,7 +440,7 @@ public class DU {
         return getScheduledExecutor().scheduleAtFixedRate(runnable, delay, period, unit);
     }
 
-    public static long time(){
+    public static long time() {
         return System.currentTimeMillis();
     }
 }
