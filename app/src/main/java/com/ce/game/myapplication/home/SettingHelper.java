@@ -7,8 +7,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.provider.Settings;
+import android.util.Log;
 
 import com.ce.game.myapplication.util.DU;
 import com.ce.game.myapplication.util.Utilities;
@@ -65,6 +67,14 @@ public class SettingHelper {
         return new boolean[]{isCurrent, isDefault};
     }
 
+    private static String findLauncherPackageName(Context context) {
+        final Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        final ResolveInfo res = context.getPackageManager().resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        Log.e("SYSTEM_LAUNCHER", "system launcher package name: " + res.activityInfo.packageName);
+        return res.activityInfo.packageName;
+    }
+
     public static void fakeLauncherInstalledAndOpenChooser(Context context, int type) {
 
         Intent home = null;
@@ -78,12 +88,14 @@ public class SettingHelper {
                 break;
             case 3:
                 home = null;
+                findLauncherPackageName(context);
                 break;
             case 4:
                 home = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_HOME);
                 home = home.createChooser(home, null);
                 break;
             case 5:
+                isMyLauncherCurrentAndDefault(context);
                 printBuildInfo();
                 break;
             case 6:
