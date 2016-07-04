@@ -13,77 +13,52 @@
     >
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:background="@android:color/holo_blue_light"
-        android:padding="10dp"
-        android:text="1"
+        android:id="@+id/button1"
+        style="@style/ClickTextViewStyle"
         android:onClick="click1"
-        android:gravity="center"
+        android:text="1"
         ></TextView>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:background="@android:color/holo_blue_light"
-        android:padding="10dp"
-        android:text="2"
+        style="@style/ClickTextViewStyle"
+        android:gravity="center"
         android:onClick="click2"
-        android:gravity="center"
+        android:text="2"
         ></TextView>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:background="@android:color/holo_blue_light"
-        android:padding="10dp"
-        android:text="3"
+        style="@style/ClickTextViewStyle"
+        android:gravity="center"
         android:onClick="click3"
-        android:gravity="center"
+        android:text="3"
         ></TextView>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:background="@android:color/holo_blue_light"
-        android:padding="10dp"
-        android:text="4"
+        style="@style/ClickTextViewStyle"
+        android:gravity="center"
         android:onClick="click4"
-        android:gravity="center"
+        android:text="4"
         ></TextView>
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:background="@android:color/holo_blue_light"
-        android:padding="10dp"
-        android:text="5"
+        style="@style/ClickTextViewStyle"
+        android:gravity="center"
         android:onClick="click5"
-        android:gravity="center"
+        android:text="5"
         ></TextView>
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:background="@android:color/holo_blue_light"
-        android:padding="10dp"
-        android:text="6"
+        style="@style/ClickTextViewStyle"
+        android:gravity="center"
         android:onClick="click6"
-        android:gravity="center"
+        android:text="6"
         ></TextView>
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:background="@android:color/holo_blue_light"
-        android:padding="10dp"
-        android:text="7"
-        android:onClick="click7"
+        style="@style/ClickTextViewStyle"
         android:gravity="center"
+        android:onClick="click7"
+        android:text="7"
         ></TextView>
 
 </LinearLayout>

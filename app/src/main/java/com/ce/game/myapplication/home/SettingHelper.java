@@ -1,5 +1,6 @@
 package com.ce.game.myapplication.home;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
@@ -10,6 +11,9 @@ import android.os.Build;
 import android.provider.Settings;
 
 import com.ce.game.myapplication.util.DU;
+import com.ce.game.myapplication.util.Utilities;
+
+import junit.framework.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +26,16 @@ import java.util.List;
 public class SettingHelper {
     public static boolean isMyLauncherCurrent(Context context) {
         boolean[] currentAndDefault = isMyLauncherCurrentAndDefault(context);
-        if (currentAndDefault == null || currentAndDefault.length < 2) return false;
+        Assert.assertFalse(currentAndDefault == null || currentAndDefault.length < 2);
 
         return currentAndDefault[0];
+    }
+
+    public static boolean isMyLauncherDefault(Context context) {
+        boolean[] currentAndDefault = isMyLauncherCurrentAndDefault(context);
+        Assert.assertFalse(currentAndDefault == null || currentAndDefault.length < 2);
+
+        return currentAndDefault[1];
     }
 
     public static boolean[] isMyLauncherCurrentAndDefault(Context context) {
@@ -55,9 +66,6 @@ public class SettingHelper {
     }
 
     public static void fakeLauncherInstalledAndOpenChooser(Context context, int type) {
-//        PackageManager pm = context.getPackageManager();
-//        ComponentName componentName = new ComponentName(context, FakeHomeActivity.class);
-//        pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
 
         Intent home = null;
         switch (type) {
@@ -69,35 +77,21 @@ public class SettingHelper {
                 home = Intent.makeMainActivity(componentName1);
                 break;
             case 3:
-                home = new Intent(Intent.ACTION_MAIN);
-                home.addCategory(Intent.CATEGORY_HOME);
-                home.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                home = null;
                 break;
             case 4:
                 home = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_HOME);
                 home = home.createChooser(home, null);
                 break;
             case 5:
-//                if(.equals(""))
-                DU.sd(Build.DEVICE);
-                DU.sd(Build.BOARD);
-                DU.sd(Build.BOOTLOADER);
-                DU.sd(Build.BRAND);
-                DU.sd(Build.DISPLAY);
-                DU.sd("HOST", Build.HOST);
-                DU.sd(Build.ID);
-                DU.sd(Build.MODEL);
-                DU.sd(Build.PRODUCT);
-
+                printBuildInfo();
                 break;
             case 6:
                 home = null;
-
                 fakeLauncherInstalledAndOpenChooser(context);
-            break;
+                break;
             case 7:
                 home = null;
-
                 triggerHomeSetting(context);
                 break;
             default:
@@ -107,23 +101,37 @@ public class SettingHelper {
             home.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         if (home != null) context.startActivity(home);
-
-//        pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
     }
 
+    private static void printBuildInfo() {
+        DU.sd(Build.DEVICE);
+        DU.sd(Build.BOARD);
+        DU.sd(Build.BOOTLOADER);
+        DU.sd(Build.BRAND);
+        DU.sd(Build.DISPLAY);
+        DU.sd("HOST", Build.HOST);
+        DU.sd(Build.ID);
+        DU.sd(Build.MODEL);
+        DU.sd(Build.PRODUCT);
+    }
+
+    public static void openDefaultLauncherSetting(Context context) {
+        if (Utilities.isHomeSettingActionAvailable()) triggerHomeSetting(context);
+        else fakeLauncherInstalledAndOpenChooser(context);
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public static void triggerHomeSetting(Context context) {
         context.startActivity(new Intent(Settings.ACTION_HOME_SETTINGS).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
     }
 
-
-    public static void fakeLauncherInstalledAndOpenChooser (Context context){
+    public static void fakeLauncherInstalledAndOpenChooser(Context context) {
         PackageManager pm = context.getPackageManager();
         ComponentName componentName = new ComponentName(context, FakeHomeActivity.class);
         pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
 
         Intent home = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_HOME);
         home.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        home.addFlags(Intent.FLAG_ACTIVITY_TASK_ON_HOME);
         context.startActivity(home);
 
         pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);

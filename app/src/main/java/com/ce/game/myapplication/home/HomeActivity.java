@@ -36,29 +36,33 @@ public class HomeActivity extends Activity {
             mHomeGuardian = new DefaultHomeGuardian();
 
         mFuture = mExecutor.scheduleAtFixedRate(mHomeGuardian, 200, 500, TimeUnit.MILLISECONDS);
-
     }
 
-    public void click1(View v){
+    public void click1(View v) {
         choose(1);
     }
 
-    public void click2(View v){
+    public void click2(View v) {
         choose(2);
     }
-    public void click3(View v){
+
+    public void click3(View v) {
         choose(3);
     }
-    public void click4(View v){
+
+    public void click4(View v) {
         choose(4);
     }
-    public void click5(View v){
+
+    public void click5(View v) {
         choose(5);
     }
-    public void click6(View v){
+
+    public void click6(View v) {
         choose(6);
     }
-    public void click7(View v){
+
+    public void click7(View v) {
         choose(7);
     }
 
@@ -69,6 +73,9 @@ public class HomeActivity extends Activity {
     final private class DefaultHomeGuardian implements Runnable {
         @Override
         public void run() {
+            DU.sd("check current or default",
+                    "current : " + SettingHelper.isMyLauncherCurrent(mContext)
+                    , "default : " + SettingHelper.isMyLauncherDefault(mContext));
             if (checkPermissionSettingAllComplete()) {
                 mFuture.cancel(false);
 //                finish();
@@ -79,7 +86,6 @@ public class HomeActivity extends Activity {
             }
         }
     }
-
 
     private boolean checkPermissionSettingAllComplete() {
         return SettingHelper.isMyLauncherCurrent(mContext);
