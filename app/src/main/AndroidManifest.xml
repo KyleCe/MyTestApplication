@@ -111,18 +111,17 @@
             android:name=".home.HomeActivity"
             android:enabled="true"
             android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.LAUNCHER"/>
-                <category android:name="android.intent.category.HOME"/>
-            </intent-filter>
+                <!--<category android:name="android.intent.category.DEFAULT"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+                <!--<category android:name="android.intent.category.HOME"/>-->
+            <!--</intent-filter>-->
         </activity>
         <activity
             android:name=".home.FakeHomeActivity"
-            android:enabled="false"
-            >
+            android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -130,7 +129,8 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-
+        <activity android:name=".anim.AnimLeftAndRightActivity">
+        </activity>
     </application>
 
 </manifest>
