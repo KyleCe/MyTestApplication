@@ -143,6 +143,8 @@ public class SettingHelper {
         pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
 
         Intent home = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_HOME);
+        home = new Intent(Intent.ACTION_MAIN);
+        home.addCategory(Intent.CATEGORY_HOME);
         home.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(home);
 
