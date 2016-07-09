@@ -109,15 +109,14 @@
         </activity>
         <activity
             android:name=".home.HomeActivity"
-            android:enabled="true"
-            android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+            android:enabled="true">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
 
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-                <category android:name="android.intent.category.HOME"/>
-            </intent-filter>
+                <!--<category android:name="android.intent.category.DEFAULT"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+                <!--<category android:name="android.intent.category.HOME"/>-->
+            <!--</intent-filter>-->
         </activity>
         <activity
             android:name=".home.FakeHomeActivity"
@@ -130,6 +129,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".anim.AnimLeftAndRightActivity">
+        </activity>
+        <activity android:name=".ui.fonttext.FontTextActivity">
         </activity>
     </application>
 

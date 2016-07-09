@@ -1,12 +1,16 @@
 package com.ce.game.myapplication.util;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.ServiceConnection;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.ce.game.myapplication.BuildConfig;
+
+import junit.framework.Assert;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -39,8 +43,9 @@ public class DU {
     public static void t(Context context, String msg) {
         singleToast(context, msg);
     }
+
     public static void td(Context context, String msg) {
-        if(BuildConfig.DEBUG) singleToast(context, msg);
+        if (BuildConfig.DEBUG) singleToast(context, msg);
     }
 
     public static void tsd(Context context, String msg) {
@@ -331,23 +336,20 @@ public class DU {
     /**
      * thread pool trick
      */
-
-    private static final int MAX_THREAD_COUNT = 5;
-    private static ExecutorService mThreadPoolExecutor;
+    private static ExecutorService sCachedThreadPoolExecutor;
 
     /**
-     * get thread pool service, limited by the max thread count variable
+     * get cached thread pool service
      *
      * @return thread pool service executor
-     * @see #MAX_THREAD_COUNT
      */
     public static ExecutorService getThreadPool() {
-        if (mThreadPoolExecutor == null)
+        if (sCachedThreadPoolExecutor == null)
             synchronized (DU.class) {
-                return mThreadPoolExecutor == null ? Executors.newFixedThreadPool(MAX_THREAD_COUNT)
-                        : mThreadPoolExecutor;
+                return sCachedThreadPoolExecutor == null ?
+                        Executors.newCachedThreadPool() : sCachedThreadPoolExecutor;
             }
-        return mThreadPoolExecutor;
+        return sCachedThreadPoolExecutor;
     }
 
     /**
@@ -386,8 +388,8 @@ public class DU {
     /**
      * scheduled executor
      */
-    private static final int MAX_SCHEDULE_COUNT = 3;
-    private static ScheduledExecutorService scheduledExecutor;
+    private static final int MAX_SCHEDULE_COUNT = 5;
+    private static ScheduledExecutorService sScheduledExecutor;
 
 
     /**
@@ -396,13 +398,13 @@ public class DU {
      * @return executor
      */
     public static ScheduledExecutorService getScheduledExecutor() {
-        if (scheduledExecutor == null)
+        if (sScheduledExecutor == null)
             synchronized (DU.class) {
-                return scheduledExecutor == null ? Executors.newScheduledThreadPool(MAX_SCHEDULE_COUNT)
-                        : scheduledExecutor;
+                return sScheduledExecutor == null ? Executors.newScheduledThreadPool(MAX_SCHEDULE_COUNT)
+                        : sScheduledExecutor;
             }
 
-        return scheduledExecutor;
+        return sScheduledExecutor;
     }
 
     /**
@@ -442,5 +444,45 @@ public class DU {
 
     public static long time() {
         return System.currentTimeMillis();
+    }
+
+    public static <B extends BroadcastReceiver> void unregisterReceiverSafelyAndSetToNull(Context ctx, B b) {
+        if (b == null) return;
+
+        Assert.assertNotNull(ctx);
+
+        try {
+            ctx.unregisterReceiver(b);
+            b = null;
+        } catch (IllegalArgumentException lae) {
+            lae.printStackTrace();
+        }
+    }
+
+    public static <S extends ServiceConnection> void unbindServiceSafelyAndSetToNull(Context ctx, S s) {
+        if (s == null) return;
+
+        Assert.assertNotNull(ctx);
+
+        try {
+            ctx.unbindService(s);
+            s = null;
+        } catch (IllegalArgumentException lae) {
+            lae.printStackTrace();
+        }
+    }
+
+    public static void assertNotNull(Object... objects) {
+        for (Object o : objects) Assert.assertNotNull(o);
+    }
+
+    public static <B extends BroadcastReceiver> void abortBroadcastSafely(B b) {
+        assertNotNull(b);
+
+        try {
+            b.abortBroadcast();
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
     }
 }
