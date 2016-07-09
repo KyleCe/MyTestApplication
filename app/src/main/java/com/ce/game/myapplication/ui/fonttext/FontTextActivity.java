@@ -18,6 +18,8 @@ public class FontTextActivity extends Activity {
 
         FontMaster.with(this).setAsArialFont((TextView) findViewById(R.id.time_text_view));
 
+        FontMaster.with(this).font(FontMaster.Type.Arial).set((TextView) findViewById(R.id.time_text_view));
+
         ((TextView) findViewById(R.id.time_text_view)).setTypeface(Typeface.createFromAsset(
                 this.getAssets(), "fonts/arial.ttf"));
     }
