@@ -17,7 +17,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.ce.game.myapplication.reverse.Rotate3dAnimation;
-import com.ce.game.myapplication.scrollingblurtext.RollingAnimActivity;
+import com.ce.game.myapplication.showcase.LeadActivity;
 import com.ce.game.myapplication.view.HorizontalSpacesItemDecoration;
 import com.ce.game.myapplication.view.MyRecyclerViewAdapter;
 import com.ce.game.myapplication.view.PageRecyclerView;
@@ -191,7 +191,8 @@ public class MainActivity extends Activity {
 //        startActivity(new Intent(context, HomeActivity.class));
 //        startActivity(new Intent(context, IndexActivity.class));
 //        startActivity(new Intent(context, CheckboxActivity.class));
-        startActivity(new Intent(context, RollingAnimActivity.class));
+        startActivity(new Intent(context, LeadActivity.class));
+//        startActivity(new Intent(context, RollingAnimActivity.class));
 //        startActivity(new Intent(context, NotiAccessActivity.class));
 //        startActivity(new Intent(context, ViewStubWithAnimActivity.class));
 //        startActivity(new Intent(context, CamTestActivity.class));
