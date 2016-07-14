@@ -21,7 +21,7 @@ public class FloatViewModel {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 type = WindowManager.LayoutParams.TYPE_TOAST;
             } else {
-                type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+                type = WindowManager.LayoutParams.TYPE_PHONE;
             }
         } else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
