@@ -1,6 +1,10 @@
 package com.ce.game.myapplication.util;
 
+import android.graphics.Paint;
 import android.view.View;
+import android.view.animation.Animation;
+
+import junit.framework.Assert;
 
 /**
  * Created by KyleCe on 2015/10/15.
@@ -21,15 +25,6 @@ public class ViewU {
     public static void showAndHide(View sv, View hv) {
         show(sv);
         hide(hv);
-    }
-
-    public static void showAndHide(View... views) {
-        if (views == null) return;
-        show(views[0]);
-
-        if (views.length == 1 || views.length == 0) return;
-        for (int i = 1; i < views.length; i++)
-            invisible(views[i]);
     }
 
     public static void hideAndShow(View hv, View sv) {
@@ -72,4 +67,28 @@ public class ViewU {
     public static void clickListen(View.OnClickListener listener, View... views) {
         for (View v : views) if (v != null && listener != null) v.setOnClickListener(listener);
     }
+
+    public static void setPaintAlpha(int alpha, Paint... paints) {
+        for (Paint p : paints) if (p != null && legalAlpha(alpha)) p.setAlpha(alpha);
+    }
+
+    /**
+     * @param alpha [0..255]
+     */
+    private static boolean legalAlpha(int alpha) {
+        if (0 <= alpha && alpha <= 255) return true;
+        return false;
+    }
+
+    public static void startWithNewAnim(Animation anim, View... views) {
+        Assert.assertNotNull(anim);
+
+        for (View v : views) {
+            if (v == null) continue;
+
+            if (v.getAnimation() != null) v.clearAnimation();
+            v.startAnimation(anim);
+        }
+    }
+
 }

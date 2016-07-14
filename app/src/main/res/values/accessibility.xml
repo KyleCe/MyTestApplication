@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_service_name" translatable="false">BlaBla Launcher</string>
+    <string name="accessibility_service_description" translatable="false">Tap the switch above, then tap \"OK\" inside pop-up to activate BlaBla Launcher.\n\nBlaBla Launcher use accessibility features to help stop unnecessary app(s). We do NOT collect ANY information.</string>
+</resources>
