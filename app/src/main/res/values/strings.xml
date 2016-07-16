@@ -18,7 +18,11 @@
     <string name="guide_view_notify_description">Hide notification bar, keep your privacy safe</string>
     <string name="guide_view_bla_bla">BlaBla Launcher</string>
     <string name="guide_view_guide_text">Get your permission to save battery\nimprove your phone performance</string>
+    <string name="guide_view_replay_tip">Tips</string>
+
+
     <string name="title_activity_set_image_from_wallpaper">SetImageFromWallpaperActivity</string>
+
 
 
 </resources>

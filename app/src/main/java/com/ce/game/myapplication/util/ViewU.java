@@ -80,6 +80,11 @@ public class ViewU {
         return false;
     }
 
+    public static void clearAnimation(View... views) {
+        for (View v : views)
+            if (v != null && v.getAnimation() != null) v.clearAnimation();
+    }
+
     public static void startWithNewAnim(Animation anim, View... views) {
         Assert.assertNotNull(anim);
 

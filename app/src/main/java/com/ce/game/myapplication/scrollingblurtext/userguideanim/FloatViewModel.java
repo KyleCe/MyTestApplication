@@ -9,37 +9,38 @@ import android.view.WindowManager;
 import java.lang.reflect.Method;
 
 public class FloatViewModel {
-    private WindowManager windowManager;
-    private WindowManager.LayoutParams layoutParams;
-    private View view;
+    protected WindowManager mWindowManager;
+    protected WindowManager.LayoutParams mLayoutParams;
+    protected View mView;
+    int mType = 0;
 
     public FloatViewModel(Context context) {
-        windowManager = (WindowManager) context.getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
+        mWindowManager = (WindowManager) context.getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
 
-        int type = 0;
+
         if (isFlyme()) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                type = WindowManager.LayoutParams.TYPE_TOAST;
+                mType = WindowManager.LayoutParams.TYPE_TOAST;
             } else {
-                type = WindowManager.LayoutParams.TYPE_PHONE;
+                mType = WindowManager.LayoutParams.TYPE_PHONE;
             }
         } else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                type = WindowManager.LayoutParams.TYPE_TOAST;
+                mType = WindowManager.LayoutParams.TYPE_TOAST;
             } else {
-                type = WindowManager.LayoutParams.TYPE_PHONE;
+                mType = WindowManager.LayoutParams.TYPE_PHONE;
             }
         }
 
-        layoutParams = new WindowManager.LayoutParams(
+        mLayoutParams = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.MATCH_PARENT,
-                type,
+                mType,
                 WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
                 PixelFormat.TRANSLUCENT);
 
-        layoutParams.alpha = 1f;
-        layoutParams.screenOrientation = 1;
+        mLayoutParams.alpha = 1f;
+        mLayoutParams.screenOrientation = 1;
     }
 
     public static boolean isFlyme() {
@@ -52,18 +53,19 @@ public class FloatViewModel {
     }
 
     public void clearView() {
-        if (null != windowManager && null != this.view) {
-            windowManager.removeView(this.view);
-            this.view = null;
+        if (null != mWindowManager && null != this.mView) {
+            mWindowManager.removeView(this.mView);
+            this.mView = null;
         }
     }
 
     public void setView(View view, int flag) {
         clearView();
-        if (null != windowManager && null != view) {
-            layoutParams.flags = flag;
-            windowManager.addView(view, layoutParams);
-            this.view = view;
+        if (null != mWindowManager && null != view) {
+            mLayoutParams.flags = flag;
+            mWindowManager.addView(view, mLayoutParams);
+            this.mView = view;
         }
     }
+
 }

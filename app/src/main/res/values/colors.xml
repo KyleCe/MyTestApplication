@@ -16,4 +16,12 @@
     <!--for app index-->
     <color name="index_default">#52ffffff</color>
     <color name="index_high_light">#ffffffff</color>
+
+    <!--permission guide-->
+    <color name="permission_setting_guide_bg">#b4000000</color>
+    <color name="permission_setting_guide_replay_tip_text_color">#ffffff</color>
+    <color name="permission_setting_guide_replay_tip_bg">#43afed</color>
+    <color name="leader_view_bg">#9a000000</color>
+    <color name="permission_lead_ripple_color">#43afed</color>
+
 </resources>
