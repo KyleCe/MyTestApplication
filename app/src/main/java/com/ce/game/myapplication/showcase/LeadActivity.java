@@ -75,7 +75,7 @@ public class LeadActivity extends Activity {
 
 
     private void startGuide(int type) {
-        if (type % 2 == 0) mGuideView.onStartSeries();
+        if (type % 2 != 0) mGuideView.onStartSeries();
         else mGuideView.onStartOnlySecond();
 
         mRightTipModel.setView(mGuideView, 0, FloatViewModelTip.WidthHeight.WHOLE_VIEW);
