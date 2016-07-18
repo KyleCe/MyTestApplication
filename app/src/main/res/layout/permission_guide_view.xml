@@ -23,15 +23,23 @@
             android:layout_gravity="center"
             android:orientation="vertical"
             >
-            tools:visibility="gone"
 
-            <ImageView
-                android:id="@+id/app_list_to_roll"
+            <ScrollView
+                android:id="@+id/scrollview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/permission_guide_view_long_list_pic"
-                />
+                android:scrollbars="none"
+                >
+
+                <ImageView
+                    android:id="@+id/app_list_to_roll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="center"
+                    android:src="@drawable/permission_guide_view_long_list_pic"
+
+                    />
+            </ScrollView>
 
             <ImageView
                 android:id="@+id/vertical_hand"

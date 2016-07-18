@@ -3,6 +3,7 @@ package com.ce.game.myapplication.scrollingblurtext.userguideanim;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -11,7 +12,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
-import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.Transformation;
 import android.view.animation.TranslateAnimation;
@@ -19,6 +19,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.ce.game.myapplication.R;
@@ -44,7 +45,7 @@ public class PermissionSettingGuideView extends FrameLayout
     private boolean bSecondSceneOnly = false;
 
     private final int HORIZONTAL_HAND_ANIM_DURATION = 1000;
-    private final int DEFAULT_FIRST_SCENE_DURATION = 1600;
+    private final int DEFAULT_FIRST_SCENE_DURATION = 1000;
     private int mFirstSceneDuration = DEFAULT_FIRST_SCENE_DURATION;
 
     private ImageView mListToScroll;
@@ -55,6 +56,9 @@ public class PermissionSettingGuideView extends FrameLayout
     private View mIndicatorContainer;
 
     private GuideViewInterface.MinimumToRightEndCallback mToRightEndCallback;
+
+    private ScrollView mScrollView;
+    private static final float VERTICAL_HAND_DURATION_FACTOR = 0.67f;
 
     public PermissionSettingGuideView(final Context context) {
         this(context, null);
@@ -89,6 +93,8 @@ public class PermissionSettingGuideView extends FrameLayout
         mFirstSceneParent = (FrameLayout) findViewById(R.id.first_scene_parent);
 
         mIndicatorContainer = findViewById(R.id.indicate_container);
+
+        mScrollView = ((ScrollView) findViewById(R.id.scrollview));
     }
 
     private static final int MINIMUM_ANIMATION_DURATION = 300;
@@ -133,7 +139,7 @@ public class PermissionSettingGuideView extends FrameLayout
     }
 
     private void bringAnimSceneBackToNormal() {
-        ViewU.invisible(mIndicatorContainer,mStop);
+        ViewU.invisible(mIndicatorContainer, mStop);
 
         mIndicatorContainer.setPivotX(getWidth());
         mIndicatorContainer.setPivotX(getHeight());
@@ -170,6 +176,7 @@ public class PermissionSettingGuideView extends FrameLayout
      *
      * @param guideText resource to set
      */
+    @Deprecated
     public void updateGuideText(String guideText) {
         if (TextUtils.isEmpty(guideText)) return;
 
@@ -184,6 +191,7 @@ public class PermissionSettingGuideView extends FrameLayout
      * @param callback call back to attach
      * @throws NullPointerException
      */
+    @Deprecated
     public void attachCallBack(final GuideViewInterface.GuideCallback callback) {
         if (callback == null)
             throw new NullPointerException("call back cannot be null");
@@ -264,43 +272,29 @@ public class PermissionSettingGuideView extends FrameLayout
                 Animation.RELATIVE_TO_SELF, 0,
                 Animation.RELATIVE_TO_PARENT, 0.2f,
                 Animation.RELATIVE_TO_SELF, 0);
-        mRollingAnim.setRepeatCount(1);
-        mRollingAnim.setRepeatMode(Animation.RESTART);
 
         mRollingAnim.setInterpolator(new LinearInterpolator());
-        mRollingAnim.setDuration(mFirstSceneDuration / 2);
-
-
-        mRollingAnim.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                transfer2SecondScene();
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-            }
-        });
+        mRollingAnim.setDuration((int) (mFirstSceneDuration * VERTICAL_HAND_DURATION_FACTOR));
 
         ViewU.startWithNewAnim(mRollingAnim, mVerticalHand);
 
-        TranslateAnimation mRollingListAnim = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0,
-                Animation.RELATIVE_TO_SELF, 0,
-                Animation.RELATIVE_TO_SELF, 1f,
-                Animation.RELATIVE_TO_SELF, 0);
-        mRollingListAnim.setRepeatCount(0);
-        mRollingListAnim.setInterpolator(new DecelerateInterpolator());
-        mRollingListAnim.setDuration(mFirstSceneDuration);
+        new CountDownTimer(mFirstSceneDuration, 20) {
+            @Override
+            public void onTick(long millisUntilFinished) {
 
+                mScrollView.scrollTo(0, (int) (mFirstSceneDuration - millisUntilFinished));
+            }
 
-        ViewU.startWithNewAnim(mRollingListAnim, mListToScroll);
+            @Override
+            public void onFinish() {
+                transfer2SecondScene();
+            }
+        }.start();
     }
 
     private void transfer2SecondScene() {
+        mSlideProgress.setProgress(0);
+
         ViewU.hideAndShow(mFirstSceneParent, mSecondSceneParent);
 
         ViewU.startWithNewAnim(assembleHorizontalHandAnim(), mHorizontalHand);
@@ -357,6 +351,9 @@ public class PermissionSettingGuideView extends FrameLayout
         protected void applyTransformation(float interpolatedTime, Transformation t) {
             super.applyTransformation(interpolatedTime, t);
             float value = from + (to - from) * interpolatedTime;
+
+            if(interpolatedTime == 1.0) return;/*remove the very first fully to*/
+
             progressBar.setProgress((int) value);
         }
     }
