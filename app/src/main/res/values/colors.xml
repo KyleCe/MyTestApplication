@@ -24,4 +24,7 @@
     <color name="leader_view_bg">#9a000000</color>
     <color name="permission_lead_ripple_color">#43afed</color>
 
+    <!--retrieve password-->
+    <color name="setting_text_color">#3ca0da</color>
+
 </resources>
