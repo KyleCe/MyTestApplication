@@ -2,9 +2,11 @@ package com.ce.game.myapplication.wallpaper;
 
 import android.app.WallpaperManager;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -18,6 +20,7 @@ import com.ce.game.myapplication.R;
 import com.ce.game.myapplication.util.BitmapU;
 import com.ce.game.myapplication.util.DU;
 
+import java.io.File;
 import java.io.IOException;
 
 public class SetImageFromWallpaperActivity extends AppCompatActivity {
@@ -49,7 +52,21 @@ public class SetImageFromWallpaperActivity extends AppCompatActivity {
         mOriginalDrawable = myWallpaperManager.getDrawable();
 
         mOriginalWallpaper.setImageDrawable(mOriginalDrawable);
+
+
+        PackageManager pm = this.getPackageManager();
+        try {
+
+            String logDir = pm.getApplicationInfo(this.getPackageName(), PackageManager.GET_META_DATA).dataDir;
+            File logfileDir =new File(logDir) ;
+            DU.sd("file", logDir);
+        } catch (Exception e) {
+        }
+
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "MyCache");
     }
+
+    private static final String TAG = SetImageFromWallpaperActivity.class.getSimpleName();
 
     private void onAction() {
 
