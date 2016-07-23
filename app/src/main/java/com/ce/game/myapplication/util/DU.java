@@ -6,12 +6,15 @@ import android.content.ServiceConnection;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.ce.game.myapplication.BuildConfig;
 
 import junit.framework.Assert;
 
+import java.io.Closeable;
+import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -483,6 +486,20 @@ public class DU {
             b.abortBroadcast();
         } catch (Throwable throwable) {
             throwable.printStackTrace();
+        }
+    }
+
+
+    public static void closeSilently(Closeable... closeables) {
+        for (Closeable c : closeables) closeSilently(c);
+    }
+
+    public static void closeSilently(Closeable c) {
+        if (c == null) return;
+        try {
+            c.close();
+        } catch (IOException t) {
+            Log.w("close fail ", t);
         }
     }
 }

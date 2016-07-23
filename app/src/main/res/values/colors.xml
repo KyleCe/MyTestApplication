@@ -26,5 +26,13 @@
 
     <!--retrieve password-->
     <color name="setting_text_color">#3ca0da</color>
+    <color name="retrieve_view_bg">#e0ffffff</color>
+    <color name="retrieve_view_border">#e3e4e5</color>
+    <color name="retrieve_view_login_square_bg">#ffffff</color>
+    <color name="retrieve_view_login_square_border_bg">#e3e4e5</color>
+    <color name="retrieve_view_login_hint_text">#90000000</color>
+    <color name="retrieve_view_mismatch_dialog_title">#000000</color>
+    <color name="retrieve_view_mismatch_dialog_hint_text">#90000000</color>
+    <color name="retrieve_view_mismatch_dialog_continue">#3ca0da</color>
 
 </resources>

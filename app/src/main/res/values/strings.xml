@@ -23,6 +23,16 @@
 
     <string name="title_activity_set_image_from_wallpaper">SetImageFromWallpaperActivity</string>
 
-
-
+    <!--retrieve password-->
+    <string name="retrieve_password_title">Forget password</string>
+    <string name="retrieve_password_set_password">Please set password</string>
+    <string name="retrieve_password_reenter_password">Re-enter password</string>
+    <string name="retrieve_password_reset_password">Reset password</string>
+    <string name="retrieve_password_do_not_match">Passwords do not match</string>
+    <string name="retrieve_password_login_hint">Please login,reset your password</string>
+    <string name="retrieve_password_login_button_text">Sign in with google</string>
+    <string name="retrieve_password_mismatch_hint">does not match the account you sign in on your phone, please try again with</string>
+    <string name="retrieve_password_cancel">Cancel</string>
+    <string name="retrieve_password_continue">Continue</string>
+    <string name="retrieve_password_no_available_google_account">No available google account</string>
 </resources>

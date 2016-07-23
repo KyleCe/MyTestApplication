@@ -16,11 +16,11 @@ import android.view.animation.AnimationSet;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.ce.game.myapplication.connectwithgoogle.GoogleAccountActivity;
 import com.ce.game.myapplication.reverse.Rotate3dAnimation;
 import com.ce.game.myapplication.view.HorizontalSpacesItemDecoration;
 import com.ce.game.myapplication.view.MyRecyclerViewAdapter;
 import com.ce.game.myapplication.view.PageRecyclerView;
-import com.ce.game.myapplication.wallpaper.SetImageFromWallpaperActivity;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -192,7 +192,8 @@ public class MainActivity extends Activity {
 //        startActivity(new Intent(context, IndexActivity.class));
 //        startActivity(new Intent(context, CheckboxActivity.class));
 //        startActivity(new Intent(context, LeadActivity.class));
-        startActivity(new Intent(context, SetImageFromWallpaperActivity.class));
+//        startActivity(new Intent(context, SetImageFromWallpaperActivity.class));
+        startActivity(new Intent(context, GoogleAccountActivity.class));
 //        startActivity(new Intent(context, RollingAnimActivity.class));
 //        startActivity(new Intent(context, NotiAccessActivity.class));
 //        startActivity(new Intent(context, ViewStubWithAnimActivity.class));

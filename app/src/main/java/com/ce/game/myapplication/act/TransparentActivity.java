@@ -17,7 +17,7 @@ public class TransparentActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transparent);
-        mTextView = (TextView) findViewById(R.id.text);
+        mTextView = (TextView) findViewById(R.id.title);
 
         new Handler().post(new Runnable() {
             @Override

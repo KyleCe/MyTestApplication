@@ -31,6 +31,10 @@ public class ViewU {
         showAndHide(sv, hv);
     }
 
+    public static boolean isVisible(View v) {
+        return v != null && v.getVisibility() == View.VISIBLE;
+    }
+
     public static void enClick(View... views) {
         for (View v : views) if (v != null) v.setClickable(true);
     }

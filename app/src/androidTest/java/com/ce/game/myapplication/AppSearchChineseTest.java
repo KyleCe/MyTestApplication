@@ -7,6 +7,12 @@ import android.test.ApplicationTestCase;
 import com.ce.game.myapplication.pinyin.PinyinHelper;
 import com.ce.game.myapplication.util.DU;
 
+import junit.framework.Assert;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.junit.Test;
+
 import java.util.Locale;
 import java.util.regex.Pattern;
 
@@ -38,6 +44,27 @@ public class AppSearchChineseTest extends ApplicationTestCase<Application> {
     @Override
     protected void tearDown() throws Exception {
         super.tearDown();
+    }
+
+
+    @Test
+    public void email() throws JSONException {
+
+        String result = "{" +
+                "  \"issued_to\": \"294554247866-47jje3ufmkkvtlhkioqtcf43vi7c51to.apps.googleusercontent.com\"," +
+                "  \"audience\": \"294554247866-47jje3ufmkkvtlhkioqtcf43vi7c51to.apps.googleusercontent.com\"," +
+                "  \"user_id\": \"110139751856206626834\"," +
+                "  \"scope\": \"https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile\"," +
+                "  \"expires_in\": 3572," +
+                "  \"email\": \"chengong90@gmail.com\"," +
+                "  \"verified_email\": true," +
+                "  \"access_type\": \"offline\"" +
+                "}";
+
+        JSONObject json = new JSONObject(result);
+        String email = (String) json.get("email");
+
+        Assert.assertEquals(email, "chengong90@gmail.com");
     }
 
     public void testMatch() {
@@ -85,4 +112,5 @@ public class AppSearchChineseTest extends ApplicationTestCase<Application> {
         }
         return true;
     }
+
 }

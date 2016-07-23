@@ -1,22 +1,22 @@
 package com.ce.game.myapplication;
 
+
 import junit.framework.Assert;
+import junit.framework.TestCase;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
- * To work on unit tests, switch the Test Artifact in the Build Variants view.
+ * Created by KyleCe on 2016/6/28.
+ *
+ * @author: KyleCe
  */
-public class ExampleUnitTest {
-    @Test
-    public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
-    }
+public class DefaultHomeTest extends TestCase {
 
+    public DefaultHomeTest() {
+    }
 
     @Test
     public void email() throws JSONException {
@@ -37,4 +37,5 @@ public class ExampleUnitTest {
 
         Assert.assertEquals(test, "chengong90@gmail.com");
     }
+
 }

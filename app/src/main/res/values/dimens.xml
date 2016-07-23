@@ -17,4 +17,8 @@
     <dimen name="permission_guide_left_right_margin">25dp</dimen>
     <dimen name="permission_guide_replay_text_x_alias_margin">12dp</dimen>
     <dimen name="permission_guide_replay_icon_x_margin">3dp</dimen>
+
+    <!--retrieve password-->
+    <dimen name="retrieve_password_login_square_left_right_margin">20dp</dimen>
+    <dimen name="retrieve_password_login_square_top_margin">25dp</dimen>
 </resources>
