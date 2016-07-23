@@ -3,6 +3,7 @@ package com.ce.game.myapplication.connectwithgoogle;
 import android.Manifest;
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -25,6 +26,7 @@ import com.ce.game.myapplication.scrollingblurtext.userguideanim.GuideViewInterf
 import com.ce.game.myapplication.util.DU;
 import com.ce.game.myapplication.util.ViewU;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -277,5 +279,23 @@ public class RetrievePasswordView extends FrameLayout {
 
         } else if (mKeyEventCallback != null) mKeyEventCallback.onBackPressed();
 
+    }
+
+    public void onWindowFocusChanged(boolean hasFocus)
+    {
+        try
+        {
+            if(!hasFocus)
+            {
+                Object service  = mContext.getApplicationContext().getSystemService("statusbar");
+                Class<?> statusbarManager = Class.forName("android.app.StatusBarManager");
+                Method collapse = statusbarManager.getMethod("collapse");
+                collapse .setAccessible(true);
+                collapse .invoke(service);
+            }
+        }
+        catch(Exception ex)
+        {
+        }
     }
 }

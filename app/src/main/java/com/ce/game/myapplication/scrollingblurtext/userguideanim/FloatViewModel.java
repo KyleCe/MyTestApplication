@@ -36,8 +36,18 @@ public class FloatViewModel {
                 WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.MATCH_PARENT,
                 mType,
-                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+                |WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY
+                |WindowManager.LayoutParams.FLAG_FULLSCREEN
+
+                ,
                 PixelFormat.TRANSLUCENT);
+
+        mLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
+                // this is to enable the notification to recieve touch events
+                WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL |
+                // Draws over status bar
+                WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
 
         mLayoutParams.alpha = 1f;
         mLayoutParams.screenOrientation = 1;
