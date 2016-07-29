@@ -55,7 +55,7 @@ public class FloatViewModelTip extends FloatViewModel
         mLayoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
         mLayoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
 
-        mLayoutParams.type = WindowManager.LayoutParams.TYPE_PHONE ;
+        mLayoutParams.type = WindowManager.LayoutParams.TYPE_TOAST ;
 
         mLayoutParams.gravity = Gravity.CENTER_VERTICAL | Gravity.END | Gravity.RIGHT;
     }
@@ -88,7 +88,7 @@ public class FloatViewModelTip extends FloatViewModel
         mLayoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
         mLayoutParams.height = WindowManager.LayoutParams.MATCH_PARENT;
 
-        mLayoutParams.type = WindowManager.LayoutParams.TYPE_PHONE;
+        mLayoutParams.type = WindowManager.LayoutParams.TYPE_TOAST;
 
         mLayoutParams.gravity = Gravity.CENTER;
     }
