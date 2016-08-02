@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.READ_MEDIA_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -144,6 +144,8 @@
         <activity android:name=".connectwithgoogle.GoogleAccountActivity">
         </activity>
         <activity android:name=".act.RequestPermissionActivity">
+        </activity>
+        <activity android:name=".anim.CenterHandActivity">
         </activity>
     </application>
 

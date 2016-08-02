@@ -35,4 +35,6 @@
     <color name="retrieve_view_mismatch_dialog_hint_text">#90000000</color>
     <color name="retrieve_view_mismatch_dialog_continue">#3ca0da</color>
 
+    <color name="rippleColor">#03a9f4</color>
+
 </resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ce.game.myapplication.showcase.RippleBackground
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vertical_hand_ripple_bg"
+    android:layout_width="66dp"
+    android:layout_height="110dp"
+    android:layout_gravity="center"
+    android:background="@android:color/holo_red_dark"
+    android:visibility="visible"
+    app:rb_color="@color/rippleColor"
+    app:rb_duration="1000"
+    app:rb_radius="3dp"
+    app:rb_rippleAmount="4"
+    app:rb_scale="6"
+    app:rb_type="fillRipple"
+    tools:visibility="visible">
+
+    <ImageView
+        android:id="@+id/vertical_hand"
+        android:layout_width="33dp"
+        android:layout_height="55dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/permission_guide_view_hand"
+        />
+</com.ce.game.myapplication.showcase.RippleBackground>
