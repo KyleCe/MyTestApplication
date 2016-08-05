@@ -75,7 +75,23 @@ public class SettingHelper {
         return res.activityInfo.packageName;
     }
 
-    public static void fakeLauncherInstalledAndOpenChooser(Context context, int type) {
+
+    private static boolean hasNoCurrentHome(Context context) {
+        final IntentFilter filter = new IntentFilter(Intent.ACTION_MAIN);
+        filter.addCategory(Intent.CATEGORY_HOME);
+
+        List<IntentFilter> filters = new ArrayList<>();
+        filters.add(filter);
+
+        final PackageManager packageManager = context.getPackageManager();
+
+        List<ComponentName> activitiesCurrent = new ArrayList<>();
+        packageManager.getPreferredActivities(filters, activitiesCurrent, null);
+
+        return activitiesCurrent.size() == 0;
+    }
+
+    public static void fakeLauncherInstalledAndOpenLauncherChooser(Context context, int type) {
 
         Intent home = null;
         switch (type) {
@@ -100,7 +116,7 @@ public class SettingHelper {
                 break;
             case 6:
                 home = null;
-                fakeLauncherInstalledAndOpenChooser(context);
+                fakeLauncherInstalledAndOpenLauncherChooser(context);
                 break;
             case 7:
                 home = null;
@@ -129,7 +145,17 @@ public class SettingHelper {
 
     public static void openDefaultLauncherSetting(Context context) {
         if (Utilities.isHomeSettingActionAvailable()) triggerHomeSetting(context);
-        else fakeLauncherInstalledAndOpenChooser(context);
+        else processSdkBelowLollipop(context);
+    }
+
+    private static void processSdkBelowLollipop(Context context) {
+        if(hasNoCurrentHome(context)) {
+            Intent home = new Intent(Intent.ACTION_MAIN);
+            home.addCategory(Intent.CATEGORY_HOME);
+            context.startActivity(home);
+        }
+        else
+            fakeLauncherInstalledAndOpenLauncherChooser(context);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -137,17 +163,30 @@ public class SettingHelper {
         context.startActivity(new Intent(Settings.ACTION_HOME_SETTINGS).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
     }
 
-    public static void fakeLauncherInstalledAndOpenChooser(Context context) {
+    public static void fakeLauncherInstalledAndOpenLauncherChooser(Context context) {
         PackageManager pm = context.getPackageManager();
         ComponentName componentName = new ComponentName(context, FakeHomeActivity.class);
         pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
 
-        Intent home = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_HOME);
-        home = new Intent(Intent.ACTION_MAIN);
-        home.addCategory(Intent.CATEGORY_HOME);
-        home.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(home);
+        startHomeChooserFlexible(context);
 
         pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
     }
+
+    private static void startHomeChooserFlexible(Context context) {
+        Intent home = new Intent(Intent.ACTION_MAIN);
+        home.addCategory(Intent.CATEGORY_HOME);
+        home.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivityFlexible(context, home);
+    }
+
+    private static void startActivityFlexible(Context context, Intent home) {
+        if (context instanceof Activity)
+            /*do not add flag NEW_TASK to receive activity result*/
+            ((Activity) context).startActivityForResult(home, REQUEST_FOR_LAUNCHER);
+        else context.startActivity(home.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+    }
+
+    public static final int REQUEST_FOR_LAUNCHER = 465;
+
 }

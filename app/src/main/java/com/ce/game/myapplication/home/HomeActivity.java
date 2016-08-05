@@ -3,7 +3,6 @@ package com.ce.game.myapplication.home;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
 import android.view.View;
 
@@ -38,29 +37,10 @@ public class HomeActivity extends Activity {
 
         mFuture = mExecutor.scheduleAtFixedRate(mHomeGuardian, 200, 500, TimeUnit.MILLISECONDS);
 
-        View parent = findViewById(R.id.home_parent);
-        animIt(parent);
     }
 
-    private void animIt(final View parent) {
-        TransitionDrawable trans = (TransitionDrawable) parent.getBackground();
-        trans.startTransition(2000);
-
-//        int colorFrom = getResources().getColor(R.color.retrieve_view_mismatch_dialog_title);
-//        int colorTo = getResources().getColor(R.color.permission_setting_guide_replay_tip_bg);
-//        ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, colorTo);
-//        colorAnimation.setDuration(250); // milliseconds
-//        colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-//
-//            @Override
-//            public void onAnimationUpdate(ValueAnimator animator) {
-//                parent.setBackgroundColor((int) animator.getAnimatedValue());
-//            }
-//
-//        });
-//        colorAnimation.setRepeatCount(ValueAnimator.INFINITE);
-//        colorAnimation.setRepeatMode(ValueAnimator.RESTART);
-//        colorAnimation.start();
+    public void parentClicked(View v){
+        SettingHelper.openDefaultLauncherSetting(this);
     }
 
     public void click1(View v) {
@@ -92,7 +72,7 @@ public class HomeActivity extends Activity {
     }
 
     public void choose(int i) {
-        SettingHelper.fakeLauncherInstalledAndOpenChooser(mContext, i);
+        SettingHelper.fakeLauncherInstalledAndOpenLauncherChooser(mContext, i);
     }
 
     final private class DefaultHomeGuardian implements Runnable {
