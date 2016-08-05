@@ -1,22 +1,19 @@
 package com.ce.game.myapplication.connectwithgoogle;
 
-import android.Manifest;
 import android.accounts.Account;
 import android.accounts.AccountManager;
-import android.app.Activity;
+import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewStub;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -26,7 +23,6 @@ import com.ce.game.myapplication.scrollingblurtext.userguideanim.GuideViewInterf
 import com.ce.game.myapplication.util.DU;
 import com.ce.game.myapplication.util.ViewU;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +43,7 @@ public class RetrievePasswordView extends FrameLayout {
     public static final int GUIDE_TO_VERY_FIRST_STATE = 621;
     public static final int EMAIL_MISMATCH = 123;
     public static final int CLEAR_WEB_VIEW_AND_OPEN_IT = 124;
+    private static final int CLEAR_COOKIES = 739;
 
     private ViewStub mMismatchStub;
     private ViewStub mNoAvailableAccountStub;
@@ -94,6 +91,10 @@ public class RetrievePasswordView extends FrameLayout {
                     clearWebViewCacheAndOpenIt();
                     break;
 
+                case CLEAR_COOKIES:
+                    removeCookies();
+                    break;
+
                 case EMAIL_MISMATCH:
                     clearCacheDirectToSignIn();
 
@@ -128,7 +129,16 @@ public class RetrievePasswordView extends FrameLayout {
                     break;
             }
         }
+
     };
+
+    @SuppressWarnings("deprecation")
+    @TargetApi(21)
+    private void removeCookies() {
+        CookieSyncManager.createInstance(mContext);
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.removeAllCookies(null);
+    }
 
     private void init(final Context context) {
         final View view = inflate(context, R.layout.retrieve_password_view, this);
@@ -222,20 +232,16 @@ public class RetrievePasswordView extends FrameLayout {
     private void clearWebViewHistoryAndCache() {
         mWebView.clearHistory();
         mWebView.clearCache(true);
+        removeCookies();
+    }
+
+    @SuppressWarnings("deprecation")
+    @TargetApi(21)
+    public void clearCookies() {
+       mHandler.sendEmptyMessage(CLEAR_COOKIES);
     }
 
     protected List<String> getUserGoogleAccountEmail(Context context) {
-
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
-            int permissionCheck = ContextCompat.checkSelfPermission(context,
-                    Manifest.permission.GET_ACCOUNTS);
-            if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-
-            }
-            if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.GET_ACCOUNTS) != PackageManager.PERMISSION_GRANTED)
-                return new ArrayList<>(0);
-        }
-
 
         AccountManager manager = AccountManager.get(context);
         manager = (AccountManager) context.getSystemService(Context.ACCOUNT_SERVICE);
@@ -287,11 +293,11 @@ public class RetrievePasswordView extends FrameLayout {
         {
             if(!hasFocus)
             {
-                Object service  = mContext.getApplicationContext().getSystemService("statusbar");
-                Class<?> statusbarManager = Class.forName("android.app.StatusBarManager");
-                Method collapse = statusbarManager.getMethod("collapse");
-                collapse .setAccessible(true);
-                collapse .invoke(service);
+//                Object service  = mContext.getApplicationContext().getSystemService("statusbar");
+//                Class<?> statusbarManager = Class.forName("android.app.StatusBarManager");
+//                Method collapse = statusbarManager.getMethod("collapse");
+//                collapse .setAccessible(true);
+//                collapse .invoke(service);
             }
         }
         catch(Exception ex)
