@@ -124,13 +124,15 @@
         <activity
             android:name=".home.HomeActivity"
             android:enabled="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-                <category android:name="android.intent.category.HOME"/>
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+
+
+            <!-- <category android:name="android.intent.category.DEFAULT"/> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- <category android:name="android.intent.category.HOME"/> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".home.FakeHomeActivity"
@@ -158,7 +160,9 @@
         </activity>
         <activity android:name=".scrollingblurtext.ImageViewScrollActivity">
         </activity>
-        <activity android:name=".act.PermissoinActivity">
+        <activity android:name=".act.PermissionActivity">
+        </activity>
+        <activity android:name=".anim.UpAndLeftActivity">
         </activity>
     </application>
 

@@ -35,4 +35,11 @@
     <string name="retrieve_password_cancel">Cancel</string>
     <string name="retrieve_password_continue">Continue</string>
     <string name="retrieve_password_no_available_google_account">No available google account</string>
+
+
+    <string name="lock_home_first_launch_guide_up_swipe_title">Up slide</string>
+    <string name="lock_home_first_launch_guide_up_swipe_description">Different password, different space</string>
+    <string name="lock_home_first_launch_guide_left_swipe_title">Left slide</string>
+    <string name="lock_home_first_launch_guide_left_swipe_description">Come into guest mode</string>
+
 </resources>

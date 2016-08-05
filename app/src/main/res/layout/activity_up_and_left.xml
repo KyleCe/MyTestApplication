@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/first_launch_view_stub"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@android:color/holo_green_light"
+    android:orientation="vertical"
+    >
+
+    <ImageView
+        android:id="@+id/iv_up_slide_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:paddingEnd="15dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="15dp"
+        android:paddingStart="24dp"
+        android:src="@drawable/screen_lock_first_launch_arrow_up"
+        />
+
+    <LinearLayout
+        android:id="@+id/up_slide_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/iv_up_slide_arrow"
+        android:layout_toRightOf="@id/iv_up_slide_arrow"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/tv_up_slide_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lock_home_first_launch_guide_up_swipe_title"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_up_slide_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_up_slide_title"
+            android:layout_marginTop="3dp"
+            android:text="@string/lock_home_first_launch_guide_up_swipe_description"
+            android:textColor="#9affffff"
+            android:textSize="16sp"
+            />
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/iv_left_slide_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/up_slide_row"
+        android:layout_marginTop="39dp"
+        android:paddingEnd="15dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="15dp"
+        android:paddingStart="24dp"
+        android:rotation="270"
+        android:src="@drawable/screen_lock_first_launch_arrow_up"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/up_slide_row"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="30dp"
+        android:layout_toEndOf="@id/iv_left_slide_arrow"
+        android:layout_toRightOf="@id/iv_left_slide_arrow"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/tv_left_slide_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lock_home_first_launch_guide_left_swipe_title"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_left_slide_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_up_slide_title"
+            android:layout_marginTop="3dp"
+            android:text="@string/lock_home_first_launch_guide_left_swipe_description"
+            android:textColor="#9affffff"
+            android:textSize="16sp"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>
