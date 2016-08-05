@@ -16,11 +16,11 @@ import android.view.animation.AnimationSet;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.ce.game.myapplication.home.HomeActivity;
 import com.ce.game.myapplication.reverse.Rotate3dAnimation;
 import com.ce.game.myapplication.view.HorizontalSpacesItemDecoration;
 import com.ce.game.myapplication.view.MyRecyclerViewAdapter;
 import com.ce.game.myapplication.view.PageRecyclerView;
-import com.ce.game.myapplication.wallpaper.WallpaperActivity;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -188,7 +188,7 @@ public class MainActivity extends Activity {
 //        startActivity(new Intent(context, CameraResultActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 //        startActivity(new Intent(context, FontTextActivity.class));
 //        startActivity(new Intent(context, AnimLeftAndRightActivity.class));
-//        startActivity(new Intent(context, HomeActivity.class));
+        startActivity(new Intent(context, HomeActivity.class));
 //        startActivity(new Intent(context, IndexActivity.class));
 //        startActivity(new Intent(context, CheckboxActivity.class));
 //        startActivity(new Intent(context, LeadActivity.class));
@@ -197,8 +197,9 @@ public class MainActivity extends Activity {
 //        startActivity(new Intent(context, GoogleAccountActivity.class));
 //        startActivity(new Intent(context, RequestPermissionActivity.class));
 //        startActivity(new Intent(context, RollingAnimActivity.class));
-        startActivity(new Intent(context, WallpaperActivity.class));
+//        startActivity(new Intent(context, WallpaperActivity.class));
 //        startActivity(new Intent(context, NotiAccessActivity.class));
+//        startActivity(new Intent(context, ImageViewScrollActivity.class));
 //        startActivity(new Intent(context, ViewStubWithAnimActivity.class));
 //        startActivity(new Intent(context, CamTestActivity.class));
 //        startActivity(new Intent(context, GuideActivity.class));

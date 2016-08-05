@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.ce.game.myapplication.scrollingblurtext.ImageViewScrollActivity">
+
+    <View
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@android:color/holo_green_light"
+        android:onClick="start"
+        />
+
+    <View
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:background="@android:color/holo_red_light"
+        android:onClick="end"
+        />
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:background="@android:color/holo_blue_bright"
+        android:layout_gravity="center"
+        android:scrollbars="none"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
+        >
+
+        <ImageView
+            android:id="@+id/app_list_to_roll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitCenter"
+            android:src="@drawable/permission_guide_view_long_list_pic"
+            />
+
+    </ScrollView>
+
+</RelativeLayout>
