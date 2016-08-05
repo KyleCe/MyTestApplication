@@ -19,7 +19,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.ce.game.myapplication.R;
-import com.ce.game.myapplication.scrollingblurtext.userguideanim.GuideViewInterface;
+import com.ce.game.myapplication.userguideanim.GuideViewInterface;
 import com.ce.game.myapplication.util.DU;
 import com.ce.game.myapplication.util.ViewU;
 

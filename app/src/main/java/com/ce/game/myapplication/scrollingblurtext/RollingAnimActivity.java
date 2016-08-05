@@ -6,8 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
 import com.ce.game.myapplication.R;
-import com.ce.game.myapplication.scrollingblurtext.userguideanim.AssistGuideView;
-import com.ce.game.myapplication.scrollingblurtext.userguideanim.FloatViewModel;
+import com.ce.game.myapplication.userguideanim.AssistGuideView;
+import com.ce.game.myapplication.userguideanim.FloatViewModel;
 import com.ce.game.myapplication.util.DU;
 
 public class RollingAnimActivity extends AppCompatActivity {

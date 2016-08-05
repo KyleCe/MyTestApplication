@@ -1,4 +1,4 @@
-package com.ce.game.myapplication.scrollingblurtext.userguideanim;
+package com.ce.game.myapplication.userguideanim;
 
 import android.view.View;
 

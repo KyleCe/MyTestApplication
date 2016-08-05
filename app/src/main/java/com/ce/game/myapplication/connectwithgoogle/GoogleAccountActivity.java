@@ -9,8 +9,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 
 import com.ce.game.myapplication.R;
-import com.ce.game.myapplication.scrollingblurtext.userguideanim.FloatViewModel;
-import com.ce.game.myapplication.scrollingblurtext.userguideanim.GuideViewInterface;
+import com.ce.game.myapplication.userguideanim.FloatViewModel;
+import com.ce.game.myapplication.userguideanim.GuideViewInterface;
 import com.ce.game.myapplication.util.DU;
 import com.ce.game.myapplication.util.Permissions;
 

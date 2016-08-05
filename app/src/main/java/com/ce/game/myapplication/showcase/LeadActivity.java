@@ -6,10 +6,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.ce.game.myapplication.R;
-import com.ce.game.myapplication.scrollingblurtext.userguideanim.FloatViewModelTip;
-import com.ce.game.myapplication.scrollingblurtext.userguideanim.GuideViewInterface;
-import com.ce.game.myapplication.scrollingblurtext.userguideanim.PermissionSettingGuideView;
-import com.ce.game.myapplication.scrollingblurtext.userguideanim.ReplayView;
+import com.ce.game.myapplication.userguideanim.FloatViewModelTip;
+import com.ce.game.myapplication.userguideanim.GuideViewInterface;
+import com.ce.game.myapplication.userguideanim.PermissionSettingGuideView;
+import com.ce.game.myapplication.userguideanim.ReplayView;
 import com.ce.game.myapplication.util.DU;
 
 public class LeadActivity extends Activity {
