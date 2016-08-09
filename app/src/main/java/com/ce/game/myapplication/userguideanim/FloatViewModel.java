@@ -77,5 +77,12 @@ public class FloatViewModel {
             this.mView = view;
         }
     }
+    public void setView(View view) {
+        clearView();
+        if (null != mWindowManager && null != view) {
+            mWindowManager.addView(view, mLayoutParams);
+            this.mView = view;
+        }
+    }
 
 }

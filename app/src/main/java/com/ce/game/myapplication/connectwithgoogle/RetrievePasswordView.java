@@ -135,6 +135,8 @@ public class RetrievePasswordView extends FrameLayout {
     @SuppressWarnings("deprecation")
     @TargetApi(21)
     private void removeCookies() {
+        DU.sd("remove cookies");
+
         CookieSyncManager.createInstance(mContext);
         CookieManager cookieManager = CookieManager.getInstance();
         cookieManager.removeAllCookies(null);
@@ -203,6 +205,8 @@ public class RetrievePasswordView extends FrameLayout {
         clearWebViewHistoryAndCache();
 
         directWebViewToSignInPage();
+
+        clearCookies();
     }
 
     private void directWebViewToSignInPage() {

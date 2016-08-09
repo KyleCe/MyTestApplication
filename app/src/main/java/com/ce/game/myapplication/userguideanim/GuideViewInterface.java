@@ -18,6 +18,10 @@ public class GuideViewInterface {
         void onButtonClick();
     }
 
+    public interface ReplayCallback {
+        void onReplay();
+    }
+
     public interface KeyEventCallback {
         void onBackPressed();
     }

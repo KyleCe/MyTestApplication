@@ -1,38 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<merge
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:descendantFocusability="blocksDescendants"
-    android:focusableInTouchMode="false"
     android:orientation="horizontal"
     tools:context="com.ce.game.myapplication.showcase.LeadActivity">
 
     <ImageView
         android:id="@+id/replay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/permission_guide_replay_icon_x_margin"
         android:layout_marginLeft="@dimen/permission_guide_replay_icon_x_margin"
         android:layout_marginStart="@dimen/permission_guide_replay_icon_x_margin"
         android:layout_marginTop="@dimen/permission_guide_replay_icon_x_margin"
+        android:layout_marginBottom="@dimen/permission_guide_replay_icon_x_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:src="@drawable/permission_guide_replay_tip_icon_white_circle"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginEnd="@dimen/permission_guide_replay_text_x_alias_margin"
         android:layout_marginLeft="@dimen/permission_guide_replay_text_x_alias_margin"
-        android:layout_marginRight="@dimen/permission_guide_replay_text_x_alias_margin"
         android:layout_marginStart="@dimen/permission_guide_replay_text_x_alias_margin"
+        android:layout_marginEnd="@dimen/permission_guide_replay_text_x_alias_margin"
+        android:layout_marginRight="@dimen/permission_guide_replay_text_x_alias_margin"
         android:gravity="center"
-        android:text="@string/guide_view_replay_tip"
-
-        android:textColor="@color/permission_setting_guide_replay_tip_text_color"
         android:textSize="14sp"
+
+        android:text="@string/guide_view_replay_tip"
+        android:textColor="@color/permission_setting_guide_replay_tip_text_color"
         />
 
-</LinearLayout>
+</merge>

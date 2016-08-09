@@ -1,8 +1,11 @@
 package com.ce.game.myapplication.showcase;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.ce.game.myapplication.R;
@@ -52,7 +55,20 @@ public class LeadActivity extends Activity {
 
         mRightTipModel = new FloatViewModelTip(this);
 
+        IBinder mToken = null;
+        Context context = this;
+        if (context != null && (context instanceof Activity))
+            mToken = ((Activity) context).getWindow().getDecorView().getWindowToken();
+
+        mRightTipModel.setToken(mToken);
+
         mRightTip = new ReplayView(this);
+//        mRightTip.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT
+//                , ViewGroup.LayoutParams.WRAP_CONTENT));
+        mRightTip.setLayoutParams(new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
+        mRightTip.veryFirstSet(this);
 
         mRightTip.attachKeyEventCallback(new GuideViewInterface.KeyEventCallback() {
             @Override
@@ -61,9 +77,9 @@ public class LeadActivity extends Activity {
             }
         });
 
-        mRightTip.setOnClickListener(new View.OnClickListener() {
+        mRightTip.attachReplayCallback(new GuideViewInterface.ReplayCallback() {
             @Override
-            public void onClick(View v) {
+            public void onReplay() {
                 if (mRightTipModel == null) return;
 
                 mGuideView.onStartSeries();
@@ -90,6 +106,10 @@ public class LeadActivity extends Activity {
         mGuideView.attachMinimumEndAction(new GuideViewInterface.MinimumToRightEndCallback() {
             @Override
             public void onAnimationEnd() {
+//                ViewGroup mRootView = (ViewGroup) LayoutInflater.from(LeadActivity.this).inflate(
+//                        R.layout.permission_lead_replay_view, null);
+
+//                mRightTipModel.setView(mRootView, 0, FloatViewModelTip.WidthHeight.TIP_VIEW);
                 mRightTipModel.setView(mRightTip, 0, FloatViewModelTip.WidthHeight.TIP_VIEW);
             }
         });
