@@ -3,9 +3,10 @@ package com.ce.game.myapplication.showcase;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.ce.game.myapplication.R;
@@ -31,6 +32,8 @@ public class LeadActivity extends Activity {
     private PermissionSettingGuideView mGuideView;
 
     private FloatViewModelTip mRightTipModel;
+
+    private final long LONGEST_REPLAY_SHOW_UP_TIME = 5000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,17 +66,12 @@ public class LeadActivity extends Activity {
         mRightTipModel.setToken(mToken);
 
         mRightTip = new ReplayView(this);
-//        mRightTip.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT
-//                , ViewGroup.LayoutParams.WRAP_CONTENT));
-        mRightTip.setLayoutParams(new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT));
         mRightTip.veryFirstSet(this);
 
         mRightTip.attachKeyEventCallback(new GuideViewInterface.KeyEventCallback() {
             @Override
             public void onBackPressed() {
-                mRightTipModel.clearView();
+                clearTipReplayView();
             }
         });
 
@@ -85,8 +83,14 @@ public class LeadActivity extends Activity {
                 mGuideView.onStartSeries();
 
                 mRightTipModel.setView(mGuideView, 0, FloatViewModelTip.WidthHeight.WHOLE_VIEW);
+
+                mHandler.removeCallbacks(mRemoveReplayViewTask);
             }
         });
+    }
+
+    private void clearTipReplayView() {
+        mRightTipModel.clearView();
     }
 
 
@@ -96,6 +100,7 @@ public class LeadActivity extends Activity {
 
         mRightTipModel.setView(mGuideView, 0, FloatViewModelTip.WidthHeight.WHOLE_VIEW);
 
+
         mGuideView.attachKeyEventCallback(new GuideViewInterface.KeyEventCallback() {
             @Override
             public void onBackPressed() {
@@ -103,16 +108,25 @@ public class LeadActivity extends Activity {
             }
         });
 
+        if(mRemoveReplayViewTask == null) mRemoveReplayViewTask = new RemoveReplayViewTask();
+
         mGuideView.attachMinimumEndAction(new GuideViewInterface.MinimumToRightEndCallback() {
             @Override
             public void onAnimationEnd() {
-//                ViewGroup mRootView = (ViewGroup) LayoutInflater.from(LeadActivity.this).inflate(
-//                        R.layout.permission_lead_replay_view, null);
-
-//                mRightTipModel.setView(mRootView, 0, FloatViewModelTip.WidthHeight.TIP_VIEW);
                 mRightTipModel.setView(mRightTip, 0, FloatViewModelTip.WidthHeight.TIP_VIEW);
+                mHandler.postDelayed(mRemoveReplayViewTask, LONGEST_REPLAY_SHOW_UP_TIME);
             }
         });
+    }
+
+    Handler mHandler = new Handler(Looper.getMainLooper()){};
+    RemoveReplayViewTask mRemoveReplayViewTask;
+
+    class RemoveReplayViewTask implements Runnable {
+        @Override
+        public void run() {
+            clearTipReplayView();
+        }
     }
 
     public void click1(View v) {
