@@ -1,6 +1,7 @@
 package com.ce.game.myapplication.wallpaper;
 
 import android.app.WallpaperManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
@@ -58,12 +59,22 @@ public class SetImageFromWallpaperActivity extends AppCompatActivity {
         try {
 
             String logDir = pm.getApplicationInfo(this.getPackageName(), PackageManager.GET_META_DATA).dataDir;
-            File logfileDir =new File(logDir) ;
+            File logfileDir = new File(logDir);
             DU.sd("file", logDir);
         } catch (Exception e) {
         }
 
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "MyCache");
+
+
+        try {
+            Context context = this;
+            WallpaperManager.getInstance(this).setBitmap(BitmapFactory
+                    .decodeResource(context.getResources(), R.drawable.wallpaper_07));
+        } catch (Exception e) {
+            DU.sd("change wallpaper with role exception", e);
+            e.printStackTrace();
+        }
     }
 
     private static final String TAG = SetImageFromWallpaperActivity.class.getSimpleName();
