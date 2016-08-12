@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
+    android:layout_height="200dp"
+    android:background="@android:color/black"
+    >
+
+    <TextView
+        android:id="@+id/move_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_green_light"
+        android:lineSpacingExtra="6dp"
+        android:padding="5dp"
+        android:text="Hello World!\n\t\t Repeat it in deep"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        />
+
+</merge>

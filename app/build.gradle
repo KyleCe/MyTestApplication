@@ -45,4 +45,6 @@ dependencies {
     // fire base
     compile 'com.google.firebase:firebase-auth:9.0.0'
     compile 'com.google.android.gms:play-services-auth:9.0.0'
+
+    compile 'com.rmtheis:tess-two:6.0.3'
 }
