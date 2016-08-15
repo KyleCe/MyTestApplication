@@ -17,8 +17,6 @@ import com.ce.game.myapplication.userguideanim.ReplayView;
 import com.ce.game.myapplication.util.DU;
 
 public class LeadActivity extends Activity {
-
-
     private View mView;
 
     public Button mFirst;
@@ -66,7 +64,6 @@ public class LeadActivity extends Activity {
         mRightTipModel.setToken(mToken);
 
         mRightTip = new ReplayView(this);
-        mRightTip.veryFirstSet(this);
 
         mRightTip.attachKeyEventCallback(new GuideViewInterface.KeyEventCallback() {
             @Override
@@ -75,9 +72,9 @@ public class LeadActivity extends Activity {
             }
         });
 
-        mRightTip.attachReplayCallback(new GuideViewInterface.ReplayCallback() {
+        mRightTip.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onReplay() {
+            public void onClick(View v) {
                 if (mRightTipModel == null) return;
 
                 mGuideView.onStartSeries();
@@ -87,6 +84,27 @@ public class LeadActivity extends Activity {
                 mHandler.removeCallbacks(mRemoveReplayViewTask);
             }
         });
+
+        mRightTip.assignUpdatePosition(new UpdateView());
+    }
+
+    class UpdateView extends ReplayView.UpdatePosition {
+        @Override
+        protected void onPrepare() {
+
+        }
+
+        @Override
+        protected void onUpdate(int x, int y) {
+            if (mRightTip.isShown())
+                mRightTipModel.updateView(mRightTip);
+        }
+
+        @Override
+        protected void onUpdateEnd() {
+            if(mRightTip.isShown())
+                mRightTipModel.resetToWrapContent(mRightTip);
+        }
     }
 
     private void clearTipReplayView() {
@@ -108,18 +126,19 @@ public class LeadActivity extends Activity {
             }
         });
 
-        if(mRemoveReplayViewTask == null) mRemoveReplayViewTask = new RemoveReplayViewTask();
+        if (mRemoveReplayViewTask == null) mRemoveReplayViewTask = new RemoveReplayViewTask();
 
         mGuideView.attachMinimumEndAction(new GuideViewInterface.MinimumToRightEndCallback() {
             @Override
             public void onAnimationEnd() {
                 mRightTipModel.setView(mRightTip, 0, FloatViewModelTip.WidthHeight.TIP_VIEW);
-                mHandler.postDelayed(mRemoveReplayViewTask, LONGEST_REPLAY_SHOW_UP_TIME);
+//                mHandler.postDelayed(mRemoveReplayViewTask, LONGEST_REPLAY_SHOW_UP_TIME);
             }
         });
     }
 
-    Handler mHandler = new Handler(Looper.getMainLooper()){};
+    Handler mHandler = new Handler(Looper.getMainLooper()) {
+    };
     RemoveReplayViewTask mRemoveReplayViewTask;
 
     class RemoveReplayViewTask implements Runnable {

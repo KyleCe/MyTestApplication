@@ -52,6 +52,10 @@ public class ViewU {
         for (View v : views) if (v != null) v.setOnClickListener(listener);
     }
 
+    public static void setOnTouchListener(View.OnTouchListener listener, View... views) {
+        for (View v : views) if (v != null) v.setOnTouchListener(listener);
+    }
+
     /**
      * set background color by color int
      *

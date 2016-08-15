@@ -8,6 +8,8 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.ce.game.myapplication.util.DU;
+
 /**
  * Created by KyleCe on 2016/7/15.
  *
@@ -35,6 +37,26 @@ public class FloatViewModelTip extends FloatViewModel
                 ,
                 PixelFormat.TRANSLUCENT
         );
+    }
+
+    public void updateView(View view) {
+        mLayoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
+        mLayoutParams.height = WindowManager.LayoutParams.MATCH_PARENT;
+
+        DU.sd("manager params", "match");
+
+        mLayoutParams.gravity = Gravity.END | Gravity.CENTER_VERTICAL;
+
+        mWindowManager.updateViewLayout(view, mLayoutParams);
+    }
+
+    public void resetToWrapContent(View view) {
+        mLayoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
+        mLayoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
+        DU.sd("manager params", "wrap");
+
+        mWindowManager.updateViewLayout(view, mLayoutParams);
     }
 
     @Override

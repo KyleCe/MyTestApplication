@@ -172,7 +172,7 @@ public class PermissionSettingGuideView extends FrameLayout
     }
 
     /**
-     * update guide text
+     * transition guide text
      *
      * @param guideText resource to set
      */
