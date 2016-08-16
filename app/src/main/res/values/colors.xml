@@ -37,4 +37,16 @@
 
     <color name="rippleColor">#03a9f4</color>
 
+    <!--4.0 newly added-->
+    <color name="forth_edition_guide_layout_outside_bg">#80000000</color>
+    <color name="forth_edition_guide_button_ripple_color">#03a9f4</color>
+    <color name="create_account_layout_bg_border">#ffffff</color>
+    <color name="create_account_layout_solid">#ffffff</color>
+    <color name="create_account_create_button_text">#ffffff</color>
+    <color name="create_account_create_button_bg_fill_color">#3ca0da</color>
+    <color name="create_account_create_button_later_text">#595959</color>
+    <color name="home_setting_fail_tips_bg_color">#ffffff</color>
+    <color name="home_setting_fail_tips_title_color">#3ca0da</color>
+    <color name="home_setting_complete_text">#595959</color>
+    <color name="home_setting_complete_bg_color">#ffffff</color>
 </resources>

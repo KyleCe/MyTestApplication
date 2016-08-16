@@ -3,6 +3,7 @@ package com.ce.game.myapplication.showcase;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -155,6 +156,24 @@ public class RippleBackground extends RelativeLayout {
             for (RippleView rippleView : mRippleViewList) {
                 rippleView.setVisibility(VISIBLE);
             }
+            mAnimatorSet.start();
+
+            mAnimationRunning = true;
+        }
+    }
+
+    public void startRippleAnimationInfinitely() {
+        if (!isRippleAnimationRunning()) {
+            for (RippleView rippleView : mRippleViewList) {
+                rippleView.setVisibility(VISIBLE);
+            }
+            ArrayList<Animator> childList = mAnimatorSet.getChildAnimations();
+            for (Animator child : childList)
+                if (child instanceof ValueAnimator) {
+                    ((ValueAnimator) child).setRepeatCount(ValueAnimator.INFINITE);
+                    ((ValueAnimator) child).setRepeatMode(ValueAnimator.RESTART);
+                }
+
             mAnimatorSet.start();
 
             mAnimationRunning = true;

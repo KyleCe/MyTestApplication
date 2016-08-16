@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_ripple"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.ce.game.myapplication.ripplebutton.RippleActivity">
+
+    <!--<FrameLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--&gt;-->
+
+    <com.ce.game.myapplication.showcase.RippleBackground
+        android:id="@+id/ripple_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/create_account_guide_button_height"
+        android:layout_marginBottom="@dimen/create_account_guide_button_margin_bottom"
+        android:layout_marginEnd="@dimen/create_account_guide_button_x_alias_margin"
+        android:layout_marginLeft="@dimen/create_account_guide_button_x_alias_margin"
+        android:layout_marginRight="@dimen/create_account_guide_button_x_alias_margin"
+        android:layout_marginStart="@dimen/create_account_guide_button_x_alias_margin"
+        android:background="@drawable/forth_edition_guide_create_account_ok_button_bg"
+        app:rb_color="@color/forth_edition_guide_button_ripple_color"
+        app:rb_duration="4000"
+        app:rb_radius="150dp"
+        app:rb_rippleAmount="3"
+        app:rb_scale="6"
+        app:rb_type="fillRipple">
+
+        <TextView
+            android:id="@+id/ok_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="dev_create"
+            android:textColor="@color/create_account_create_button_text"/>
+    </com.ce.game.myapplication.showcase.RippleBackground>
+
+    <com.ce.game.myapplication.showcase.RippleBackground
+        android:id="@+id/little_ripple"
+        android:layout_below="@+id/ripple_button"
+        android:layout_width="80dp"
+        android:layout_height="@dimen/create_account_guide_button_height"
+        android:layout_marginBottom="@dimen/create_account_guide_button_margin_bottom"
+        android:layout_marginEnd="@dimen/create_account_guide_button_x_alias_margin"
+        android:layout_marginLeft="@dimen/create_account_guide_button_x_alias_margin"
+        android:layout_marginRight="@dimen/create_account_guide_button_x_alias_margin"
+        android:layout_marginStart="@dimen/create_account_guide_button_x_alias_margin"
+        android:background="@drawable/forth_edition_guide_create_account_ok_button_bg"
+        app:rb_color="@color/forth_edition_guide_button_ripple_color"
+        app:rb_duration="3000"
+        app:rb_radius="20dp"
+        app:rb_rippleAmount="4"
+        app:rb_scale="6"
+        app:rb_type="fillRipple">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="dev_create"
+            android:textColor="@color/create_account_create_button_text"/>
+    </com.ce.game.myapplication.showcase.RippleBackground>
+
+
+    <!--</FrameLayout>-->
+
+</RelativeLayout>

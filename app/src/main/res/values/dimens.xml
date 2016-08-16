@@ -21,4 +21,27 @@
     <!--retrieve password-->
     <dimen name="retrieve_password_login_square_left_right_margin">20dp</dimen>
     <dimen name="retrieve_password_login_square_top_margin">25dp</dimen>
+
+
+    <!--4.0 newly added-->
+    <dimen name="create_account_guide_x_alias_margin">25dp</dimen>
+    <dimen name="create_account_guide_description_text_size">16sp</dimen>
+    <dimen name="create_account_guide_description_text_x_alias_margin">36dp</dimen>
+    <dimen name="create_account_guide_button_x_alias_margin">20dp</dimen>
+    <dimen name="create_account_guide_button_height">48dp</dimen>
+    <dimen name="create_account_guide_button_margin_bottom">20dp</dimen>
+    <dimen name="create_account_guide_button_later_margin_bottom">25dp</dimen>
+    <dimen name="default_home_setting_fail_hints_title">19sp</dimen>
+    <dimen name="default_home_setting_fail_hints_title_margin_bottom">16dp</dimen>
+    <dimen name="default_home_setting_fail_hints_button_margin_x">20dp</dimen>
+    <dimen name="default_home_setting_fail_hints_button_height">48dp</dimen>
+    <dimen name="default_home_setting_fail_hints_description_margin_bottom">30dp</dimen>
+    <dimen name="default_home_setting_complete_hints_margin_left">7.5dp</dimen>
+    <dimen name="default_home_setting_complete_hints_margin_right">23dp</dimen>
+    <dimen name="default_home_setting_complete_hints_margin_top">20dp</dimen>
+    <dimen name="default_home_setting_complete_hints_line_space">10dp</dimen>
+    <dimen name="default_home_setting_complete_hints_margin_bottom">20dp</dimen>
+    <dimen name="default_home_setting_complete_hints_text_size">14sp</dimen>
+    <dimen name="default_home_setting_complete_layout_margin_x_alias">25dp</dimen>
+    <dimen name="default_home_setting_complete_layout_margin_top">84dp</dimen>
 </resources>
