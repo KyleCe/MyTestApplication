@@ -50,11 +50,16 @@ public class FloatViewModelTip extends FloatViewModel
         mWindowManager.updateViewLayout(view, mLayoutParams);
     }
 
-    public void resetToWrapContent(View view) {
+    public void resetToWrapContent(View view, int x, int y) {
         mLayoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
         mLayoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
 
+        mLayoutParams.gravity = Gravity.END|Gravity.AXIS_PULL_BEFORE;
+
         DU.sd("manager params", "wrap");
+
+        mLayoutParams.x = x;
+        mLayoutParams.y = y;
 
         mWindowManager.updateViewLayout(view, mLayoutParams);
     }

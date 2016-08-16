@@ -91,19 +91,20 @@ public class LeadActivity extends Activity {
     class UpdateView extends ReplayView.UpdatePosition {
         @Override
         protected void onPrepare() {
-
-        }
-
-        @Override
-        protected void onUpdate(int x, int y) {
             if (mRightTip.isShown())
                 mRightTipModel.updateView(mRightTip);
         }
 
         @Override
-        protected void onUpdateEnd() {
-            if(mRightTip.isShown())
-                mRightTipModel.resetToWrapContent(mRightTip);
+        protected void onUpdate(int x, int y) {
+//            if (mRightTip.isShown())
+//                mRightTipModel.updateView(mRightTip);
+        }
+
+        @Override
+        protected void onUpdateEnd(int x,int y) {
+            if (mRightTip.isShown())
+                mRightTipModel.resetToWrapContent(mRightTip,x,600);
         }
     }
 

@@ -69,14 +69,14 @@ public class ReplayView extends FrameLayout {
 
             onUpdate(x, y);
 
-            onUpdateEnd();
+            onUpdateEnd(x, y);
         }
 
         protected abstract void onPrepare();
 
         protected abstract void onUpdate(int x, int y);
 
-        protected abstract void onUpdateEnd();
+        protected abstract void onUpdateEnd(int x, int y);
     }
 
     private UpdatePosition mUpdatePositionCallback;
@@ -150,14 +150,14 @@ public class ReplayView extends FrameLayout {
                 mUpdatePositionCallback.onPrepare();
                 break;
             case MotionEvent.ACTION_MOVE:
-//                view.animate()
-//                        .x(event.getRawX() + dX)
-//                        .setDuration(0)
-//                        .start();
-//                view.animate()
-//                        .y(event.getRawY() + dY)
-//                        .setDuration(0)
-//                        .start();
+                view.animate()
+                        .x(event.getRawX() + dX)
+                        .setDuration(0)
+                        .start();
+                view.animate()
+                        .y(event.getRawY() + dY)
+                        .setDuration(0)
+                        .start();
 
                 mUpdatePositionCallback.onUpdate((int) event.getX(), (int) event.getY());
                 break;
@@ -167,7 +167,15 @@ public class ReplayView extends FrameLayout {
 //                        .setDuration(200)
 //                        .start();
 
-                mUpdatePositionCallback.onUpdateEnd();
+                DU.sd("xy"
+                        , "original x = " + originX
+                        , "x =" + event.getX()
+                        , "raw x =" + event.getRawX()
+                        , "y =" + event.getY()
+                        , "raw y =" + event.getRawY());
+
+                mUpdatePositionCallback.onUpdateEnd((int) (originX)
+                        , (int) (event.getRawY()));
                 break;
         }
     }
