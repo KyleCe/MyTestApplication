@@ -10,8 +10,11 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.Log;
 
+import com.ce.game.myapplication.R;
+import com.ce.game.myapplication.util.AboutPhoneU;
 import com.ce.game.myapplication.util.DU;
 import com.ce.game.myapplication.util.Utilities;
 
@@ -103,8 +106,33 @@ public class SettingHelper {
                 home = Intent.makeMainActivity(componentName1);
                 break;
             case 3:
+//                home = null;
+//                findLauncherPackageName(context);
                 home = null;
-                findLauncherPackageName(context);
+
+                if (new AboutPhoneU().isHuaWei())
+                    try {
+                        IntentFilter intentFilter = new IntentFilter();
+                        intentFilter.addAction(Intent.ACTION_MAIN);
+                        intentFilter.addCategory(Intent.CATEGORY_HOME);
+                        Intent intent = new Intent(intentFilter.getAction(0));
+                        if (intentFilter.countCategories() > 0 && !TextUtils.isEmpty(intentFilter.getCategory(0))) {
+                            intent.addCategory(intentFilter.getCategory(0));
+                        }
+                        Intent intent2 = new Intent();
+                        intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent2.setClassName(Settings.ACTION_HOME_SETTINGS, "com.android.settings.Settings$PreferredSettingsActivity");
+                        intent2.putExtra("preferred_app_intent", intent);
+                        intent2.putExtra("preferred_app_intent_filter", intentFilter);
+                        intent2.putExtra("preferred_app_label", context.getResources().getString(R.string.app_name));
+                        intent2.putExtra("preferred_app_package_name", context.getPackageName());
+                        intent2.putExtra("preferred_app_class_name", HomeActivity.class.getName());
+                        intent2.putExtra("is_user_confirmed", true);
+                        context.getApplicationContext().startActivity(intent2);
+                    } catch (Exception e) {
+                    }
+                else
+                    DU.t(context, "not huawei");
                 break;
             case 4:
                 home = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_HOME);
@@ -149,12 +177,11 @@ public class SettingHelper {
     }
 
     private static void processSdkBelowLollipop(Context context) {
-        if(hasNoCurrentHome(context)) {
+        if (hasNoCurrentHome(context)) {
             Intent home = new Intent(Intent.ACTION_MAIN);
             home.addCategory(Intent.CATEGORY_HOME);
             context.startActivity(home);
-        }
-        else
+        } else
             fakeLauncherInstalledAndOpenLauncherChooser(context);
     }
 

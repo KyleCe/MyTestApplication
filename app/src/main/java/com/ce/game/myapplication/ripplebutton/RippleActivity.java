@@ -13,10 +13,21 @@ public class RippleActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ripple);
 
-        RippleBackground background = (RippleBackground) findViewById(R.id.ripple_button);
-        background.startRippleAnimationInfinitely();
+        ((RippleBackground) findViewById(R.id.ripple_button)).startRippleAnimationInfinitely();
+        ((RippleBackground) findViewById(R.id.ripple_button_two)).startRippleAnimationInfinitely();
+        ((RippleBackground) findViewById(R.id.ripple_button_three)).startRippleAnimationInfinitely();
+        ((RippleBackground) findViewById(R.id.ripple_button_three_and_half)).startRippleAnimationInfinitely();
+        ((RippleBackground) findViewById(R.id.ripple_button_four)).startRippleAnimationInfinitely();
 
-        RippleBackground littleBackground = (RippleBackground) findViewById(R.id.little_ripple);
-        littleBackground.startRippleAnimationInfinitely();
+        ((RippleBackground) findViewById(R.id.little_ripple_left)).startRippleAnimationInfinitely();
+        ((RippleBackground) findViewById(R.id.little_ripple_right)).startRippleAnimationInfinitely();
+        ((RippleBackground) findViewById(R.id.little_ripple_left_two)).startRippleAnimationInfinitely();
+        ((RippleBackground) findViewById(R.id.little_ripple_right_two)).startRippleAnimationInfinitely();
+        ((RippleBackground) findViewById(R.id.little_ripple_left_three)).startRippleAnimationInfinitely();
+        ((RippleBackground) findViewById(R.id.little_ripple_right_three)).startRippleAnimationInfinitely();
+        ((RippleBackground) findViewById(R.id.little_ripple_left_four)).startRippleAnimationInfinitely();
+        ((RippleBackground) findViewById(R.id.little_ripple_right_four)).startRippleAnimationInfinitely();
+        ((RippleBackground) findViewById(R.id.little_ripple_left_five)).startRippleAnimationInfinitely();
+        ((RippleBackground) findViewById(R.id.little_ripple_right_five)).startRippleAnimationInfinitely();
     }
 }
