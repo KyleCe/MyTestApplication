@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.ce.game.myapplication.R;
-import com.ce.game.myapplication.util.DU;
 
 import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
@@ -78,16 +77,16 @@ public class HomeActivity extends Activity {
     final private class DefaultHomeGuardian implements Runnable {
         @Override
         public void run() {
-            DU.sd("check current or default",
-                    "current : " + SettingHelper.isMyLauncherCurrent(mContext)
-                    , "default : " + SettingHelper.isMyLauncherDefault(mContext));
+//            DU.sd("check current or default",
+//                    "current : " + SettingHelper.isMyLauncherCurrent(mContext)
+//                    , "default : " + SettingHelper.isMyLauncherDefault(mContext));
             if (checkPermissionSettingAllComplete()) {
                 mFuture.cancel(false);
 //                finish();
 
-                DU.tsd(mContext, "getString(R.string.ps_switch_on_all_complete)");
+//                DU.tsd(mContext, "getString(R.string.ps_switch_on_all_complete)");
 
-                DU.sd("permission setting guardian", "future canceled, exit ok");
+//                DU.sd("permission setting guardian", "future canceled, exit ok");
             }
         }
     }
