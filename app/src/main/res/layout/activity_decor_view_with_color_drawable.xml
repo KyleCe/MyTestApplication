@@ -12,4 +12,9 @@
     android:background="@android:color/transparent"
     tools:context="com.ce.game.myapplication.act.DecorViewWithColorDrawableActivity">
 
+    <!--<com.ce.game.myapplication.view.DecorViewTest-->
+        <!--android:id="@+id/test_view"-->
+        <!--android:layout_width="320dp"-->
+        <!--android:layout_height="320dp"/>-->
+
 </RelativeLayout>

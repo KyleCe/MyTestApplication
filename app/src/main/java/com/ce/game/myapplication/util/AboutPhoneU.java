@@ -2,6 +2,7 @@ package com.ce.game.myapplication.util;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Point;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -34,6 +35,15 @@ public class AboutPhoneU {
 
     public boolean hasPermanentMenuKey(@NonNull Context context) {
         return ViewConfiguration.get(context).hasPermanentMenuKey();
+    }
+
+    public int getNavH(Context context){
+        Resources resources = context.getResources();
+        int resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            return resources.getDimensionPixelSize(resourceId);
+        }
+        return 0;
     }
 
     @SuppressLint("NewApi")
