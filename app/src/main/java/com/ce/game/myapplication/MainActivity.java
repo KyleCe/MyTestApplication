@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -16,8 +15,9 @@ import android.view.animation.AnimationSet;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.ce.game.myapplication.act.DecorViewWithColorDrawableActivity;
+import com.ce.game.myapplication.act.GifSplitActivity;
 import com.ce.game.myapplication.reverse.Rotate3dAnimation;
+import com.ce.game.myapplication.util.Const;
 import com.ce.game.myapplication.view.HorizontalSpacesItemDecoration;
 import com.ce.game.myapplication.view.MyRecyclerViewAdapter;
 import com.ce.game.myapplication.view.PageRecyclerView;
@@ -57,17 +57,6 @@ public class MainActivity extends Activity {
         tvHello.setText("Front look !\n\t\t sometimes stay");
 
         guideToDebugActivity();
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                rotate3DTry();
-
-                guideToDebugActivity();
-            }
-        });
-
 
         final String path = "/storage/emulated/0/WhatsApp/Media/WhatsApp Video/VID_20160330_204630.mp4";
 
@@ -195,7 +184,7 @@ public class MainActivity extends Activity {
 //        startActivity(new Intent(context, CheckboxActivity.class));
 //        startActivity(new Intent(context, GuideToSettingActivity.class));
 //        startActivity(new Intent(context, RippleActivity.class));
-        startActivity(new Intent(context, DecorViewWithColorDrawableActivity.class));
+//        startActivity(new Intent(context, DecorViewWithColorDrawableActivity.class));
 //        startActivity(new Intent(context, LeadActivity.class));
 //        startActivity(new Intent(context, CenterHandActivity.class));
 //        startActivity(new Intent(context, TessActivity.class));
@@ -283,5 +272,19 @@ public class MainActivity extends Activity {
         );
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
+    }
+
+    public void clickButton2(View view) {
+        startActivity(new Intent(context, GifSplitActivity.class).putExtra(Const.KEY, Const.TYPE_ONE));
+    }
+
+    public void clickButton1(View view) {
+        startActivity(new Intent(context, GifSplitActivity.class).putExtra(Const.KEY, Const.TYPE_TWO));
+    }
+
+    public void clickButton3(View view) {
+    }
+
+    public void clickButton4(View view) {
     }
 }

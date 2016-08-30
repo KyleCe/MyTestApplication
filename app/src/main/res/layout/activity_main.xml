@@ -9,8 +9,8 @@
     tools:context="com.ce.game.myapplication.MainActivity">
 
     <android.support.design.widget.AppBarLayout
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
@@ -18,19 +18,58 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_main"/>
+
     <include layout="@layout/content_scroll"/>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+        android:orientation="horizontal"
+        android:weightSum="4"
+        >
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:layout_weight="1"
+            android:onClick="clickButton1"
+            android:src="@android:drawable/ic_dialog_email"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:layout_weight="1"
+            android:onClick="clickButton2"
+            android:src="@android:drawable/ic_dialog_email"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:layout_weight="1"
+            android:onClick="clickButton3"
+            android:src="@android:drawable/ic_dialog_email"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:layout_weight="1"
+            android:onClick="clickButton4"
+            android:src="@android:drawable/ic_dialog_email"/>
+
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
