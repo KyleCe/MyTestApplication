@@ -175,6 +175,8 @@
         </activity>
         <activity android:name=".act.DecorViewWithColorDrawableActivity">
         </activity>
+        <activity android:name=".act.GifSplitActivity">
+        </activity>
     </application>
 
 </manifest>

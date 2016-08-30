@@ -39,4 +39,6 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <!--//For GifView Declaration-->
+    <style name="Widget.GifView" parent="@android:style/Widget"/>
 </resources>
