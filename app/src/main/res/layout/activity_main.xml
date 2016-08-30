@@ -31,37 +31,42 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:orientation="horizontal"
+        android:weightSum="4"
         >
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
+            android:layout_weight="1"
             android:onClick="clickButton1"
             android:src="@android:drawable/ic_dialog_email"/>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
+            android:layout_weight="1"
             android:onClick="clickButton2"
             android:src="@android:drawable/ic_dialog_email"/>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
+            android:layout_weight="1"
             android:onClick="clickButton3"
             android:src="@android:drawable/ic_dialog_email"/>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
+            android:layout_weight="1"
             android:onClick="clickButton4"
             android:src="@android:drawable/ic_dialog_email"/>
 
