@@ -81,8 +81,8 @@ import android.widget.TextView;
 //    }
 //
 //    @Override
-//    public void setText(final CharSequence text, BufferType type) {
-//        super.setText(text, type);
+//    public void setText(final CharSequence text, BufferType mType) {
+//        super.setText(text, mType);
 //        adjustTextSize(text.toString());
 //    }
 //
@@ -152,7 +152,7 @@ import android.widget.TextView;
 //    }
 //
 //    /**
-//     * Set the lower text size limit and invalidate the view
+//     * Set the lower text size limit and invalidate the mView
 //     *
 //     * @param minTextSize
 //     */
@@ -298,7 +298,7 @@ import android.widget.TextView;
 
 public class AutoResizeTextView extends TextView {
 
-    // Minimum text size for this text view
+    // Minimum text size for this text mView
     public static final float MIN_TEXT_SIZE = 20;
 
     // Interface for resize notifications
@@ -309,7 +309,7 @@ public class AutoResizeTextView extends TextView {
     // Our ellipse string
     private static final String mEllipsis = "...";
 
-    // Registered resize listener
+    // Registered resize mListener
     private OnTextResizeListener mTextResizeListener;
 
     // Flag for text and/or size changes to force a resize
@@ -324,10 +324,10 @@ public class AutoResizeTextView extends TextView {
     // Lower bounds for text size
     private float mMinTextSize = MIN_TEXT_SIZE;
 
-    // Text view line spacing multiplier
+    // Text mView line spacing multiplier
     private float mSpacingMult = 1.0f;
 
-    // Text view additional line spacing
+    // Text mView additional line spacing
     private float mSpacingAdd = 0.0f;
 
     // Add ellipsis to text that overflows at the smallest text size
@@ -355,12 +355,12 @@ public class AutoResizeTextView extends TextView {
     @Override
     protected void onTextChanged(final CharSequence text, final int start, final int before, final int after) {
         mNeedsResize = true;
-        // Since this view may be reused, it is good to reset the text size
+        // Since this mView may be reused, it is good to reset the text size
         resetTextSize();
     }
 
     /**
-     * If the text view size changed, set the force resize flag to true
+     * If the text mView size changed, set the force resize flag to true
      */
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
@@ -370,7 +370,7 @@ public class AutoResizeTextView extends TextView {
     }
 
     /**
-     * Register listener to receive resize notifications
+     * Register mListener to receive resize notifications
      * @param listener
      */
     public void setOnResizeListener(OnTextResizeListener listener) {
@@ -406,7 +406,7 @@ public class AutoResizeTextView extends TextView {
     }
 
     /**
-     * Set the upper text size limit and invalidate the view
+     * Set the upper text size limit and invalidate the mView
      * @param maxTextSize
      */
     public void setMaxTextSize(float maxTextSize) {
@@ -424,7 +424,7 @@ public class AutoResizeTextView extends TextView {
     }
 
     /**
-     * Set the lower text size limit and invalidate the view
+     * Set the lower text size limit and invalidate the mView
      * @param minTextSize
      */
     public void setMinTextSize(float minTextSize) {
@@ -497,7 +497,7 @@ public class AutoResizeTextView extends TextView {
      */
     public void resizeText(int width, int height) {
         CharSequence text = getText();
-        // Do not resize if the view does not have dimensions or there is no text
+        // Do not resize if the mView does not have dimensions or there is no text
         if (text == null || text.length() == 0 || height <= 0 || width <= 0 || mTextSize == 0) {
             return;
         }
@@ -506,7 +506,7 @@ public class AutoResizeTextView extends TextView {
             text = getTransformationMethod().getTransformation(text, this);
         }
 
-        // Get the text view's paint object
+        // Get the text mView's paint object
         TextPaint textPaint = getPaint();
 
         // Store the current text size
@@ -517,7 +517,7 @@ public class AutoResizeTextView extends TextView {
         // Get the required text height
         int textHeight = getTextHeight(text, textPaint, width, targetTextSize);
 
-        // Until we either fit within our text view or we had reached our min text size, incrementally try smaller sizes
+        // Until we either fit within our text mView or we had reached our min text size, incrementally try smaller sizes
         while (textHeight > height && targetTextSize > mMinTextSize) {
             targetTextSize = Math.max(targetTextSize - 2, mMinTextSize);
             textHeight = getTextHeight(text, textPaint, width, targetTextSize);
@@ -560,7 +560,7 @@ public class AutoResizeTextView extends TextView {
         setTextSize(TypedValue.COMPLEX_UNIT_PX, targetTextSize);
         setLineSpacing(mSpacingAdd, mSpacingMult);
 
-        // Notify the listener if registered
+        // Notify the mListener if registered
         if (mTextResizeListener != null) {
             mTextResizeListener.onTextResize(this, oldTextSize, targetTextSize);
         }

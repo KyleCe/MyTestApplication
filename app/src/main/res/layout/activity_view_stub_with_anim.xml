@@ -5,7 +5,7 @@
              android:background="#aa99cc"
              tools:context="com.ce.game.myapplication.swipetochangeview.ViewStubWithAnimActivity">
 
-    <!-- The primary full-screen view. This can be replaced with whatever view
+    <!-- The primary full-screen mView. This can be replaced with whatever mView
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
 

@@ -29,13 +29,13 @@ public class GifView extends View {
 
 
     /**
-     * Position for drawing animation frames in the center of the view.
+     * Position for drawing animation frames in the center of the mView.
      */
     private float mLeft;
     private float mTop;
 
     /**
-     * Scaling factor to fit the animation within view bounds.
+     * Scaling factor to fit the animation within mView bounds.
      */
     private float mScaleX;
     private float mScaleY;
@@ -210,7 +210,7 @@ public class GifView extends View {
     }
 
     /**
-     * Invalidates view only if it is mVisible.
+     * Invalidates mView only if it is mVisible.
      * <br>
      * {@link #postInvalidateOnAnimation()} is used for Jelly Bean and higher.
      */

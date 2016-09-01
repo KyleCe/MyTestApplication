@@ -102,7 +102,7 @@ public class NotiAccessActivity extends Activity {
                 if (BlaNotificationListenerService.class.getName().equals(service.service.getClassName())) {
 
                     if (service.crashCount > 0) {
-                        // in this situation we know that the notification listener service is not working for the app
+                        // in this situation we know that the notification mListener service is not working for the app
                         DU.sd("noti", " crashed");
 
                         return true;

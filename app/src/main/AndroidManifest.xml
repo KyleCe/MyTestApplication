@@ -177,6 +177,8 @@
         </activity>
         <activity android:name=".act.GifSplitActivity">
         </activity>
+        <activity android:name=".act.GuideAnimActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -67,9 +67,9 @@ public class ViewU {
     }
 
     /**
-     * set click listener for views
+     * set click mListener for views
      *
-     * @param listener the click listener to assign
+     * @param listener the click mListener to assign
      * @param views    views
      */
     public static void clickListen(View.OnClickListener listener, View... views) {

@@ -64,7 +64,7 @@ public class RippleBackground extends RelativeLayout {
             return;
 
         if (null == attrs) {
-            throw new IllegalArgumentException("Attributes should be provided to this view,");
+            throw new IllegalArgumentException("Attributes should be provided to this mView,");
         }
 
         final TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RippleBackground);

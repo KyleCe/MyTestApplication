@@ -48,7 +48,7 @@ public class CheckableFrameLayout extends FrameLayout implements Checkable {
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        DU.sd("view group", "on layout");
+        DU.sd("mView group", "on layout");
 
 
         changeLayoutStyle();
@@ -63,7 +63,7 @@ public class CheckableFrameLayout extends FrameLayout implements Checkable {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        DU.sd("view group", "on draw");
+        DU.sd("mView group", "on draw");
 
         super.onDraw(canvas);
 

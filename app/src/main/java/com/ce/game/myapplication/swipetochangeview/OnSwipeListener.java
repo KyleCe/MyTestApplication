@@ -48,12 +48,12 @@ public class OnSwipeListener extends GestureDetector.SimpleOnGestureListener{
 
     /**
      * Given two points in the plane p1=(x1, x2) and p2=(y1, y1), this method
-     * returns the direction that an arrow pointing from p1 to p2 would have.
+     * returns the mDirection that an arrow pointing from p1 to p2 would have.
      * @param x1 the x position of the first point
      * @param y1 the y position of the first point
      * @param x2 the x position of the second point
      * @param y2 the y position of the second point
-     * @return the direction
+     * @return the mDirection
      */
     public Direction getDirection(float x1, float y1, float x2, float y2){
         double angle = getAngle(x1, y1, x2, y2);
@@ -96,7 +96,7 @@ public class OnSwipeListener extends GestureDetector.SimpleOnGestureListener{
         }
 
         /**
-         * Returns a direction given an angle.
+         * Returns a mDirection given an angle.
          * Directions are defined as follows:
          *
          * Up: [45, 135]
@@ -105,7 +105,7 @@ public class OnSwipeListener extends GestureDetector.SimpleOnGestureListener{
          * Left: [135, 225]
          *
          * @param angle an angle from 0 to 360 - e
-         * @return the direction of an angle
+         * @return the mDirection of an angle
          */
         public static Direction get(double angle){
             if(inRange(angle, 45, 135)){

@@ -265,7 +265,7 @@ public class RetrievePasswordView extends FrameLayout {
         for (String email : possibleEmails)
             DU.sd("emails:::" + email);
 
-        // account.name as an email address only for certain account.type values.
+        // account.name as an email address only for certain account.mType values.
         for (Account account : accounts)
             possibleEmails.add(account.name);
 

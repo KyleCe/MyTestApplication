@@ -206,7 +206,7 @@ public class ViewStubWithAnimActivity extends AppCompatActivity {
                 if (!pairView(mShowingItem).equals(mFirstEAF.view))
                     ViewU.invisible(mFirstEAF.view);
 
-                // reverse the view position
+                // reverse the mView position
                 ObjectAnimator.ofFloat(mFirstEAF.view, mFirstEAF.propertyName,
                         mFirstEAF.toValue, mFirstEAF.fromValue).setDuration(1).start();
             }

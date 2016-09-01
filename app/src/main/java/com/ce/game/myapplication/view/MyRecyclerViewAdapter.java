@@ -72,7 +72,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     public void onBindViewHolder(ViewHolder holder, int position) {
         if (DU.isNull(defaultBitmap)) return;
 
-        // last or first one, longer the view
+        // last or first one, longer the mView
         if (holder.getAdapterPosition() == 0 || holder.getAdapterPosition() == getItemCount() - 1) {
 
             int itemWidth = DisplayUtil.getScreenWH(context)[0] - PageRecyclerView.firstOrLastItemReduceWidth;

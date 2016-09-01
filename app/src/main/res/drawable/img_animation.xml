@@ -3,15 +3,15 @@
 
     <!-- 24 frame per sec | 1000ms/24 i.e. 41ms per image -->
     <!--<item-->
-        <!--android:drawable="@drawable/ball01" android:duration="41"/>-->
+        <!--android:drawable="@drawable/ball01" android:mDuration="41"/>-->
     <!--<item-->
-        <!--android:drawable="@drawable/ball02" android:duration="41"/>-->
+        <!--android:drawable="@drawable/ball02" android:mDuration="41"/>-->
     <!--<item-->
-        <!--android:drawable="@drawable/ball24" android:duration="41"/>-->
+        <!--android:drawable="@drawable/ball24" android:mDuration="41"/>-->
 
     <!--&lt;!&ndash; Reset to first when animation stops&ndash;&gt;-->
     <!--<item-->
         <!--android:drawable="@drawable/ball01"-->
-        <!--android:duration="10"/>-->
+        <!--android:mDuration="10"/>-->
 
 </animation-list>

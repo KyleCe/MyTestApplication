@@ -162,7 +162,7 @@ public class ReplayView extends FrameLayout {
                 mUpdatePositionCallback.onUpdate((int) event.getX(), (int) event.getY());
                 break;
             case MotionEvent.ACTION_UP:
-//                view.animate()
+//                mView.animate()
 //                        .x(originX)
 //                        .setDuration(200)
 //                        .start();

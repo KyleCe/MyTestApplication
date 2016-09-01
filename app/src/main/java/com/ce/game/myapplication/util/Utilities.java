@@ -67,7 +67,7 @@ public final class Utilities {
     public static final boolean ATLEAST_JB_MR2 =
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2;
 
-    // To turn on these properties, type
+    // To turn on these properties, mType
     // adb shell setprop log.tag.PROPERTY_NAME [VERBOSE | SUPPRESS]
     private static final String FORCE_ENABLE_ROTATION_PROPERTY = "launcher_force_rotate";
     private static boolean sForceEnableRotation = isPropertyEnabled(FORCE_ENABLE_ROTATION_PROPERTY);
