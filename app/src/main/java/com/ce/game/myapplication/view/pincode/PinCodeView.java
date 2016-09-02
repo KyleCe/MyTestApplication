@@ -18,15 +18,11 @@ import android.view.animation.TranslateAnimation;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.blablaapp.launcher.R;
-import com.blablaapp.launcher.account.common.Const;
-import com.blablaapp.launcher.ui.screenlock.inter.LockViewInterface;
-import com.blablaapp.launcher.ui.screenlock.inter.VerifyCallback;
-import com.blablaapp.launcher.ui.screenlock.view.KeyboardButtonView.KeyType;
-import com.blablaapp.launcher.ui.userguideanim.GuideViewInterface;
-import com.blablaapp.launcher.util.PhoneStatusU;
-import com.blablaapp.launcher.util.ViewU;
-
+import com.ce.game.myapplication.R;
+import com.ce.game.myapplication.connectwithgoogle.RetrievePasswordView;
+import com.ce.game.myapplication.connectwithgoogle.VerifyCallback;
+import com.ce.game.myapplication.userguideanim.GuideViewInterface;
+import com.ce.game.myapplication.util.ViewU;
 
 /**
  * Created by KyleCe on 2016/5/25.
@@ -225,7 +221,7 @@ public class PinCodeView extends RelativeLayout implements View.OnTouchListener
             });
         }
 
-        mRetrievePasswordView.checkIfHasNoAvailableAccount();
+//        mRetrievePasswordView.checkIfHasNoAvailableAccount();
 
         ViewU.show(mRetrieveView);
     }
@@ -412,12 +408,12 @@ public class PinCodeView extends RelativeLayout implements View.OnTouchListener
 
 
     @Override
-    public void onKeyboardClick(@KeyType int keyType) {
+    public void onKeyboardClick(@KeyboardButtonView.KeyType int keyType) {
         if (mPinCode.length() >= this.getPinLength()) return;
 
-        if (keyType == KeyType.K_BACKSPACE)
+        if (keyType == KeyboardButtonView.KeyType.K_BACKSPACE)
             setPinCode(!mPinCode.isEmpty() ? mPinCode.substring(0, mPinCode.length() - 1) : "");
-        else if (keyType == KeyType.K_BACK) mUnlockRuler.onBack();
+        else if (keyType == KeyboardButtonView.KeyType.K_BACK) mUnlockRuler.onBack();
         else setPinCode(mPinCode + keyType);
     }
 

@@ -180,6 +180,31 @@ public class RetrievePasswordView extends FrameLayout {
         }
     }
 
+
+    public void resetToInitializedState() {
+        goBackToVeryFirstPage();
+
+        clearWebViewHistoryAndCache();
+    }
+
+//    public void checkIfHasNoAvailableAccount() {
+//        if (mEmailList.size() > 0) {
+//            mHintEmail = mEmailList.get(0);
+//            ViewU.hide(mNoAvailableAccountView);
+//        } else {
+//            if (mNoAvailableAccountView == null)
+//                mNoAvailableAccountView = mNoAvailableAccountStub.inflate();
+//
+//            mNoAvailableAccountView.findViewById(R.id.no_account_available_confirm).setOnClickListener(new OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if (mVerifyCallback != null) mVerifyCallback.cancel();
+//                }
+//            });
+//        }
+//    }
+
+
     private void onLoginClick() {
         DU.sd("on click");
 
