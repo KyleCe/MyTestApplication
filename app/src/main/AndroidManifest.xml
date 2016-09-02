@@ -2,18 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.ce.game.myapplication">
 
-    <uses-permission android:name="android.permission.READ_MEDIA_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
-    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
-    <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS"/>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <!--<uses-permission android:name="android.permission.READ_MEDIA_STORAGE"/>-->
+    <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>-->
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE"/>-->
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
+    <!--<uses-permission android:name="android.permission.CAMERA"/>-->
+    <!--<uses-permission android:name="android.permission.INTERNET"/>-->
+    <!--<uses-permission android:name="android.permission.WRITE_SETTINGS"/>-->
+    <!--<uses-permission android:name="android.permission.SET_WALLPAPER"/>-->
+    <!--<uses-permission android:name="android.permission.SET_WALLPAPER_HINTS"/>-->
+    <!--<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>-->
+    <!--<uses-permission android:name="android.permission.GET_ACCOUNTS"/>-->
+    <!--<uses-permission android:name="android.permission.GET_TASKS"/>-->
 
     <!-- <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" tools:ignore="ProtectedPermissions" /> -->
     <application
@@ -38,145 +38,145 @@
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
         -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version"/>
+        <!--<meta-data-->
+            <!--android:name="com.google.android.gms.version"-->
+            <!--android:value="@integer/google_play_services_version"/>-->
 
-        <activity
-            android:name=".swipetochangeview.ViewStubWithAnimActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_view_stub_with_anim"
-            android:theme="@style/FullscreenTheme">
-        </activity>
-        <activity android:name=".sideindex.IndexActivity">
-        </activity>
-        <activity
-            android:name=".act.TransparentActivity"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
-        </activity>
-        <activity
-            android:name=".guide.GuideActivity"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
-        </activity>
-        <activity
-            android:name=".camera.CamTestActivity"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
-        </activity>
-        <activity
-            android:name=".act.CameraResultActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".admin.LockOrOpenAdminSettingActivity"
-            android:label="@string/title_activity_admin"
-            android:theme="@android:style/Theme.NoDisplay">
-        </activity>
+        <!--<activity-->
+            <!--android:name=".swipetochangeview.ViewStubWithAnimActivity"-->
+            <!--android:configChanges="orientation|keyboardHidden|screenSize"-->
+            <!--android:label="@string/title_activity_view_stub_with_anim"-->
+            <!--android:theme="@style/FullscreenTheme">-->
+        <!--</activity>-->
+        <!--<activity android:name=".sideindex.IndexActivity">-->
+        <!--</activity>-->
+        <!--<activity-->
+            <!--android:name=".act.TransparentActivity"-->
+            <!--android:launchMode="singleTask"-->
+            <!--android:theme="@android:style/Theme.Translucent.NoTitleBar">-->
+        <!--</activity>-->
+        <!--<activity-->
+            <!--android:name=".guide.GuideActivity"-->
+            <!--android:launchMode="singleTask"-->
+            <!--android:theme="@android:style/Theme.Translucent.NoTitleBar">-->
+        <!--</activity>-->
+        <!--<activity-->
+            <!--android:name=".camera.CamTestActivity"-->
+            <!--android:launchMode="singleTask"-->
+            <!--android:theme="@android:style/Theme.Translucent.NoTitleBar">-->
+        <!--</activity>-->
+        <!--<activity-->
+            <!--android:name=".act.CameraResultActivity"-->
+            <!--android:launchMode="singleTask"-->
+            <!--android:screenOrientation="portrait">-->
+        <!--</activity>-->
+        <!--<activity-->
+            <!--android:name=".admin.LockOrOpenAdminSettingActivity"-->
+            <!--android:label="@string/title_activity_admin"-->
+            <!--android:theme="@android:style/Theme.NoDisplay">-->
+        <!--</activity>-->
 
-        <receiver
-            android:name=".admin.LockOrOpenAdminSettingActivity$DeviceAdmin"
-            android:description="@string/admin_description"
-            android:label="@string/admin_label"
-            android:permission="android.permission.BIND_DEVICE_ADMIN">
-            <meta-data
-                android:name="android.app.device_admin"
-                android:resource="@xml/my_admin"/>
+        <!--<receiver-->
+            <!--android:name=".admin.LockOrOpenAdminSettingActivity$DeviceAdmin"-->
+            <!--android:description="@string/admin_description"-->
+            <!--android:label="@string/admin_label"-->
+            <!--android:permission="android.permission.BIND_DEVICE_ADMIN">-->
+            <!--<meta-data-->
+                <!--android:name="android.app.device_admin"-->
+                <!--android:resource="@xml/my_admin"/>-->
 
-            <intent-filter>
-                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
-                <action android:name="android.app.action.DEVICE_ADMIN_DISABLED"/>
-            </intent-filter>
-        </receiver>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>-->
+                <!--<action android:name="android.app.action.DEVICE_ADMIN_DISABLED"/>-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
 
-        <activity android:name=".notification.NotiAccessActivity">
-            <intent-filter>
-                <action android:name="android.service.notification.NotificationListenerService"/>
-            </intent-filter>
-        </activity>
+        <!--<activity android:name=".notification.NotiAccessActivity">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.service.notification.NotificationListenerService"/>-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
 
-        <service
-            android:name=".notification.NotificationWatcherService"
-            android:enabled="true"
-            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
-            <intent-filter>
-                <action android:name="android.service.notification.NotificationListenerService"/>
-            </intent-filter>
-        </service>
-        <service
-            android:name=".notification.BlaNotificationListenerService"
-            android:enabled="true"
-            android:label="@string/app_name"
-            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
-            <intent-filter>
-                <action android:name="android.service.notification.NotificationListenerService"/>
-            </intent-filter>
-        </service>
+        <!--<service-->
+            <!--android:name=".notification.NotificationWatcherService"-->
+            <!--android:enabled="true"-->
+            <!--android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.service.notification.NotificationListenerService"/>-->
+            <!--</intent-filter>-->
+        <!--</service>-->
+        <!--<service-->
+            <!--android:name=".notification.BlaNotificationListenerService"-->
+            <!--android:enabled="true"-->
+            <!--android:label="@string/app_name"-->
+            <!--android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.service.notification.NotificationListenerService"/>-->
+            <!--</intent-filter>-->
+        <!--</service>-->
 
-        <activity android:name=".checkbox.CheckboxActivity">
-        </activity>
-        <activity android:name=".drawbg.DrawBackgroundActivity">
-        </activity>
-        <activity
-            android:name=".wallpaper.SetImageFromWallpaperActivity"
-            android:label="@string/title_activity_set_image_from_wallpaper"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
-            android:name=".home.HomeActivity"
-            android:enabled="true">
+        <!--<activity android:name=".checkbox.CheckboxActivity">-->
+        <!--</activity>-->
+        <!--<activity android:name=".drawbg.DrawBackgroundActivity">-->
+        <!--</activity>-->
+        <!--<activity-->
+            <!--android:name=".wallpaper.SetImageFromWallpaperActivity"-->
+            <!--android:label="@string/title_activity_set_image_from_wallpaper"-->
+            <!--android:theme="@style/AppTheme.NoActionBar">-->
+        <!--</activity>-->
+        <!--<activity-->
+            <!--android:name=".home.HomeActivity"-->
+            <!--android:enabled="true">-->
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN"/> -->
+            <!--&lt;!&ndash; <intent-filter> &ndash;&gt;-->
+            <!--&lt;!&ndash; <action android:name="android.intent.action.MAIN"/> &ndash;&gt;-->
 
 
-            <!-- <category android:name="android.intent.category.DEFAULT"/> -->
-            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
-            <!-- <category android:name="android.intent.category.HOME"/> -->
-            <!-- </intent-filter> -->
-        </activity>
-        <activity
-            android:name=".home.FakeHomeActivity"
-            android:enabled="false">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+            <!--&lt;!&ndash; <category android:name="android.intent.category.DEFAULT"/> &ndash;&gt;-->
+            <!--&lt;!&ndash; <category android:name="android.intent.category.LAUNCHER"/> &ndash;&gt;-->
+            <!--&lt;!&ndash; <category android:name="android.intent.category.HOME"/> &ndash;&gt;-->
+            <!--&lt;!&ndash; </intent-filter> &ndash;&gt;-->
+        <!--</activity>-->
+        <!--<activity-->
+            <!--android:name=".home.FakeHomeActivity"-->
+            <!--android:enabled="false">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
 
-                <category android:name="android.intent.category.HOME"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-        </activity>
-        <activity android:name=".anim.AnimLeftAndRightActivity">
-        </activity>
-        <activity android:name=".ui.fonttext.FontTextActivity">
-        </activity>
-        <activity android:name=".showcase.LeadActivity">
-        </activity>
-        <activity android:name=".connectwithgoogle.GoogleAccountActivity">
-        </activity>
-        <activity android:name=".act.RequestPermissionActivity">
-        </activity>
-        <activity android:name=".anim.CenterHandActivity">
-        </activity>
-        <activity android:name=".wallpaper.WallpaperActivity">
-        </activity>
-        <activity android:name=".scrollingblurtext.ImageViewScrollActivity">
-        </activity>
-        <activity android:name=".act.PermissionActivity">
-        </activity>
-        <activity android:name=".anim.UpAndLeftActivity">
-        </activity>
-        <activity android:name=".act.TessActivity">
-        </activity>
-        <activity android:name=".showcase.GuideToSettingActivity">
-        </activity>
-        <activity android:name=".ripplebutton.RippleActivity">
-        </activity>
-        <activity android:name=".act.DecorViewWithColorDrawableActivity">
-        </activity>
-        <activity android:name=".act.GifSplitActivity">
-        </activity>
+                <!--<category android:name="android.intent.category.HOME"/>-->
+                <!--<category android:name="android.intent.category.DEFAULT"/>-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+        <!--<activity android:name=".anim.AnimLeftAndRightActivity">-->
+        <!--</activity>-->
+        <!--<activity android:name=".ui.fonttext.FontTextActivity">-->
+        <!--</activity>-->
+        <!--<activity android:name=".showcase.LeadActivity">-->
+        <!--</activity>-->
+        <!--<activity android:name=".connectwithgoogle.GoogleAccountActivity">-->
+        <!--</activity>-->
+        <!--<activity android:name=".act.RequestPermissionActivity">-->
+        <!--</activity>-->
+        <!--<activity android:name=".anim.CenterHandActivity">-->
+        <!--</activity>-->
+        <!--<activity android:name=".wallpaper.WallpaperActivity">-->
+        <!--</activity>-->
+        <!--<activity android:name=".scrollingblurtext.ImageViewScrollActivity">-->
+        <!--</activity>-->
+        <!--<activity android:name=".act.PermissionActivity">-->
+        <!--</activity>-->
+        <!--<activity android:name=".anim.UpAndLeftActivity">-->
+        <!--</activity>-->
+        <!--<activity android:name=".act.TessActivity">-->
+        <!--</activity>-->
+        <!--<activity android:name=".showcase.GuideToSettingActivity">-->
+        <!--</activity>-->
+        <!--<activity android:name=".ripplebutton.RippleActivity">-->
+        <!--</activity>-->
+        <!--<activity android:name=".act.DecorViewWithColorDrawableActivity">-->
+        <!--</activity>-->
+        <!--<activity android:name=".act.GifSplitActivity">-->
+        <!--</activity>-->
         <activity android:name=".act.GuideAnimActivity">
         </activity>
     </application>
