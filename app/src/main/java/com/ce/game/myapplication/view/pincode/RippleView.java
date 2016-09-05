@@ -14,8 +14,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import com.blablaapp.launcher.R;
-
+import com.ce.game.myapplication.R;
 
 /**
  * Created by KyleCe on 2016/5/25.
