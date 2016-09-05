@@ -7,9 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import com.blablaapp.launcher.R;
-import com.blablaapp.launcher.ui.screenlock.inter.LockViewInterface;
-import com.blablaapp.launcher.ui.screenlock.view.KeyboardButtonView.KeyType;
+import com.ce.game.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,40 +89,40 @@ public class KeyboardView extends RelativeLayout implements View.OnClickListener
 
         switch (v.getId()) {
             case R.id.pin_code_button_0:
-                mKeyboardButtonClickedListener.onKeyboardClick(KeyType.K0);
+                mKeyboardButtonClickedListener.onKeyboardClick(KeyboardButtonView.KeyType.K0);
                 break;
             case R.id.pin_code_button_1:
-                mKeyboardButtonClickedListener.onKeyboardClick(KeyType.K1);
+                mKeyboardButtonClickedListener.onKeyboardClick(KeyboardButtonView.KeyType.K1);
                 break;
             case R.id.pin_code_button_2:
-                mKeyboardButtonClickedListener.onKeyboardClick(KeyType.K2);
+                mKeyboardButtonClickedListener.onKeyboardClick(KeyboardButtonView.KeyType.K2);
                 break;
             case R.id.pin_code_button_3:
-                mKeyboardButtonClickedListener.onKeyboardClick(KeyType.K3);
+                mKeyboardButtonClickedListener.onKeyboardClick(KeyboardButtonView.KeyType.K3);
                 break;
             case R.id.pin_code_button_4:
-                mKeyboardButtonClickedListener.onKeyboardClick(KeyType.K4);
+                mKeyboardButtonClickedListener.onKeyboardClick(KeyboardButtonView.KeyType.K4);
                 break;
             case R.id.pin_code_button_5:
-                mKeyboardButtonClickedListener.onKeyboardClick(KeyType.K5);
+                mKeyboardButtonClickedListener.onKeyboardClick(KeyboardButtonView.KeyType.K5);
                 break;
             case R.id.pin_code_button_6:
-                mKeyboardButtonClickedListener.onKeyboardClick(KeyType.K6);
+                mKeyboardButtonClickedListener.onKeyboardClick(KeyboardButtonView.KeyType.K6);
                 break;
             case R.id.pin_code_button_7:
-                mKeyboardButtonClickedListener.onKeyboardClick(KeyType.K7);
+                mKeyboardButtonClickedListener.onKeyboardClick(KeyboardButtonView.KeyType.K7);
                 break;
             case R.id.pin_code_button_8:
-                mKeyboardButtonClickedListener.onKeyboardClick(KeyType.K8);
+                mKeyboardButtonClickedListener.onKeyboardClick(KeyboardButtonView.KeyType.K8);
                 break;
             case R.id.pin_code_button_9:
-                mKeyboardButtonClickedListener.onKeyboardClick(KeyType.K9);
+                mKeyboardButtonClickedListener.onKeyboardClick(KeyboardButtonView.KeyType.K9);
                 break;
             case R.id.pin_code_button_clear:
-                mKeyboardButtonClickedListener.onKeyboardClick(KeyType.K_BACKSPACE);
+                mKeyboardButtonClickedListener.onKeyboardClick(KeyboardButtonView.KeyType.K_BACKSPACE);
                 break;
             case R.id.pin_code_button_10:// back
-                mKeyboardButtonClickedListener.onKeyboardClick(KeyType.K_BACK);
+                mKeyboardButtonClickedListener.onKeyboardClick(KeyboardButtonView.KeyType.K_BACK);
                 break;
             default:
                 break;
