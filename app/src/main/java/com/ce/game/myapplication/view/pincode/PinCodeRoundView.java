@@ -125,9 +125,9 @@ public class PinCodeRoundView extends RelativeLayout {
     public void setPinLength(int pinLength) {
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         for (int i = 0; i < pinLength; i++) {
-            ImageView roundView = (ImageView) inflater.inflate(R.layout.view_round, mRoundContainer, false);
-            mRoundContainer.addView(roundView);
-            mRoundViews.add(roundView);
+//            ImageView roundView = (ImageView) inflater.inflate(R.layout.view_round, mRoundContainer, false);
+//            mRoundContainer.addView(roundView);
+//            mRoundViews.add(roundView);
         }
         refresh(0);
     }
