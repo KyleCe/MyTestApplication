@@ -12,8 +12,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.blablaapp.launcher.R;
-
+import com.ce.game.myapplication.R;
 
 /**
  * Created by KyleCe on 2016/5/25.
