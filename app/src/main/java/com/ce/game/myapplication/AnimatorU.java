@@ -22,15 +22,15 @@ import com.ce.game.myapplication.util.ViewU;
  * AnimatorU.show(mContainer);
  * AnimatorU.show(mContainer, AnimatorU.Direction.left);
  * AnimatorU.show(mContainer, 1000);
- * AnimatorU.show(mContainer, AnimatorU.Direction.right,mListener);
+ * AnimatorU.show(mContainer, AnimatorU.Direction.right,listener);
  * AnimatorU.show(mContainer, AnimatorU.Direction.top, 1000);
- * AnimatorU.show(mContainer, AnimatorU.Direction.bottom, 1000, mListener);
+ * AnimatorU.show(mContainer, AnimatorU.Direction.bottom, 1000, listener);
  * AnimatorU.show(AnimatorU.AnimationType.self,mContainer);
  * AnimatorU.show(AnimatorU.AnimationType.self,mContainer, AnimatorU.Direction.left);
  * AnimatorU.hide(AnimatorU.AnimationType.parent,mContainer, 1000);
- * AnimatorU.show(AnimatorU.AnimationType.parent,mContainer, AnimatorU.Direction.right, mListener);
+ * AnimatorU.show(AnimatorU.AnimationType.parent,mContainer, AnimatorU.Direction.right, listener);
  * AnimatorU.show(AnimatorU.AnimationType.parent,mContainer, AnimatorU.Direction.top, 1000);
- * AnimatorU.hide(AnimatorU.AnimationType.parent,mContainer, AnimatorU.Direction.bottom, 1000,mListener);
+ * AnimatorU.hide(AnimatorU.AnimationType.parent,mContainer, AnimatorU.Direction.bottom, 1000,listener);
  */
 public class AnimatorU {
 
@@ -119,55 +119,55 @@ public class AnimatorU {
     }
 
     public static void hide(View v) {
-        show(v, DEFAULT_DIRECTION);
+        hide(v, DEFAULT_DIRECTION);
     }
 
     public static void hide(View v, final long duration) {
-        show(v, DEFAULT_DIRECTION, duration);
+        hide(v, DEFAULT_DIRECTION, duration);
     }
 
     public static void hide(View v, @Direction String direction) {
-        show(v, direction, DEFAULT_ANIM_DURATION);
+        hide(v, direction, DEFAULT_ANIM_DURATION);
     }
 
     public static void hide(View v, final Animation.AnimationListener listener) {
-        show(v, DEFAULT_DIRECTION, DEFAULT_ANIM_DURATION, listener);
+        hide(v, DEFAULT_DIRECTION, DEFAULT_ANIM_DURATION, listener);
     }
 
     public static void hide(View v, @Direction String direction, final long duration) {
-        show(v, direction, duration, null);
+        hide(v, direction, duration, null);
     }
 
     public static void hide(View v, @Direction String direction, final Animation.AnimationListener listener) {
-        show(v, direction, DEFAULT_ANIM_DURATION, listener);
+        hide(v, direction, DEFAULT_ANIM_DURATION, listener);
     }
 
     public static void hide(View v, @Direction String direction, final long duration, final Animation.AnimationListener listener) {
-        show(DEFAULT_ANIMATION_TYPE, v, direction, duration, listener);
+        hide(DEFAULT_ANIMATION_TYPE, v, direction, duration, listener);
     }
 
     public static void hide(@AnimationType final int type, View v) {
-        show(type, v, DEFAULT_DIRECTION);
+        hide(type, v, DEFAULT_DIRECTION);
     }
 
     public static void hide(@AnimationType final int type, View v, final long duration) {
-        show(type, v, DEFAULT_DIRECTION, duration);
+        hide(type, v, DEFAULT_DIRECTION, duration);
     }
 
     public static void hide(@AnimationType final int type, View v, final Animation.AnimationListener listener) {
-        show(type, v, DEFAULT_DIRECTION, DEFAULT_ANIM_DURATION, listener);
+        hide(type, v, DEFAULT_DIRECTION, DEFAULT_ANIM_DURATION, listener);
     }
 
     public static void hide(@AnimationType final int type, View v, @Direction String direction) {
-        show(type, v, direction, DEFAULT_ANIM_DURATION);
+        hide(type, v, direction, DEFAULT_ANIM_DURATION);
     }
 
     public static void hide(@AnimationType final int type, View v, @Direction String direction, final long duration) {
-        show(type, v, direction, duration, null);
+        hide(type, v, direction, duration, null);
     }
 
     public static void hide(@AnimationType final int type, View v, @Direction String direction, final Animation.AnimationListener listener) {
-        show(type, v, direction, DEFAULT_ANIM_DURATION, listener);
+        hide(type, v, direction, DEFAULT_ANIM_DURATION, listener);
     }
 
     public static void hide(@AnimationType final int type, final View v, @Direction String direction, final long duration, final Animation.AnimationListener listener) {
@@ -197,7 +197,6 @@ public class AnimatorU {
         v.startAnimation(anim);
     }
 
-
     private static final float mShowAnimArray[][] = {
             {-1.f, .0f, .0f, .0f},
             {.0f, .0f, -1.0f, .0f},
@@ -223,7 +222,7 @@ public class AnimatorU {
             case Direction.bottom:
                 return new TranslateAnimation(type, xy[3][0], type, xy[3][1], type, xy[3][2], type, xy[3][3]);
             default:
-                throw new UnsupportedOperationException("unsupported mDirection");
+                throw new UnsupportedOperationException("unsupported direction");
         }
     }
 
@@ -305,9 +304,9 @@ public class AnimatorU {
     }
 
     /**
-     * get the scale from mView center for mDuration
+     * get the scale from view center for duration
      *
-     * @param duration mDuration for anim
+     * @param duration duration for anim
      * @return the scale anim
      */
     private static ScaleAnimation scaleToLocationAnimFromCenter(long duration) {
@@ -328,10 +327,10 @@ public class AnimatorU {
     }
 
     /**
-     * scale to location from mView self center
+     * scale to location from view self center
      *
-     * @param view     mView to scale
-     * @param duration mDuration for anim unit: milliseconds, 1second is good for a whole screen mView
+     * @param view     view to scale
+     * @param duration duration for anim unit: milliseconds, 1second is good for a whole screen view
      */
     public static void scaleToLocationFromCenter(View view, long duration) {
         if (view == null) return;
@@ -343,7 +342,7 @@ public class AnimatorU {
     /**
      * get the alpha anim
      *
-     * @param duration mDuration for anim
+     * @param duration duration for anim
      * @param from     from alpha
      * @param to       to alpha
      * @return the alpha anim
@@ -363,21 +362,21 @@ public class AnimatorU {
     }
 
     /**
-     * alpha out mView
+     * alpha out view
      *
-     * @param view     mView to scale
-     * @param duration mDuration for anim unit: milliseconds
+     * @param view     view to scale
+     * @param duration duration for anim unit: milliseconds
      */
     public static void alphaOut(View view, long duration) {
         alphaOut(view, duration, null);
     }
 
     /**
-     * alpha out mView
+     * alpha out view
      *
-     * @param view     mView to scale
-     * @param duration mDuration for anim unit: milliseconds
-     * @param listener anim mListener to set
+     * @param view     view to scale
+     * @param duration duration for anim unit: milliseconds
+     * @param listener anim listener to set
      */
     public static void alphaOut(View view, long duration, Animation.AnimationListener listener) {
         if (view == null) return;
@@ -385,7 +384,7 @@ public class AnimatorU {
         AlphaAnimation anim = alphaAnim(1, 0, duration);
         if (listener != null) anim.setAnimationListener(listener);
 
-        // should use the start instead of set fun, otherwise the mListener may not take effect
+        // should use the start instead of set fun, otherwise the listener may not take effect
         view.startAnimation(anim);
     }
 
@@ -397,10 +396,10 @@ public class AnimatorU {
     }
 
     /**
-     * alpha out mView
+     * alpha out view
      *
-     * @param view     mView to scale
-     * @param duration mDuration for anim unit: milliseconds
+     * @param view     view to scale
+     * @param duration duration for anim unit: milliseconds
      */
     public static void alphaIn(View view, long duration) {
         if (view == null) return;
@@ -447,9 +446,9 @@ public class AnimatorU {
     /**
      * show from screen right to left
      *
-     * @param view     mView to show
-     * @param dura     mDuration
-     * @param listener animator mListener to attach
+     * @param view     view to show
+     * @param dura     duration
+     * @param listener animator listener to attach
      */
     public static void showFromRightToLeft(View view, long dura, Animation.AnimationListener listener) {
         if (view == null) return;
