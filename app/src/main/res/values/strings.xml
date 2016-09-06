@@ -42,4 +42,504 @@
     <string name="lock_home_first_launch_guide_left_swipe_title">Left slide</string>
     <string name="lock_home_first_launch_guide_left_swipe_description">Come into guest mode</string>
 
+    <!--old-->
+
+
+    <!-- URI used to import old favorites. [DO NOT TRANSLATE] -->
+    <string name="old_launcher_provider_uri" translatable="false">content://com.android.launcher2.settings/favorites?notify=true</string>
+
+    <!-- Permission to receive the com.android.launcher3.action.LAUNCH intent. [DO NOT TRANSLATE] -->
+    <string name="receive_launch_broadcasts_permission" translatable="false">com.android.launcher3.permission.RECEIVE_LAUNCH_BROADCASTS</string>
+
+    <!-- Permission to receive the com.android.launcher3.action.FIRST_LOAD_COMPLETE intent. [DO NOT TRANSLATE] -->
+    <string name="receive_first_load_broadcast_permission" translatable="false">com.android.launcher3.permission.RECEIVE_FIRST_LOAD_BROADCAST</string>
+
+    <!-- Application name -->
+    <string name="application_name">BlaBla Privacy</string>
+    <!-- Default folder name -->
+    <string name="folder_name"></string>
+    <!-- Work folder name -->
+    <string name="work_folder_name">Work</string>
+    <!-- Displayed when user selects a shortcut for an app that was uninstalled [CHAR_LIMIT=none]-->
+    <string name="activity_not_found">App isn\'t installed.</string>
+    <!-- Displayed when user selects a shortcut for an app that is current not available [CHAR_LIMIT=none]-->
+    <string name="activity_not_available">App isn\'t available</string>
+    <!-- SafeMode shortcut error string -->
+    <string name="safemode_shortcut_error">Downloaded app disabled in Safe mode</string>
+    <!-- SafeMode widget error string -->
+    <string name="safemode_widget_error">Widgets disabled in Safe mode</string>
+
+    <string name="toggle_weight_watcher">Show Mem</string>
+
+    <!-- Widgets -->
+    <!-- Message to tell the user to press and hold on a widget to add it [CHAR_LIMIT=50] -->
+    <string name="long_press_widget_to_add">Touch &amp; hold to pick up a widget.</string>
+    <!-- The format string for the dimensions of a widget in the drawer -->
+    <!-- There is a special version of this format string for Farsi -->
+    <string name="widget_dims_format">%1$d \u00d7 %2$d</string>
+
+    <!-- All Apps -->
+    <string name="all_apps_add">Add</string>
+    <!-- Search bar text in the apps view. [CHAR_LIMIT=50] -->
+    <string name="all_apps_search_bar_hint">Search Apps</string>
+    <!-- Loading apps text. [CHAR_LIMIT=50] -->
+    <string name="all_apps_loading_message">Loading Apps&#8230;</string>
+    <!-- No-search-results text. [CHAR_LIMIT=50] -->
+
+    <!-- Drag and drop -->
+    <skip/>
+    <!-- Error message when user has filled a home screen -->
+    <string name="out_of_space">No more room on this Home screen.</string>
+    <!-- Error message when user has filled the hotseat -->
+    <string name="hotseat_out_of_space">No more room in the Favorites tray</string>
+
+    <!-- All applications label -->
+    <string name="all_apps_button_label">Apps</string>
+    <!-- Label for button in all applications label to go back home (to the workspace / desktop)
+         for accessibilty (spoken when the button gets focus). -->
+    <string name="all_apps_home_button_label">Home</string>
+
+    <!-- Label for delete drop target. [CHAR_LIMIT=20] -->
+    <string name="delete_target_label">Remove</string>
+    <!-- Label for uninstall drop target. [CHAR_LIMIT=20]-->
+    <string name="delete_target_uninstall_label">Uninstall</string>
+    <!-- Label for the info icon. [CHAR_LIMIT=20] -->
+    <string name="info_target_label">App info</string>
+
+    <!-- Permissions: -->
+    <skip/>
+    <!-- Permission short label -->
+    <string name="permlab_install_shortcut">install shortcuts</string>
+    <!-- Permission description -->
+    <string name="permdesc_install_shortcut">Allows an app to add
+        shortcuts without user intervention.</string>
+    <!-- Permission short label -->
+    <string name="permlab_read_settings">read Home settings and shortcuts</string>
+    <!-- Permission description -->
+    <string name="permdesc_read_settings">Allows the app to read the settings and
+        shortcuts in Home.</string>
+    <!-- Permission short label -->
+    <string name="permlab_write_settings">write Home settings and shortcuts</string>
+    <!-- Permission description -->
+    <string name="permdesc_write_settings">Allows the app to change the settings and
+        shortcuts in Home.</string>
+
+    <!-- Widgets: -->
+    <skip/>
+
+    <!-- Text to show user in place of a gadget when we can't display it properly -->
+    <string name="gadget_error_text">Problem loading widget</string>
+
+    <!-- Text to show user in place of a gadget when it is not yet initialized. -->
+    <string name="gadget_setup_text">Setup</string>
+
+    <!-- Text to inform the user that they can't uninstall a system application -->
+    <string name="uninstall_system_app_text">This is a system app and can\'t be uninstalled.</string>
+
+    <!-- Default folder title -->
+    <string name="folder_hint_text">Unnamed Folder</string>
+
+    <!-- Accessibility -->
+    <skip/>
+
+    <!-- The format string for default page scroll text [CHAR_LIMIT=none] -->
+    <string name="default_scroll_format">Page %1$d of %2$d</string>
+    <!-- The format string for Workspace page scroll text [CHAR_LIMIT=none] -->
+    <string name="workspace_scroll_format">Home screen %1$d of %2$d</string>
+
+    <!-- Clings -->
+    <!-- The title text for the workspace cling [CHAR_LIMIT=30] -->
+    <string name="first_run_cling_title">Welcome</string>
+    <!-- The title text for the migration cling [CHAR_LIMIT=30] -->
+    <string name="migration_cling_title">Copy your app icons</string>
+    <!-- The description of what migration does [CHAR_LIMIT=70] -->
+    <string name="migration_cling_description">Import icons and folders from your old Home screens?</string>
+    <!-- The description of the button to migrate apps from another launcher [CHAR_LIMIT=30] -->
+    <string name="migration_cling_copy_apps">COPY ICONS</string>
+    <!-- The description of the button to use the default launcher layout [CHAR_LIMIT=30] -->
+    <string name="migration_cling_use_default">START FRESH</string>
+    <!-- The title text for workspace longpress action [CHAR_LIMIT=40] -->
+    <string name="workspace_cling_longpress_title">Wallpapers, widgets, &amp; settings</string>
+    <!-- The description of how to use the workspace [CHAR_LIMIT=70] -->
+    <string name="workspace_cling_longpress_description">Touch &amp; hold background to customize</string>
+    <!-- The description of the button to dismiss the cling [CHAR_LIMIT=30] -->
+    <string name="workspace_cling_longpress_dismiss">GOT IT</string>
+
+    <!-- Folder accessibility -->
+    <!-- The format string for when a folder is opened, speaks the dimensions -->
+    <!-- Instruction that clicking outside will close folder -->
+    <string name="folder_tap_to_close">Touch to close folder</string>
+    <!-- Instruction that clicking outside will commit folder rename -->
+    <string name="folder_tap_to_rename">Touch to save rename</string>
+    <!-- Indication that folder closed -->
+    <string name="folder_closed">Folder closed</string>
+
+    <!-- Debug-only activity name. [DO NOT TRANSLATE] -->
+    <string name="debug_memory_activity" translatable="false">* HPROF</string>
+
+    <!-- Strings for the customization mode -->
+    <!-- Text for widget add button -->
+    <string name="widget_button_text">Widgets</string>
+    <!-- Text for wallpaper change button -->
+    <string name="wallpaper_button_text">Wallpapers</string>
+    <!-- Text for settings button -->
+    <string name="settings_button_text">Settings</string>
+
+    <!-- Strings for settings -->
+    <!-- Title for Allow Rotation setting. [CHAR LIMIT=50] -->
+    <string name="allow_rotation_title">Allow rotation</string>
+
+    <!-- Label on an icon that references an uninstalled package, for which we have no information about when it might be installed. [CHAR_LIMIT=15] -->
+    <string name="package_state_unknown">Unknown</string>
+
+    <!-- Button for abandoned promises dialog, to removes this abandoned promise icon. -->
+    <string name="abandoned_clean_this">Remove</string>
+    <!-- Button for abandoned promise dialog, to search in the market for the missing package. -->
+    <string name="abandoned_search">Search</string>
+    <!-- Title for abandoned promise dialog. -->
+    <string name="abandoned_promises_title">This app is not installed</string>
+    <!-- Explanation for abandoned promise dialog. "The first 'it' refers to the shortcut icon.
+    The second "it" refers to the app. -->
+    <string name="abandoned_promise_explanation">The app for this icon isn\'t installed.
+        You can remove it, or search for the app and install it manually.
+    </string>
+
+    <!-- Strings for accessibility actions -->
+    <!-- Accessibility action to add an app to workspace. [CHAR_LIMIT=30] -->
+    <string name="action_add_to_workspace">Add to Home screen</string>
+
+    <!-- Accessibility action to move item to the current location. [CHAR_LIMIT=30] -->
+    <string name="action_move_here">Move item here</string>
+
+    <!-- Accessibility confirmation for item added to workspace. -->
+    <string name="item_added_to_workspace">Item added to home screen</string>
+
+    <!-- Accessibility confirmation for item removed. -->
+    <string name="item_removed">Item removed</string>
+
+    <!-- Accessibility action to move an item on the workspace. [CHAR_LIMIT=30] -->
+    <string name="action_move">Move item</string>
+
+
+    <!-- Accessibility confirmation for item move. -->
+    <string name="item_moved">Item moved</string>
+
+    <!-- Accessibility confirmation for folder created. -->
+    <string name="folder_created">Folder created</string>
+
+    <!-- Accessibility action to move an item from folder to workspace. [CHAR_LIMIT=30] -->
+    <string name="action_move_to_workspace">Move to Home screen</string>
+
+    <!-- Accessibility action to move an homescreen to the left. [CHAR_LIMIT=30] -->
+    <string name="action_move_screen_left">Move screen to left</string>
+
+    <!-- Accessibility action to move an homescreen to the right. [CHAR_LIMIT=30] -->
+    <string name="action_move_screen_right">Move screen to right</string>
+
+    <!-- Accessibility confirmation when a screen was moved. -->
+    <string name="screen_moved">Screen moved</string>
+
+    <!-- Accessibility action to resize a widget. [CHAR_LIMIT=30] -->
+    <string name="action_resize">Resize</string>
+
+    <!-- Accessibility action to increase width of a widget. [CHAR_LIMIT=30] -->
+    <string name="action_increase_width">Increase width</string>
+
+    <!-- Accessibility action to increase height of a widget. [CHAR_LIMIT=30] -->
+    <string name="action_increase_height">Increase height</string>
+
+    <!-- Accessibility action to decrease width of a widget. [CHAR_LIMIT=30] -->
+    <string name="action_decrease_width">Decrease width</string>
+
+    <!-- Accessibility action to decrease height of a widget. [CHAR_LIMIT=30] -->
+    <string name="action_decrease_height">Decrease height</string>
+
+    <!-- Accessibility confirmation for widget resize. -->
+
+    <!--for PIN Code-->
+    <string name="button1_large_text" translatable="false">1</string>
+    <string name="button2_large_text" translatable="false">2</string>
+    <string name="button2_small_text" translatable="false">ABC</string>
+    <string name="button3_large_text" translatable="false">3</string>
+    <string name="button3_small_text" translatable="false">DEF</string>
+    <string name="button4_large_text" translatable="false">4</string>
+    <string name="button4_small_text" translatable="false">GHI</string>
+    <string name="button5_large_text" translatable="false">5</string>
+    <string name="button5_small_text" translatable="false">JKL</string>
+    <string name="button6_large_text" translatable="false">6</string>
+    <string name="button6_small_text" translatable="false">MNO</string>
+    <string name="button7_large_text" translatable="false">7</string>
+    <string name="button7_small_text" translatable="false">PQRS</string>
+    <string name="button8_large_text" translatable="false">8</string>
+    <string name="button8_small_text" translatable="false">TUV</string>
+    <string name="button9_large_text" translatable="false">9</string>
+    <string name="button9_small_text" translatable="false">WXYZ</string>
+    <string name="button11_large_text" translatable="false">0</string>
+
+
+    <!--custom view description-->
+    <!--first launch guide description-->
+    <string name="fl_first_title">New variety of desktop</string>
+    <string name="fl_first_subtitle">One desktop,multiple accounts\nEnjoy you own account at BlaBla Privacy</string>
+    <string name="fl_second_title">Set a family account</string>
+    <string name="fl_second_subtitle">Maintain the balance between family and \n privacy, free you from worries</string>
+    <string name="fl_third_title">Set a friendship account</string>
+    <string name="fl_third_subtitle">Friendship is dear, but \nprivacy protection is dearer</string>
+    <string name="fl_forth_title">Set a PIN Code to start your private account</string>
+    <string name="fl_create_account_btn_on_last_page">LET\'S GO</string>
+
+    <!--for create user-->
+    <string name="user_system_settings">User System Settings</string>
+    <string name="pin_code_password_default_hint">Please enter PIN Code</string>
+    <string name="pin_code_password_incorrect">Incorrect, please try again</string>
+    <string name="pin_code_retry_after_prefix">Please try again after %d </string>
+    <string name="pin_code_retry_after_suffix">\u0020seconds.</string>
+    <string name="pin_code_retry_after_suffix_for_one_second">\u0020second.\u0020</string>
+    <string name="pw_hint">Please enter 4 numbers</string>
+    <string name="pw_error">only support digital PIN Code</string>
+    <string name="ps_exist">PIN Code exists,please reset</string>
+    <string name="pw_edit_error">The PIN Code must be a four digit number</string>
+    <string name="hint">Please enter a user name</string>
+    <string name="name_error">Letters and numbers, @#$^ not allowed except</string>
+    <string name="name_type_error">Support in English, Chinese and underline</string>
+    <string name="name_max_error">Use name 16 characters maximum</string>
+    <string name="create_an_account">Create account</string>
+    <string name="more_actions">More Settings</string>
+    <string name="hide_applications">Hide Applications</string>
+    <string name="set_wallpaper">Set Wallpaper</string>
+    <string name="user_type">User type:</string>
+    <string name="password">PIN Code:</string>
+    <string name="save">Save</string>
+    <string name="hide">Hide</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="whether_sure_to_delete_the_account">Confirmed to delete?</string>
+    <string name="you_can_find">You can re-display the hidden app in settings</string>
+    <string name="turn_left_slide">slide left to open</string>
+    <string name="lock_screen_then_slide_left">Lock screen then slide left</string>
+
+    <!--for set wallpaper-->
+    <!-- Button label on Wallpaper picker screen; user selects this button to set a specific wallpaper -->
+    <string name="wallpaper_instructions">Set wallpaper</string>
+    <!-- Error message when an image is selected as a wallpaper,
+         but the wallpaper picker cannot load it -->
+    <string name="image_load_fail">Couldn\'t load image</string>
+    <!-- Error message when an image is selected as a wallpaper,
+         but the wallpaper cropper cannot load it. The user will
+         usually see this when using another app and trying to set
+         an image as the wallpaper -->
+    <string name="wallpaper_load_fail">Couldn\'t load image as wallpaper</string>
+    <!-- Shown when wallpapers are selected in Wallpaper picker -->
+    <!-- String indicating how many media item(s) is(are) selected
+            eg. 1 selected [CHAR LIMIT=30] -->
+    <plurals name="number_of_items_selected">
+        <item quantity="zero">%1$d selected</item>
+        <item quantity="one">%1$d selected</item>
+        <item quantity="other">%1$d selected</item>
+    </plurals>
+    <!-- Accessibility string used as a label for a particular wallpaper in the Wallpaper Picker list.
+         e.g. "Wallpaper 3 of 10" -->
+    <string name="wallpaper_accessibility_name">Wallpaper %1$d of %2$d</string>
+    <!-- Accessibility string used to announce that a wallpaper has been selected. -->
+
+    <!-- Label on button to delete wallpaper(s) -->
+    <string name="wallpaper_delete">Delete</string>
+    <!-- Label on button in Wallpaper Picker to pick an image -->
+    <string name="pick_image">My photos</string>
+    <!-- Option in "Select wallpaper from" dialog box -->
+    <string name="pick_wallpaper">Wallpapers</string>
+    <!-- Title of activity for cropping wallpapers -->
+    <string name="crop_wallpaper">Crop wallpaper</string>
+
+    <!--for permission setting-->
+    <string name="permissions_open">Access Permission</string>
+    <string name="ps_assist_title">Open accessibility</string>
+    <string name="ps_assist_subtitle">Enable intelligent sleep mode,extend battery life</string>
+    <string name="ps_notify_title">Set notification bar</string>
+    <string name="ps_notify_subtitle">Hide push messages under other user account</string>
+    <string name="ps_home_title">Set as default desktop</string>
+    <string name="ps_switch_on_already">Already set.</string>
+    <string name="ps_switch_on_all_complete">Permission set done</string>
+    <string name="ps_title_bar_right_next">Next</string>
+    <string name="quit_permission_open">Grant BlaBla permission to have you own account, do you want to quit now?</string>
+    <string name="loading">Loading...</string>
+
+    <!--for weather-->
+    <string name="blabla_weather">BlaBla Weather</string>
+    <string name="weather_settings">Weather Settings</string>
+    <string name="temperature_units">Temperature Units</string>
+    <string name="add_city">Add City</string>
+    <string name="weather_settings_city">Search City</string>
+    <string name="weather_settings_autocity">Location</string>
+    <string name="loading_data">Loading data</string>
+    <string name="fail_to_locate">Fail to locate , please check the network</string>
+
+    <!--for launcher setting-->
+    <string name="blabla_settings">BlaBla Settings</string>
+    <string name="lock_screen_background_setting">Set lock screen</string>
+    <string name="blabla_privacy_policy">Privacy Policy</string>
+    <string name="Please_leave_your_valuable_advice">Please leave your valuable suggestions</string>
+    <string name="feed_back_dialog">Rate BlaBla Privacy with 5 stars,we will do better!</string>
+    <string name="thank_you">Thank you for your valuable advise</string>
+    <string name="about_us">About Us</string>
+    <string name="user_agreement">User Agreement</string>
+    <string name="privacy_agreement">Privacy Agreement</string>
+    <string name="evaluation">Rate It Now</string>
+    <string name="version">Version</string>
+    <string name="current_version">Current version:</string>
+    <string name="feedback">Feedback</string>
+    <string name="submit">Submit</string>
+    <string name="evaluation_feedback">Evaluation</string>
+    <string name="set_default_desktop">Set as default desktop</string>
+    <string name="open_permission">Open notification permission</string>
+    <string name="permission_help_text">After hiding Apps,open notification permission BlaBla will protect your privacy by closeing or deleting hidden App push messages under other user account.</string>
+    <string name="help">Help</string>
+
+
+    <string name="search_Apps">Search Apps</string>
+    <string name="unnamed_floder">unnamed floder</string>
+
+    <!--<string name="Set_succeed">Set succeed</string>-->
+    <!--<string name="My_photos">My photos</string>-->
+    <!--<string name="widgets">widgets</string>-->
+    <!--<string name="wallpapers">wallpapers</string>-->
+    <!--<string name="uninstall">Uninstall</string>-->
+
+    <!--others-->
+    <string name="facebook_app_id">504903803052269</string>
+
+
+    <!-- recent apps -->
+    <string name="recent_apps_empty_text">Not running any applications recently</string>
+    <string name="recent_apps_usage_text">%1$s of %2$s available</string>
+    <string name="recent_apps_clear_text">%1$s cleared | %2$s available</string>
+    <string name="recent_apps_clear_nothing_text">Nothing to clear in cache</string>
+
+    <!-- media activity-->
+    <string name="blabla_media">BlaBla Media</string>
+    <string name="private_space">Vault</string>
+    <string name="private_space_picture">Picture</string>
+    <string name="private_space_video">Video</string>
+    <string name="import_media_files">Import media files</string>
+    <string name="select_media_files">Select media files</string>
+    <string name="success_import">%d media files have been imported</string>
+    <string name="permission_settings">Permission settings</string>
+    <string name="click_to_complete">Click to complete</string>
+    <string name="select_picture">Select picture</string>
+    <string name="select_picture_count">Select picture(%d)</string>
+    <string name="select_video">Select Video</string>
+    <string name="select_video_count">Select Video(%d)</string>
+    <string name="private_space_finish">Finish</string>
+    <string name="private_space_delete">Delete</string>
+    <string name="private_space_export">Export</string>
+    <string name="private_space_file_visible">%d files are visible </string>
+    <string name="private_space_file_delete">%d media files will be deleted and action cannot be undone </string>
+    <string name="private_space_confirm_export">Confirm to export media files?</string>
+    <string name="private_space_file_export">%d media files have been exported</string>
+    <string name="private_space_visible_to_user">Visible to %s</string>
+    <string name="private_space_image_no_find">Images not found</string>
+    <string name="private_space_video_no_find">Videos not found</string>
+
+    <!--permission description-->
+    <string name="permissions_location_description">Please follow this guideline to enjoy BlaBla Privacy:\n
+        Go to Settings -> Apps -> BlaBla Privacy -> Permissions -> Location [ON]</string>
+    <string name="permissions_storage_description">Please follow this guideline to enjoy BlaBla Privacy:\n
+        Go to Settings -> Apps -> BlaBla Privacy -> Permissions -> Storage [ON]</string>
+    <string name="permissions_get_accounts_description">Please follow this guideline to enjoy BlaBla Privacy:\n
+        Go to Settings -> Apps -> BlaBla Privacy -> Permissions -> Contacts [ON]</string>
+
+    <!--4.0 newly added-->
+    <!--first launch set PIN Code-->
+    <string name="first_launch_set_password">Please set your PIN Code of private account</string>
+    <string name="first_launch_reenter_password">Confirm your PIN Code</string>
+    <string name="first_launch_do_not_match">PIN Codes do not match</string>
+    <string name="first_launch_reset_input">Reset PIN Code</string>
+    <!--create account guide dev-->
+    <string name="create_account_guide_description">Create another account avoid people spy on your privacy</string>
+    <string name="create_account_guide_dev_create">YES, SURE</string>
+    <string name="create_account_guide_dev_later">LATER</string>
+    <string name="create_account_guide_dev_finish_hint">Finish</string>
+    <!--set bla as default desktop-->
+    <string name="set_default_home_guide_description">Set BlaBla as default desktop start your private account</string>
+    <string name="set_default_home_guide_button">LET\'S GO</string>
+    <string name="set_default_home_guide_set_failure_tips_title">Tip</string>
+    <string name="set_default_home_guide_set_failure_tips_description">Without set \"BlaBla\" as default desktop, you cannot use all function.Will you want set BlaBla as default\?</string>
+    <string name="set_default_home_guide_set_failure_button_later">LATER</string>
+    <string name="set_default_home_guide_set_failure_button_retry">YES, SURE</string>
+    <string name="set_default_home_guide_set_compete_result_ok_hint">Bravo! We also have created a guest account for you. Now slide left to check it.</string>
+    <string name="set_default_home_guide_set_compete_result_fail_hint">If you do not want to set BlaBla as default, you can continue the process in BlaBla settings</string>
+    <string name="create_user_ok_hint">Congratulations，you can lock screen and use different PIN Code enter different account</string>
+    <string name="create_user_fail_hint">Add more account in BlaBla Settings>User System Settings</string>
+    <!--setting-->
+    <string name="setting_complete_hint">Setting Complete</string>
+    <string name="default_home_label_for_huawei">Home</string>
+
+    <!--<string name="Upload">Create account</string>-->
+    <string name="Error">Error</string>
+
+    <!--recentApp-->
+    <string name="resource_manager">Resource Manager</string>
+    <string name="no_application">No Application</string>
+
+    <!-- user uninstall-->
+    <string name="user_uninstall">Uninstall finish</string>
+    <string name="uninstall_app">Uninstall this app?</string>
+    <string name="uninstalling">Uninstall...</string>
+
+    <!-- folder-->
+    <string name="add_app">Add App</string>
+
+    <!--message_box-->
+    <string name="notification_title">BlaBla Message Box (%d)</string>
+    <string name="message_box">Message Box</string>
+    <string name="notification">Notifications</string>
+    <string name="operation_record">Operating history</string>
+    <string name="allow_notification">Allow notifications</string>
+    <string name="do_not_disturb">Do Not Disturb</string>
+    <string name="delete_all">Delete All</string>
+    <string name="no_messages">No Messages</string>
+    <string name="check_further_information">To check further information ?</string>
+    <string name="no_messages_click_here">Click here</string>
+    <string name="had_installed">Had installed</string>
+    <string name="had_uninstalled">Had blocked uninstall</string>
+    <string name="had_used">Had started</string>
+    <string name="block_startup">Had blocked startup</string>
+    <string name="had_checked">Had checked notification from</string>
+    <string name="block_notification">Had blocked notification from</string>
+    <string name="press_return_again_to_exit">Press return again to exit</string>
+    <string name="message_box_real_time">Real-time monitor and intercept of operating history and notifications</string>
+    <string name="click_open_blabla_privacy">Click \"BlaBla Privacy\" to open notification permission Hide push message under other user account</string>
+
+    <!--retrieve PIN Code-->
+    <string name="retrieve_password_forgot_password">Forgot PIN Code</string>
+    <string name="retrieve_password_already_exist">PIN Code exists, please reset</string>
+    <string name="retrieve_password_no_available_confirm">I got it</string>
+    <string name="retrieve_password_network_down">You\'re not connected to the internet</string>
+
+    <!--old-->
+
+    <!--5.0 kyle add-->
+    <string name="notification_subtitle">@string/notification_showcase_content</string>
+    <string name="notification_showcase_content" translatable="false">BlaBla detect some operating history from other user, would you want to check?</string>
+    <string name="notification_showcase_open" translatable="false">Open</string>
+    <string name="launcher_setting_message_box_title">@string/message_box</string>
+    <string name="message_box_shortcut_title">@string/message_box</string>
+    <string name="message_box_shortcut_description" translatable="false">Do you want to create a shortcut?</string>
+    <string name="first_start_up_guide_content_account" translatable="false">One smartphone, multi-accounts</string>
+    <string name="first_start_up_guide_content_password" translatable="false">Different PIN Code into different user account</string>
+    <string name="first_start_up_guide_content_lets_go_button">@string/fl_create_account_btn_on_last_page</string>
+    <string name="first_start_up_guide_content_start_button" translatable="false">Start</string>
+
+    <string name="guide_view_5_myself" translatable="false">MySelf</string>
+    <string name="guide_view_5_lover" translatable="false">Lover</string>
+    <string name="guide_view_5_colleague" translatable="false">Colleague</string>
+    <string name="guide_view_5_guest" translatable="false">Guest</string>
+    <string name="guide_view_5_ahead" translatable="false">By continuing, you accept our </string>
+    <string name="guide_view_5_term_of_service" translatable="false">\u0020<u>Term of Service</u></string>
+    <string name="guide_view_5_and" translatable="false">\u0020and\u0020</string>
+    <string name="guide_view_5_privacy" translatable="false"><u>Privacy Policy</u></string>
+    <string name="guide_view_5_let_go_button">@string/set_default_home_guide_button</string>
+    <string name="guide_view_5_text_on_phone_screen">@string/fl_forth_title</string>
+    <string name="guide_view_5_text_below_phone_second" translatable="false">Different PIN Code into \ndifferent user account</string>
 </resources>

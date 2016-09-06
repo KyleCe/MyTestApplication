@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:id="@+id/parent"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:background="@android:color/holo_green_light"
+    >
+
+    <com.ce.game.myapplication.view.ShowcasePinCode
+        android:id="@+id/showcase_pin_code"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/guide_view_5_myself"
+        android:orientation="vertical"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:orientation="vertical"
+        android:weightSum="5"
+        >
+
+        <TextView
+            android:id="@+id/set_pin_code_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_weight="4"
+            android:gravity="bottom|center_horizontal"
+            android:lineSpacingExtra="1sp"
+            android:text="@string/guide_view_5_text_on_phone_screen"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="6sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:visibility="visible"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+</FrameLayout>

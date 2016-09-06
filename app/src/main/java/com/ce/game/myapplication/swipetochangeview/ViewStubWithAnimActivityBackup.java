@@ -81,7 +81,7 @@ public class ViewStubWithAnimActivityBackup extends AppCompatActivity {
         content = (TextView) findViewById(R.id.fullscreen_content);
 //        content.setOnClickListener(new View.OnClickListener() {
 //            @Override
-//            public void onClick(View v) {
+//            public void onNumberClick(View v) {
 ////                ObjectAnimator.ofFloat(content, "translationX",
 ////                        0, -content.getWidth()).setDuration(1000).start();
 ////                AnimatorU.showFromTopToCenter(content);

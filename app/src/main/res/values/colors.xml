@@ -35,7 +35,24 @@
     <color name="retrieve_view_mismatch_dialog_hint_text">#90000000</color>
     <color name="retrieve_view_mismatch_dialog_continue">#3ca0da</color>
 
+
+    <!--for screen lock-->
+    <color name="dark_grey_color">#4a636f</color>
+    <color name="light_blue_500">#03a9f4</color>
     <color name="rippleColor">#03a9f4</color>
+    <color name="blue_gray">#4b636f</color>
+    <color name="light_gray">#f0f6f9</color>
+    <color name="dark_gray">#9baab2</color>
+    <color name="light_gray_bar">#eaf2f5</color>
+    <color name="white">#ffffff</color>
+    <color name="warning_color">#f4511e</color>
+    <color name="hint_color">#42000000</color>
+    <color name="success_color">#009688</color>
+
+    <!--retrieve password-->
+    <color name="retrieve_view_login_button_bg">#df4a32</color>
+    <color name="retrieve_view_no_available_dialog_hint_text">#595959</color>
+    <color name="retrieve_view_no_available_whole_bg">#90000000</color>
 
     <!--4.0 newly added-->
     <color name="forth_edition_guide_layout_outside_bg">#80000000</color>
@@ -49,4 +66,12 @@
     <color name="home_setting_fail_tips_title_color">#3ca0da</color>
     <color name="home_setting_complete_text">#595959</color>
     <color name="home_setting_complete_bg_color">#ffffff</color>
+
+    <!--5.0-->
+    <color name="guide_view_5_general">#66befa</color>
+    <color name="guide_view_5_myself">#24bad1</color>
+    <color name="guide_view_5_lover">#d92662</color>
+    <color name="guide_view_5_colleague">#1bb92a</color>
+    <color name="guide_view_5_guest">#f0bb1d</color>
+    <color name="guide_view_5_btn_text">#46a3fe</color>
 </resources>

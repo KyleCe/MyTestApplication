@@ -8,6 +8,8 @@ import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Shader;
 import android.view.Display;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
 
@@ -86,5 +88,11 @@ public final class DisplayUtil {
         wh[0] = size.x;
         wh[1] = size.y;
         return wh;
+    }
+
+    public static  <MLP extends ViewGroup.MarginLayoutParams>void setMargin(View v, int left, int top, int right, int bottom) {
+        MLP params = (MLP) v.getLayoutParams();
+        params.setMargins(left, top, right, bottom);
+        v.setLayoutParams(params);
     }
 }

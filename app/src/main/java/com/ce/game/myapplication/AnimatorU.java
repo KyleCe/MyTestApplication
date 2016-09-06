@@ -424,6 +424,23 @@ public class AnimatorU {
         view.setAnimation(alphaAnim(0, 1, duration));
     }
 
+    /**
+     * alpha out view
+     *
+     * @param view     view to scale
+     * @param duration duration for anim unit: milliseconds
+     * @param listener anim listener to set
+     */
+    public static void alphaIn(View view, long duration, Animation.AnimationListener listener) {
+        if (view == null) return;
+        view.setVisibility(View.VISIBLE);
+        AlphaAnimation anim = alphaAnim(0, 1, duration);
+        if (listener != null) anim.setAnimationListener(listener);
+
+        // should use the start instead of set fun, otherwise the listener may not take effect
+        view.startAnimation(anim);
+    }
+
 
     /**
      * @see #moveFromTo(float, float, float, float, long)

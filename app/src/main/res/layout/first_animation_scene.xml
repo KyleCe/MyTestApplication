@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:id="@+id/activity_guide_anim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/guide_view_5_general"
+        android:clipChildren="false"
+        android:orientation="vertical"
+        android:weightSum="100">
+
+        <FrameLayout
+            android:id="@+id/scene_area"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/small_phone_margin_x"
+            android:layout_marginRight="@dimen/small_phone_margin_x"
+            android:layout_weight="72"
+            >
+
+            <RelativeLayout
+                android:id="@+id/center_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_phone_margin_top"
+                >
+
+                <com.ce.game.myapplication.view.PhoneViewWithText
+                    android:id="@+id/phone_guest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <com.ce.game.myapplication.view.PhoneViewWithText
+                    android:id="@+id/phone_colleague"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <com.ce.game.myapplication.view.PhoneViewWithText
+                    android:id="@+id/phone_lover"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <com.ce.game.myapplication.view.PhoneViewWithList
+                    android:id="@+id/phone_myself"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+            </RelativeLayout>
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7"
+            />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="20"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/text_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_marginBottom="14dp"
+                android:gravity="center"
+                android:lineSpacingExtra="6dp"
+                android:text="@string/first_start_up_guide_content_account"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:id="@+id/text_button"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="@dimen/small_phone_lets_go_button_margin_bottom_very_first_scene"
+                android:layout_marginLeft="@dimen/small_phone_lets_go_button_margin_x_alias"
+                android:layout_marginRight="@dimen/small_phone_lets_go_button_margin_x_alias"
+                android:background="@drawable/first_anim_btn_bg"
+                android:gravity="center"
+                android:text="@string/first_start_up_guide_content_start_button"
+                android:textAllCaps="true"
+                android:textColor="@color/guide_view_5_btn_text"
+                android:textSize="20sp"
+                />
+
+            <LinearLayout
+                android:id="@+id/text_last_line_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/guide_view_5_ahead"
+                    android:textColor="@android:color/white"
+                    android:textSize="11sp"
+                    android:textStyle="normal"
+                    />
+
+                <TextView
+                    android:id="@+id/text_term_of_service"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/guide_view_5_term_of_service"
+                    android:textColor="@android:color/white"
+                    android:textSize="11sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/guide_view_5_and"
+                    android:textColor="@android:color/white"
+                    android:textSize="11sp"
+                    android:visibility="gone"
+                    />
+
+                <TextView
+                    android:id="@+id/text_privacy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/guide_view_5_privacy"
+                    android:textColor="@android:color/white"
+                    android:textSize="11sp"
+                    android:visibility="gone"
+                    />
+            </LinearLayout>
+
+        </FrameLayout>
+    </LinearLayout>
+
+</FrameLayout>

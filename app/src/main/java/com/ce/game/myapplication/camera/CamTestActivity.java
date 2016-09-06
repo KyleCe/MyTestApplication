@@ -79,7 +79,7 @@ public class CamTestActivity extends Activity {
         //		buttonClick = (Button) findViewById(R.id.btnCapture);
         //
         //		buttonClick.setOnClickListener(new OnClickListener() {
-        //			public void onClick(View v) {
+        //			public void onNumberClick(View v) {
         ////				preview.camera.takePicture(shutterCallback, rawCallback, jpegCallback);
         //				camera.takePicture(shutterCallback, rawCallback, jpegCallback);
         //			}

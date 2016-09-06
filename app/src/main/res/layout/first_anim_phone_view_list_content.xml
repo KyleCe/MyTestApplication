@@ -12,4 +12,12 @@
         android:layout_height="match_parent"
         />
 
+    <com.ce.game.myapplication.view.PinCodeScene
+        android:visibility="gone"
+        android:id="@+id/pin_code_scene_in_phone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.ce.game.myapplication.view.PinCodeScene>
+
 </FrameLayout>

@@ -197,7 +197,7 @@ public class RetrievePasswordView extends FrameLayout {
 //
 //            mNoAvailableAccountView.findViewById(R.id.no_account_available_confirm).setOnClickListener(new OnClickListener() {
 //                @Override
-//                public void onClick(View v) {
+//                public void onNumberClick(View v) {
 //                    if (mVerifyCallback != null) mVerifyCallback.cancel();
 //                }
 //            });
