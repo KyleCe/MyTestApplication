@@ -108,12 +108,29 @@ public class AnimatorU {
         show(type, v, direction, DEFAULT_ANIM_DURATION, listener);
     }
 
-    public static void show(@AnimationType final int type, View v, @Direction String direction, final long duration, final Animation.AnimationListener listener) {
+    public static void show(@AnimationType final int type,final View v, @Direction String direction, final long duration, final Animation.AnimationListener listener) {
         if (v == null || duration <= 0) return;
 
         TranslateAnimation anim = generateTranslateAnimation(mShowAnimArray, type, direction);
-        if (listener != null) anim.setAnimationListener(listener);
         anim.setDuration(duration);
+
+        anim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                if (listener != null) listener.onAnimationStart(animation);
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                if (listener != null) listener.onAnimationEnd(animation);
+                ViewU.show(v);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+                if (listener != null) listener.onAnimationRepeat(animation);
+            }
+        });
 
         v.startAnimation(anim);
     }
