@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/pin_code_round"
     android:layout_width="0dp"
-    android:layout_height="@dimen/small_phone_pin_code_round_size"
-    android:layout_margin="@dimen/small_phone_pin_code_round_margin"
+    android:layout_height="@dimen/pin_code_round_size"
+    android:layout_margin="@dimen/pin_code_round_margin"
     android:layout_weight="1"
-    android:maxHeight="@dimen/small_phone_pin_code_round_size"
-    android:maxWidth="@dimen/small_phone_pin_code_round_size"
+    android:maxHeight="@dimen/pin_code_round_size"
+    android:maxWidth="@dimen/pin_code_round_size"
     tools:src="@drawable/pin_code_round_empty" />
