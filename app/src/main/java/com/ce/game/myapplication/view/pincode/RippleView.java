@@ -50,6 +50,8 @@ public class RippleView extends RelativeLayout {
         }
     };
 
+    protected boolean mShowCaseMode = false;
+
     public RippleView(Context context) {
         super(context);
     }
@@ -194,12 +196,15 @@ public class RippleView extends RelativeLayout {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if(paint.getColor() == Color.TRANSPARENT){
+        if (paint.getColor() == Color.TRANSPARENT) {
             paint.setColor(rippleColor);
             paint.setAlpha(PAINT_ALPHA);
         }
 
-        if (gestureDetector.onTouchEvent(event)) {
+        if (mShowCaseMode) {
+            animateRipple(event);
+            sendClickEvent(false);
+        } else if (gestureDetector.onTouchEvent(event)) {
             animateRipple(event);
             sendClickEvent(false);
         }
@@ -228,6 +233,10 @@ public class RippleView extends RelativeLayout {
 
     public void setRippleAnimationListener(RippleAnimationListener rippleAnimationListener) {
         this.mAnimationListener = rippleAnimationListener;
+    }
+
+    public void setShowCaseMode(boolean showCaseMode) {
+        mShowCaseMode = showCaseMode;
     }
 }
 
