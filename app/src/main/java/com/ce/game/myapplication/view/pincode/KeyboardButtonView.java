@@ -115,4 +115,8 @@ public class KeyboardButtonView extends RelativeLayout implements RippleAnimatio
         onTouchEvent(event);
         return false;
     }
+
+    public RippleView getRippleView() {
+        return mRippleView;
+    }
 }

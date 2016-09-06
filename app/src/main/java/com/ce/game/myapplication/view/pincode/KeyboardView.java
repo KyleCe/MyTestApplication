@@ -146,4 +146,7 @@ public class KeyboardView extends RelativeLayout implements View.OnClickListener
             button.setOnRippleAnimationEndListener(mKeyboardButtonClickedListener);
     }
 
+    public List<KeyboardButtonView> getButtons() {
+        return mButtons;
+    }
 }
