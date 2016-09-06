@@ -43,11 +43,10 @@ public class MainActivity extends Activity {
 
         tvHello.setText("Front look !\n\t\t sometimes stay");
 
-        guideToDebugActivity();
-
+        guideToDebugActivity(null);
     }
 
-    private void guideToDebugActivity() {
+    public void guideToDebugActivity(View view) {
 //        startActivity(new Intent(context, LockOrOpenAdminSettingActivity.class));
 //        startActivity(new Intent(context, CameraResultActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 //        startActivity(new Intent(context, FontTextActivity.class));
@@ -78,9 +77,11 @@ public class MainActivity extends Activity {
 //        finish();
     }
 
+
     @Override
     public void onStart() {
         super.onStart();
+
 
     }
 
@@ -92,6 +93,8 @@ public class MainActivity extends Activity {
     public void clickButton2(View view) {
 //        startActivity(new Intent(context, GifSplitActivity.class).putExtra(Const.KEY, Const.TYPE_ONE));
         AnimatorU.show(mContainer, AnimatorU.Direction.left);
+
+
     }
 
     public void clickButton1(View view) {
@@ -99,11 +102,15 @@ public class MainActivity extends Activity {
         AnimatorU.hide(mContainer, AnimatorU.Direction.right);
 //        AnimatorU.show(mContainer,AnimatorU.Direction.right);
 
+//        mPhone.showItemCount(1);
+
     }
 
     public void clickButton3(View view) {
         AnimatorU.hide(mContainer, AnimatorU.Direction.top);
 //        AnimatorU.show(mContainer,AnimatorU.Direction.top);
+//        mPhone.showItemCount(3);
+
     }
 
     public void clickButton4(View view) {
@@ -117,5 +124,8 @@ public class MainActivity extends Activity {
                         DU.t(getApplicationContext(), "builder");
                     }})
                 .build().start();
+
+//        mPhone.showItemCount(4);
+
     }
 }
