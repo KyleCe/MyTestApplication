@@ -8,6 +8,7 @@ import android.util.TypedValue;
 import android.widget.TextView;
 
 import com.ce.game.myapplication.R;
+import com.ce.game.myapplication.util.FontMaster;
 
 /**
  * Created by KyleCe on 2016/5/23.
@@ -34,6 +35,8 @@ public class PhoneViewWithText extends PhoneView implements TextCustomInterface 
         mContainer.inflate(context, R.layout.first_anim_phone_view_text_content, mContainer);
 
         mTextView = (TextView) mContainer.findViewById(R.id.phone_frame_text);
+
+        FontMaster.with(context).font(FontMaster.Type.Kautiva).set(mTextView);
     }
 
 

@@ -10,12 +10,14 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ce.game.myapplication.AnimatorU;
 import com.ce.game.myapplication.R;
 import com.ce.game.myapplication.util.DisplayUtil;
+import com.ce.game.myapplication.util.FontMaster;
 import com.ce.game.myapplication.util.ViewU;
 
 /**
@@ -33,16 +35,40 @@ public class AnimationScene extends FrameLayout implements AnimationSceneInterfa
     private static final int BUTTON_TO_START = 2;
     private static final int PREPARE = 3;
     private static final int PIN_CODE_SCENE_COMPLETE = 4;
+    private static final int LAST_OK_BUTTON_CLICKED = 5;
+    private static final int HOLD_ON_BEFORE_TRANSFORM_TO_PIN_CODE = 6;
+
     private static final int SHOW = 714;
 
     protected final long DEFAULT_MOVING_DURATION = 500;
     protected final long DEFAULT_ALPHA_DURATION = 500;
+    protected final long DEFAULT_FINISH_MERGE_SNAP_DURATION = 1000;
 
-    final int DEFAULT_DESCRIPTION_UNDER_PHONE_LARGER_SIZE_SP = 25;
+    final float DEFAULT_DESCRIPTION_UNDER_PHONE_LARGER_SIZE_SP = 22.5f;
 
     protected CompleteCallback mCompleteCallback = CompleteCallback.NULL;
 
     final float HOLDING_RATIO = .435f;
+
+    PhoneViewWithText mGuestPhone;
+    PhoneViewWithText mColleaguePhone;
+    PhoneViewWithList mMyselfPhone;
+    PhoneViewWithText mLoverPhone;
+    int COLLEAGUE_INDEX = 2;
+
+    LinearLayout mSceneArea;
+
+    RelativeLayout mCenterParent;
+
+    protected TextView mTextDescription;
+    protected TextView mTextButton;
+    protected TextView mTextTermsOfService;
+    protected TextView mTextPrivacy;
+    protected View mTextLastLineParent;
+
+    // must use this trick, the animate() api has a bug @ 2016-9-2 18:25:27
+    protected int mGuestToX;
+    protected int mGuestToY;
 
     protected FirstAnimationSceneClickCallback mSceneClickCallback = FirstAnimationSceneClickCallback.NULL;
 
@@ -64,6 +90,48 @@ public class AnimationScene extends FrameLayout implements AnimationSceneInterfa
         init();
     }
 
+    private void init() {
+
+        mSceneArea = (LinearLayout) findViewById(R.id.scene_area);
+
+        mCenterParent = (RelativeLayout) findViewById(R.id.center_parent);
+
+        mTextDescription = (TextView) findViewById(R.id.text_description);
+        mTextButton = (TextView) findViewById(R.id.text_button);
+        mTextTermsOfService = (TextView) findViewById(R.id.text_term_of_service);
+        mTextPrivacy = (TextView) findViewById(R.id.text_privacy);
+        mTextLastLineParent = findViewById(R.id.text_last_line_parent);
+        mTextTermsOfService.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSceneClickCallback.onMenuOne();
+            }
+        });
+        mTextPrivacy.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSceneClickCallback.onMenuTwo();
+            }
+        });
+
+
+        mGuestPhone = (PhoneViewWithText) findViewById(R.id.phone_guest);
+        mColleaguePhone = (PhoneViewWithText) findViewById(R.id.phone_colleague);
+        mMyselfPhone = (PhoneViewWithList) findViewById(R.id.phone_myself);
+        mLoverPhone = (PhoneViewWithText) findViewById(R.id.phone_lover);
+
+        mHandler.sendEmptyMessageDelayed(PREPARE, 20);
+
+        mTextButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mHandler.sendEmptyMessage(BUTTON_TO_START);
+            }
+        });
+
+        FontMaster.with(getContext()).font(FontMaster.Type.Kautiva).set(mTextDescription);
+    }
+
     public void setCompleteCallback(CompleteCallback completeCallback) {
         mCompleteCallback = completeCallback;
     }
@@ -71,10 +139,6 @@ public class AnimationScene extends FrameLayout implements AnimationSceneInterfa
     public void setSceneClickCallback(FirstAnimationSceneClickCallback sceneClickCallback) {
         mSceneClickCallback = sceneClickCallback;
     }
-
-    // must use this trick, the animate() api has a bug @ 2016-9-2 18:25:27
-    protected int mGuestToX;
-    protected int mGuestToY;
 
     Handler mHandler = new Handler(Looper.getMainLooper()) {
         @Override
@@ -95,26 +159,12 @@ public class AnimationScene extends FrameLayout implements AnimationSceneInterfa
                     AnimatorU.alphaOut(mTextButton, DEFAULT_ALPHA_DURATION, new Animation.AnimationListener() {
                         @Override
                         public void onAnimationStart(Animation animation) {
-                            AnimatorU.alphaOut(mTextDescription, DEFAULT_ALPHA_DURATION, new Animation.AnimationListener() {
-                                @Override
-                                public void onAnimationStart(Animation animation) {
-                                    mTextButton.setClickable(false);
-                                }
 
-                                @Override
-                                public void onAnimationEnd(Animation animation) {
-                                    mTextDescription.setTextSize(TypedValue.COMPLEX_UNIT_SP, DEFAULT_DESCRIPTION_UNDER_PHONE_LARGER_SIZE_SP);
+                            mTextButton.setClickable(false);
+                            mTextDescription.setTextSize(TypedValue.COMPLEX_UNIT_SP, DEFAULT_DESCRIPTION_UNDER_PHONE_LARGER_SIZE_SP);
 
-                                    ViewU.hideAndShow(mTextButton, mTextDescription);
-                                    AnimatorU.alphaIn(mTextDescription);
-                                    startAnimationOperation();
-                                }
-
-                                @Override
-                                public void onAnimationRepeat(Animation animation) {
-
-                                }
-                            });
+                            ViewU.hideAndShow(mTextButton, mTextDescription);
+                            startAnimationOperation();
                         }
 
                         @Override
@@ -143,15 +193,18 @@ public class AnimationScene extends FrameLayout implements AnimationSceneInterfa
                             .withEndAction(new Runnable() {
                                 @Override
                                 public void run() {
-                                    mHandler.sendEmptyMessage(TRANSFER_TO_PIN_CODE_CUT);
-                                    AnimatorU.alphaOut(mTextDescription);
-                                    mTextDescription.setText(mContext.getResources().getString(R.string.guide_view_5_text_below_phone_second));
-                                    AnimatorU.alphaIn(mTextDescription);
-
-                                    mMyselfPhone.mPinCodeScene.onPrepare();
+                                    mHandler.sendEmptyMessageDelayed(HOLD_ON_BEFORE_TRANSFORM_TO_PIN_CODE,DEFAULT_FINISH_MERGE_SNAP_DURATION);
                                 }
                             })
                             .setDuration(DEFAULT_MOVING_DURATION).start();
+                    break;
+                case HOLD_ON_BEFORE_TRANSFORM_TO_PIN_CODE:
+                    mHandler.sendEmptyMessage(TRANSFER_TO_PIN_CODE_CUT);
+
+                    AnimatorU.alphaOut(mTextDescription);
+                    mMyselfPhone.mPinCodeScene.onPrepare();
+                    mTextDescription.setText(mContext.getResources().getString(R.string.guide_view_5_text_below_phone_second));
+                    AnimatorU.alphaIn(mTextDescription);
                     break;
                 case TRANSFER_TO_PIN_CODE_CUT:
 
@@ -182,7 +235,7 @@ public class AnimationScene extends FrameLayout implements AnimationSceneInterfa
 
                     break;
                 case PIN_CODE_SCENE_COMPLETE:
-                    AnimatorU.hide(mTextDescription, AnimatorU.Direction.bottom, new Animation.AnimationListener() {
+                    AnimatorU.alphaOut(mTextDescription, DEFAULT_ALPHA_DURATION, new Animation.AnimationListener() {
                         @Override
                         public void onAnimationStart(Animation animation) {
                             mTextButton.setText(getResources().getString(R.string.guide_view_5_let_go_button));
@@ -196,7 +249,8 @@ public class AnimationScene extends FrameLayout implements AnimationSceneInterfa
 
                         @Override
                         public void onAnimationEnd(Animation animation) {
-                            ViewU.show(mTextButton);
+                            ViewU.hide(mTextDescription);
+
                             mTextButton.setClickable(true);
                             DisplayUtil.setMargin(mTextButton
                                     , getResources().getDimensionPixelSize(R.dimen.small_phone_lets_go_button_margin_x_alias)
@@ -205,7 +259,7 @@ public class AnimationScene extends FrameLayout implements AnimationSceneInterfa
                                     , getResources().getDimensionPixelSize(R.dimen.small_phone_lets_go_button_margin_bottom_second_scene));
                             mTextButton.invalidate();
 
-                            AnimatorU.show(mTextButton, AnimatorU.Direction.bottom, new Animation.AnimationListener() {
+                            AnimatorU.alphaIn(mTextButton, DEFAULT_ALPHA_DURATION, new Animation.AnimationListener() {
                                 @Override
                                 public void onAnimationStart(Animation animation) {
 
@@ -308,63 +362,6 @@ public class AnimationScene extends FrameLayout implements AnimationSceneInterfa
                     .setDuration(DEFAULT_MOVING_DURATION).start();
         }
     };
-
-    PhoneViewWithText mGuestPhone;
-    PhoneViewWithText mColleaguePhone;
-    PhoneViewWithList mMyselfPhone;
-    PhoneViewWithText mLoverPhone;
-    int COLLEAGUE_INDEX = 2;
-
-    FrameLayout mSceneArea;
-
-    RelativeLayout mCenterParent;
-
-    protected TextView mTextDescription;
-    protected TextView mTextButton;
-    protected TextView mTextTermsOfService;
-    protected TextView mTextPrivacy;
-    protected View mTextLastLineParent;
-
-    private void init() {
-
-        mSceneArea = (FrameLayout) findViewById(R.id.scene_area);
-
-        mCenterParent = (RelativeLayout) findViewById(R.id.center_parent);
-
-        mTextDescription = (TextView) findViewById(R.id.text_description);
-        mTextButton = (TextView) findViewById(R.id.text_button);
-        mTextTermsOfService = (TextView) findViewById(R.id.text_term_of_service);
-        mTextPrivacy = (TextView) findViewById(R.id.text_privacy);
-        mTextLastLineParent = findViewById(R.id.text_last_line_parent);
-        mTextTermsOfService.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mSceneClickCallback.onMenuOne();
-            }
-        });
-        mTextPrivacy.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mSceneClickCallback.onMenuTwo();
-            }
-        });
-
-
-        mGuestPhone = (PhoneViewWithText) findViewById(R.id.phone_guest);
-        mColleaguePhone = (PhoneViewWithText) findViewById(R.id.phone_colleague);
-        mMyselfPhone = (PhoneViewWithList) findViewById(R.id.phone_myself);
-        mLoverPhone = (PhoneViewWithText) findViewById(R.id.phone_lover);
-
-        mHandler.sendEmptyMessageDelayed(PREPARE, 20);
-
-        mTextButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mHandler.sendEmptyMessage(BUTTON_TO_START);
-            }
-        });
-
-    }
 
     private <P extends PhoneViewWithText> void customPhone(P p, int i, int containerH) {
         setAsSmallPhone(containerH, p);

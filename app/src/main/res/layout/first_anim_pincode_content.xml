@@ -4,6 +4,8 @@
              android:id="@+id/parent"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
+             android:background="@drawable/first_anim_phone_inner_frame"
+             android:padding="1dp"
              tools:background="@android:color/holo_green_light"
     >
 
@@ -36,7 +38,7 @@
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="6sp"
-            android:textStyle="bold"
+            android:textStyle="normal"
             android:visibility="gone"
             tools:visibility="visible"
             />

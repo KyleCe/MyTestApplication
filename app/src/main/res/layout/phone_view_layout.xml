@@ -29,10 +29,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="94.8"
-            android:background="@android:color/transparent"
             android:orientation="horizontal"
             tools:background="@color/guide_view_5_general">
-
         </FrameLayout>
 
         <View

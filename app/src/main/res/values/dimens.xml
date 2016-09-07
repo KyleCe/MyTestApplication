@@ -78,10 +78,10 @@
     <dimen name="small_phone_margin_x">60dp</dimen>
     <dimen name="small_phone_margin_gap">50dp</dimen>
     <dimen name="small_phone_colleague_text_size">8sp</dimen>
-    <dimen name="small_phone_lets_go_button_margin_bottom_very_first_scene">20dp</dimen>
-    <dimen name="small_phone_lets_go_button_margin_bottom_first_scene">50dp</dimen>
-    <dimen name="small_phone_lets_go_button_margin_bottom_second_scene">70dp</dimen>
-    <dimen name="small_phone_lets_go_button_margin_x_alias">30dp</dimen>
+    <dimen name="small_phone_lets_go_button_margin_bottom_very_first_scene">45dp</dimen>
+    <dimen name="small_phone_lets_go_button_margin_bottom_first_scene">45dp</dimen>
+    <dimen name="small_phone_lets_go_button_margin_bottom_second_scene">60dp</dimen>
+    <dimen name="small_phone_lets_go_button_margin_x_alias">50dp</dimen>
     <dimen name="small_phone_below_description_larger_size">16sp</dimen>
 
 </resources>

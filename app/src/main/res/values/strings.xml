@@ -541,5 +541,5 @@
     <string name="guide_view_5_privacy" translatable="false"><u>Privacy Policy</u></string>
     <string name="guide_view_5_let_go_button">@string/set_default_home_guide_button</string>
     <string name="guide_view_5_text_on_phone_screen">@string/fl_forth_title</string>
-    <string name="guide_view_5_text_below_phone_second" translatable="false">Different PIN Code into \ndifferent user account</string>
+    <string name="guide_view_5_text_below_phone_second" translatable="false">Different PIN Code into different\nuser account</string>
 </resources>

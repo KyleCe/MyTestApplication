@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.ce.game.myapplication.AnimatorU;
 import com.ce.game.myapplication.R;
+import com.ce.game.myapplication.util.FontMaster;
 import com.ce.game.myapplication.util.ViewU;
 
 /**
@@ -36,8 +37,8 @@ public class PinCodeScene extends FrameLayout implements PinCodeSceneControl {
     private static final int COMPLETE = 105;
 
     protected final long DEFAULT_PREPARE_DELAY = 100;
-    protected final long DEFAULT_PRESS_DELAY = 500;
-    protected final long DEFAULT_DESKTOP_SHOWING_DURATION = 1500;
+    protected final long DEFAULT_PRESS_DELAY = 400;
+    protected final long DEFAULT_DESKTOP_SHOWING_DURATION = 1300;
 
     CompleteCallback mCompleteCallback = CompleteCallback.NULL;
 
@@ -69,6 +70,8 @@ public class PinCodeScene extends FrameLayout implements PinCodeSceneControl {
         mParent = (FrameLayout) findViewById(R.id.parent);
 
         mSetPinCodeText = (TextView) findViewById(R.id.set_pin_code_text);
+
+        FontMaster.with(context).font(FontMaster.Type.Kautiva).set(mSetPinCodeText);
     }
 
     Handler mHandler = new Handler(Looper.getMainLooper()) {
@@ -98,11 +101,13 @@ public class PinCodeScene extends FrameLayout implements PinCodeSceneControl {
                     AnimatorU.alphaOut(mShowcasePinCode, DEFAULT_PRESS_DELAY);
                     ViewU.hide(mShowcasePinCode);
 
-                    sendEmptyMessageDelayed(START_LOVER_ANIM, DEFAULT_PRESS_DELAY + DEFAULT_DESKTOP_SHOWING_DURATION);
+                    sendEmptyMessageDelayed(START_LOVER_ANIM, DEFAULT_DESKTOP_SHOWING_DURATION);
                     break;
                 case START_LOVER_ANIM:
                     mShowcasePinCode.setBackgroundColor(getResources().getColor(R.color.guide_view_5_lover));
-                    AnimatorU.alphaIn(mShowcasePinCode);
+//                    AnimatorU.alphaIn(mShowcasePinCode);
+                    ViewU.show(mShowcasePinCode);
+
                     startAnimation(mLoverPinArray);
 
                     sendEmptyMessageDelayed(SHOW_LOVER_BG, (mLoverPinArray.length + 1) * DEFAULT_PRESS_DELAY);
@@ -112,7 +117,7 @@ public class PinCodeScene extends FrameLayout implements PinCodeSceneControl {
                     AnimatorU.alphaOut(mShowcasePinCode, DEFAULT_PRESS_DELAY);
                     ViewU.hide(mShowcasePinCode);
 
-                    sendEmptyMessageDelayed(COMPLETE, DEFAULT_PRESS_DELAY + DEFAULT_DESKTOP_SHOWING_DURATION);
+                    sendEmptyMessageDelayed(COMPLETE, DEFAULT_DESKTOP_SHOWING_DURATION);
                     break;
                 case COMPLETE:
                     AnimatorU.alphaOut(mParent, DEFAULT_PRESS_DELAY, new Animation.AnimationListener() {

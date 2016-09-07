@@ -5,14 +5,17 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ce.game.myapplication.R;
+import com.ce.game.myapplication.util.DisplayUtil;
+import com.ce.game.myapplication.util.FontMaster;
+import com.ce.game.myapplication.util.ViewU;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +72,7 @@ public class PhoneViewWithList extends PhoneViewWithText {
         mContainer.postDelayed(new Runnable() {
             @Override
             public void run() {
-                mAdapter = new RecyclerViewAdapter(mContext, mTextList, PHONE_BG_ARRAY, mRecyclerView.getHeight());
+                mAdapter = new RecyclerViewAdapter(mContext, mTextList, PHONE_BG_ARRAY, mRecyclerView.getHeight(), mListContentParent);
 
                 mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
@@ -81,6 +84,8 @@ public class PhoneViewWithList extends PhoneViewWithText {
 
                 mRecyclerView.setAdapter(mAdapter);
 
+                ViewU.hide(mRecyclerView);
+
                 mTextList.clear();
                 for (int i = 0; i < DEFAULT_COUNT; i++) mTextList.add(i, PHONE_ROLE_ARRAY[i]);
             }
@@ -90,6 +95,13 @@ public class PhoneViewWithList extends PhoneViewWithText {
     public void showItemCount(int count) {
         if (count < 0 || count > DEFAULT_COUNT)
             throw new UnsupportedOperationException("unsupported index ::" + count);
+
+        if (mRecyclerView.getPaddingLeft() == 0){
+
+            ViewU.hideAndShow(mTextView,mRecyclerView);
+            mListContentParent.setBackgroundColor(mContext.getResources().getColor(R.color.guide_view_5_myself));
+            mRecyclerView.setPadding(DisplayUtil.dp2px(1), DisplayUtil.dp2px(1), DisplayUtil.dp2px(1), DisplayUtil.dp2px(1));
+        }
 
         mAdapter.addItem(mTextList.get(count));
 
@@ -113,39 +125,57 @@ public class PhoneViewWithList extends PhoneViewWithText {
 
         float mCarrierHeight;
 
-        public RecyclerViewAdapter(Context context, List<Integer> itemList, int[] colorArray, float height) {
+        ViewGroup mLayer;
+
+        public<VG extends ViewGroup> RecyclerViewAdapter(Context context, List<Integer> itemList
+                , int[] colorArray, float height, VG layer) {
             mTextArray = new ArrayList<>(0);
             mTextArray.addAll(itemList);
             mContext = context;
             mColorArray = colorArray;
             mCarrierHeight = height;
+
+            mLayer = layer;
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder {
 
             TextView mTextView;
+            FrameLayout mParent;
 
             public ViewHolder(View itemView) {
                 super(itemView);
 
-                mTextView = (TextView) itemView.findViewById(R.id.phone_frame_text);
+                mTextView = (TextView) itemView.findViewById(R.id.item_text);
+                mParent = (FrameLayout) itemView.findViewById(R.id.item_parent);
+
+                FontMaster.with(mContext).font(FontMaster.Type.Kautiva).set(mTextView);
             }
         }
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.first_anim_phone_view_text_content, parent, false);
+            View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.first_anim_phone_view_list_item_content, parent, false);
             ViewHolder holder = new ViewHolder(layoutView);
             return holder;
         }
 
         @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
-            holder.mTextView.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT
-                    , (int) (mCarrierHeight / getItemCount())));
+        public void onBindViewHolder(final ViewHolder holder, final int position) {
+            FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT
+                    , (int) (mCarrierHeight / getItemCount()));
+            lp.gravity = Gravity.CENTER;
+
+            holder.mTextView.setLayoutParams(lp);
+
+            holder.mParent.setLayoutParams(lp);
 
             holder.mTextView.setText(mContext.getString(mTextArray.get(position)));
+
             holder.mTextView.setBackgroundColor(mContext.getResources().getColor(mColorArray[position]));
+
+            mLayer.setBackgroundColor(mContext.getResources().getColor(mColorArray[position]));
+            holder.mParent.setBackgroundColor(mContext.getResources().getColor(mColorArray[position]));
         }
 
         @Override
@@ -156,7 +186,5 @@ public class PhoneViewWithList extends PhoneViewWithText {
         public void addItem(int index) {
             mTextArray.add(index);
         }
-
     }
-
 }
