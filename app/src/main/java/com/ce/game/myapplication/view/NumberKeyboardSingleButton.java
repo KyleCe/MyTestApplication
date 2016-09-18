@@ -28,8 +28,8 @@ public class NumberKeyboardSingleButton extends FrameLayout implements NumberBut
     @NumberKeyboardSingleButton.ButtonContent
     protected String mText;
 
-    protected float TEXT_SCALE_RATIO = .3f;
-    protected final float KEY_SCALE_RATIO = .8f;
+    protected float TEXT_SCALE_RATIO = .24f;
+//    protected final float KEY_SCALE_RATIO = .9f;
 
     public NumberKeyboardSingleButton(Context context) {
         this(context, null);
@@ -90,8 +90,8 @@ public class NumberKeyboardSingleButton extends FrameLayout implements NumberBut
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int measureSpec =(Math.min(widthMeasureSpec,heightMeasureSpec)  );
         int measureSize = measureSpec & View.MEASURED_SIZE_MASK;
-        measureSize *= KEY_SCALE_RATIO;
-        measureSpec = measureSpec & ~View.MEASURED_SIZE_MASK | measureSize;
+//        measureSize *= KEY_SCALE_RATIO;
+//        measureSpec = measureSpec & ~View.MEASURED_SIZE_MASK | measureSize;
         super.onMeasure(measureSpec, measureSpec);
 
         mTextView.setTextSize((measureSize * TEXT_SCALE_RATIO));

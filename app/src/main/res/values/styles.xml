@@ -29,7 +29,7 @@
         <item name="android:background">@color/black_overlay</item>
     </style>
 
-    <style name="ClickTextViewStyle" >
+    <style name="ClickTextViewStyle">
         <item name="android:clickable">true</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -41,4 +41,36 @@
 
     <!--//For GifView Declaration-->
     <style name="Widget.GifView" parent="@android:style/Widget"/>
+
+    <!--6.0-->
+    <style name="PinCodeButtonParent">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">19</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+    <style name="PinCodeButtonCol">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">25</item>
+        <item name="android:weightSum">100</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+    <style name="PinCodeButtonLeftRight">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_weight">13.5</item>
+    </style>
+    <style name="PinCodeButtonYGap">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">6</item>
+    </style>
+    <style name="PinCodeButtonGap">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_weight">8</item>
+    </style>
+
 </resources>

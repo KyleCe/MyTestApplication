@@ -84,4 +84,8 @@
     <dimen name="small_phone_lets_go_button_margin_x_alias">50dp</dimen>
     <dimen name="small_phone_below_description_larger_size">16sp</dimen>
 
+    <!--6.0-->
+    <dimen name="new_keyboard_num_gap_y_alias">12dp</dimen>
+    <dimen name="new_keyboard_num_gap_x_alias">15dp</dimen>
+
 </resources>

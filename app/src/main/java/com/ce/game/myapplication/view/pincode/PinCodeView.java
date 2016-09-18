@@ -23,6 +23,10 @@ import com.ce.game.myapplication.connectwithgoogle.RetrievePasswordView;
 import com.ce.game.myapplication.connectwithgoogle.VerifyCallback;
 import com.ce.game.myapplication.userguideanim.GuideViewInterface;
 import com.ce.game.myapplication.util.ViewU;
+import com.ce.game.myapplication.view.NumberKeyboardSingleButton;
+import com.ce.game.myapplication.view.newpincode.NumberKeyboardForUnlock;
+import com.ce.game.myapplication.view.newpincode.PinCodeAdapter;
+import com.ce.game.myapplication.view.newpincode.PressCallback;
 
 /**
  * Created by KyleCe on 2016/5/25.
@@ -31,7 +35,7 @@ import com.ce.game.myapplication.util.ViewU;
  */
 public class PinCodeView extends RelativeLayout implements View.OnTouchListener
         , KeyboardButtonClickedListener, LockViewInterface.Clickable
-        , LockViewInterface.ResetPinCodeView {
+        , LockViewInterface.ResetPinCodeView, PressCallback {
 
     private Context mContext;
 
@@ -148,8 +152,10 @@ public class PinCodeView extends RelativeLayout implements View.OnTouchListener
         mPinCodeRoundView.setPinLength(this.getPinLength());
         mPasswordHint = (TextView) this.findViewById(R.id.pin_code_password_hint);
         mPasswordHint.setOnTouchListener(this);
-        ((KeyboardView) this.findViewById(R.id.pin_code_keyboard_view)).setKeyboardButtonClickedListener(this);
-        ((KeyboardView) this.findViewById(R.id.pin_code_keyboard_view)).assignClickableController(this);
+//        ((KeyboardView) this.findViewById(R.id.pin_code_keyboard_view)).setKeyboardButtonClickedListener(this);
+//        ((KeyboardView) this.findViewById(R.id.pin_code_keyboard_view)).assignClickableController(this);
+
+        ((NumberKeyboardForUnlock) findViewById(R.id.new_keyboard)).setPressCallback(this);
 
         mDefaultHint = mContext.getString(R.string.pin_code_password_default_hint);
 
@@ -406,6 +412,11 @@ public class PinCodeView extends RelativeLayout implements View.OnTouchListener
         ViewU.show(mPasswordHint);
     }
 
+    @Override
+    public void onPress(@NumberKeyboardSingleButton.ButtonContent String key) {
+        onKeyboardClick(PinCodeAdapter.convertToOld(key));
+        onRippleAnimationEnd();
+    }
 
     @Override
     public void onKeyboardClick(@KeyboardButtonView.KeyType int keyType) {
