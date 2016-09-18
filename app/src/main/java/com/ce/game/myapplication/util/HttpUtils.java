@@ -81,7 +81,7 @@ public class HttpUtils {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            DU.closeSilently(is, baos);
+            EndingU.closeSilently(is, baos);
             if (conn != null) conn.disconnect();
         }
         return null;
