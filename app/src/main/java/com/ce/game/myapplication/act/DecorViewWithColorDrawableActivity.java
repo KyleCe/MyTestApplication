@@ -17,7 +17,7 @@ import android.view.Window;
 import com.ce.game.myapplication.R;
 import com.ce.game.myapplication.util.AboutPhoneU;
 import com.ce.game.myapplication.util.BitmapU;
-import com.ce.game.myapplication.util.DU;
+import com.ce.game.myapplication.util.ThreadPoolU;
 
 public class DecorViewWithColorDrawableActivity extends Activity {
 
@@ -46,7 +46,7 @@ public class DecorViewWithColorDrawableActivity extends Activity {
 //        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.wallpaper_01)
 //                .copy(Bitmap.Config.ARGB_8888, true);
 
-        DU.execute(new Runnable() {
+        ThreadPoolU.execute(new Runnable() {
             @Override
             public void run() {
                 Bitmap originalB = BitmapU.drawableToBitmap(getWindow().getDecorView().getBackground());
