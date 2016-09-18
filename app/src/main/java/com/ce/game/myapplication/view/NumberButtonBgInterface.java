@@ -7,7 +7,7 @@ package com.ce.game.myapplication.view;
  */
 
 public interface NumberButtonBgInterface {
-    void onSet();
+    void onHold();
 
     void onReset();
 }

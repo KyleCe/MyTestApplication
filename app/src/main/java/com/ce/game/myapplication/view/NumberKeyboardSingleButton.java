@@ -61,7 +61,7 @@ public class NumberKeyboardSingleButton extends FrameLayout implements NumberBut
         ViewU.setClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                onSet();
+                onHold();
             }
         }, mTextView, this);
 
@@ -77,7 +77,7 @@ public class NumberKeyboardSingleButton extends FrameLayout implements NumberBut
     }
 
     @Override
-    public void onSet() {
+    public void onHold() {
         mTextView.setBackgroundResource(R.drawable.first_anim_num_btn_bg_pressed);
     }
 
