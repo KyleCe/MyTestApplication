@@ -1,25 +1,13 @@
 package com.ce.game.myapplication.util;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.ServiceConnection;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.ce.game.myapplication.BuildConfig;
 
 import junit.framework.Assert;
-
-import java.io.Closeable;
-import java.io.IOException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
 
 /**
  * desc: debugU  改进版本
@@ -83,6 +71,30 @@ public class DU {
      */
     static public void sdb(Object... objs) {
         if (BuildConfig.DEBUG) sd(objs);
+    }
+
+    /**
+     * in short for
+     *
+     * @see #printWithAssert(Object...)
+     */
+    public static void pwa(Object... objects) {
+        printWithAssert(objects);
+    }
+
+    public static void printWithAssert(Object... objects) {
+        Assert.assertTrue(p(objects));
+    }
+
+    static public boolean p(Object... objects) {
+        if (!BuildConfig.DEBUG) return true;
+        StringBuilder sb = new StringBuilder();
+        for (Object o : objects)
+            if (o == null) continue;
+            else sb.append(o).append(" ");
+        System.out.println(sb);
+
+        return true;
     }
 
     /**
@@ -335,171 +347,7 @@ public class DU {
         return TextUtils.isEmpty(str);
     }
 
-
-    /**
-     * thread pool trick
-     */
-    private static ExecutorService sCachedThreadPoolExecutor;
-
-    /**
-     * get cached thread pool service
-     *
-     * @return thread pool service executor
-     */
-    public static ExecutorService getThreadPool() {
-        if (sCachedThreadPoolExecutor == null)
-            synchronized (DU.class) {
-                return sCachedThreadPoolExecutor == null ?
-                        Executors.newCachedThreadPool() : sCachedThreadPoolExecutor;
-            }
-        return sCachedThreadPoolExecutor;
-    }
-
-    /**
-     * execute runnable with thread pool
-     *
-     * @param runnable to execute
-     * @see #getThreadPool()
-     */
-    public static void execute(Runnable runnable) {
-        if (DU.isNull(runnable)) return;
-
-        getThreadPool().execute(runnable);
-    }
-
-    /**
-     * @see #post(long, Handler, Runnable)
-     */
-    public static void post(Handler handler, Runnable runnable) {
-        post(0, handler, runnable);
-    }
-
-    /**
-     * @param delay    delay to schedule
-     * @param handler  handler to handle runnable
-     * @param runnable to run
-     */
-    public static void post(long delay, Handler handler, Runnable runnable) {
-        if (handler == null) return;
-        if (runnable == null) return;
-        if (delay < 0) delay = Math.abs(delay);
-
-        handler.postDelayed(runnable, delay);
-    }
-
-
-    /**
-     * scheduled executor
-     */
-    private static final int MAX_SCHEDULE_COUNT = 5;
-    private static ScheduledExecutorService sScheduledExecutor;
-
-
-    /**
-     * get schedule executor service
-     *
-     * @return executor
-     */
-    public static ScheduledExecutorService getScheduledExecutor() {
-        if (sScheduledExecutor == null)
-            synchronized (DU.class) {
-                return sScheduledExecutor == null ? Executors.newScheduledThreadPool(MAX_SCHEDULE_COUNT)
-                        : sScheduledExecutor;
-            }
-
-        return sScheduledExecutor;
-    }
-
-    /**
-     * schedule a runnable of the period right now (in unit milliseconds)
-     *
-     * @param period   period
-     * @param runnable
-     */
-    public static ScheduledFuture schedule(long period, final Runnable runnable) {
-        return schedule(0, period, TimeUnit.MILLISECONDS, runnable);
-    }
-
-    /**
-     * schedule a runnable of the period after delay (in unit milliseconds)
-     *
-     * @param delay    delay to post
-     * @param period   period
-     * @param runnable
-     */
-    public static ScheduledFuture schedule(long delay, long period, final Runnable runnable) {
-        return schedule(delay, period, TimeUnit.MILLISECONDS, runnable);
-    }
-
-    /**
-     * schedule a runnable of the period right now (in unit milliseconds)
-     *
-     * @param delay    delay to post
-     * @param period   period
-     * @param unit     time unit
-     * @param runnable
-     */
-    public static ScheduledFuture schedule(long delay, long period, TimeUnit unit, final Runnable runnable) {
-        if (isNull(runnable)) return null;
-
-        return getScheduledExecutor().scheduleAtFixedRate(runnable, delay, period, unit);
-    }
-
-    public static long time() {
-        return System.currentTimeMillis();
-    }
-
-    public static <B extends BroadcastReceiver> void unregisterReceiverSafelyAndSetToNull(Context ctx, B b) {
-        if (b == null) return;
-
-        Assert.assertNotNull(ctx);
-
-        try {
-            ctx.unregisterReceiver(b);
-            b = null;
-        } catch (IllegalArgumentException lae) {
-            lae.printStackTrace();
-        }
-    }
-
-    public static <S extends ServiceConnection> void unbindServiceSafelyAndSetToNull(Context ctx, S s) {
-        if (s == null) return;
-
-        Assert.assertNotNull(ctx);
-
-        try {
-            ctx.unbindService(s);
-            s = null;
-        } catch (IllegalArgumentException lae) {
-            lae.printStackTrace();
-        }
-    }
-
     public static void assertNotNull(Object... objects) {
         for (Object o : objects) Assert.assertNotNull(o);
-    }
-
-    public static <B extends BroadcastReceiver> void abortBroadcastSafely(B b) {
-        assertNotNull(b);
-
-        try {
-            b.abortBroadcast();
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-    }
-
-
-    public static void closeSilently(Closeable... closeables) {
-        for (Closeable c : closeables) closeSilently(c);
-    }
-
-    public static void closeSilently(Closeable c) {
-        if (c == null) return;
-        try {
-            c.close();
-        } catch (IOException t) {
-            Log.w("close fail ", t);
-        }
     }
 }
