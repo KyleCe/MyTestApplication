@@ -7,10 +7,6 @@ package com.ce.game.myapplication.view;
  */
 
 public interface NumberButtonBgInterface {
-    void onPrepare();
-
-    void onScale(float scale);
-
     void onSet();
 
     void onReset();

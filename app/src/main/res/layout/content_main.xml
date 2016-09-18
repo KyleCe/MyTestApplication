@@ -35,6 +35,11 @@
             />
 
 
+        <com.ce.game.myapplication.view.newpincode.NumberKeyboardSingleButtonForUnlock
+            android:layout_width="120dp"
+            android:layout_height="120dp"/>
+
+
     </FrameLayout>
 
 

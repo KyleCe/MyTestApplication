@@ -62,6 +62,7 @@ public class MainActivity extends Activity {
 //        startActivity(new Intent(context, LeadActivity.class));
 //        startActivity(new Intent(context, CenterHandActivity.class));
         startActivity(new Intent(context, GuideAnimActivity.class));
+//        startActivity(new Intent(context, AllKeyboardActivity.class));
 //        startActivity(new Intent(context, TessActivity.class));
 //        startActivity(new Intent(context, SetImageFromWallpaperActivity.class));
 //        startActivity(new Intent(context, GoogleAccountActivity.class));

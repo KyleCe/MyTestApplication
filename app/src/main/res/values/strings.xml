@@ -526,8 +526,8 @@
     <string name="launcher_setting_message_box_title">@string/message_box</string>
     <string name="message_box_shortcut_title">@string/message_box</string>
     <string name="message_box_shortcut_description" translatable="false">Do you want to create a shortcut?</string>
-    <string name="first_start_up_guide_content_account" translatable="false">One smartphone, multi-accounts</string>
-    <string name="first_start_up_guide_content_password" translatable="false">Different PIN Code into different user account</string>
+    <string name="first_start_up_guide_content_account">One device, multi-accounts</string>
+    <string name="first_start_up_guide_content_password">Use different PIN Code into different accounts from Lock screen</string>
     <string name="first_start_up_guide_content_lets_go_button">@string/fl_create_account_btn_on_last_page</string>
     <string name="first_start_up_guide_content_start_button" translatable="false">Start</string>
 
@@ -541,5 +541,5 @@
     <string name="guide_view_5_privacy" translatable="false"><u>Privacy Policy</u></string>
     <string name="guide_view_5_let_go_button">@string/set_default_home_guide_button</string>
     <string name="guide_view_5_text_on_phone_screen">@string/fl_forth_title</string>
-    <string name="guide_view_5_text_below_phone_second" translatable="false">Different PIN Code into different\nuser account</string>
+    <string name="guide_view_5_text_below_phone_second" translatable="false">Use different PIN Code into different accounts from Lock screen</string>
 </resources>

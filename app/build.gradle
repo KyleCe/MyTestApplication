@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+//apply plugin: 'android-apt'
 
 android {
     compileSdkVersion 23
@@ -20,7 +21,7 @@ android {
     testOptions {
         unitTests.all {
             // All the usual Gradle options.
-            jvmArgs '-XX:MaxPermSize=256m'
+            jvmArgs '-XX:MaxPermSize=512m'
         }
     }
 }
@@ -47,4 +48,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-auth:9.0.0'
 
     compile 'com.rmtheis:tess-two:6.0.3'
+
+//    compile 'com.jakewharton:butterknife:8.4.0'
+//    apt 'com.jakewharton:butterknife-compiler:8.4.0'
 }

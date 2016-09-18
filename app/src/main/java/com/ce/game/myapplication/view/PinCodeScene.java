@@ -81,8 +81,8 @@ public class PinCodeScene extends FrameLayout implements PinCodeSceneControl {
 
             switch (msg.what) {
                 case PREPARE:
-                    mShowcasePinCode.onPrepare();
-                    mShowcasePinCode.onScale(.8f);
+//                    mShowcasePinCode.onPrepare();
+//                    mShowcasePinCode.onScale(.8f);
                     break;
                 case PRESS:
                     int key = msg.arg1;

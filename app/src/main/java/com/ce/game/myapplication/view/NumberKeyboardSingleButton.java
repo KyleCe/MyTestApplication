@@ -2,9 +2,7 @@ package com.ce.game.myapplication.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.support.annotation.StringDef;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -21,18 +19,17 @@ import com.ce.game.myapplication.util.ViewU;
  * @author: KyleCe
  */
 
-public class NumberKeyboardSingleButton extends FrameLayout implements NumberButtonBgInterface {
+public class NumberKeyboardSingleButton extends FrameLayout implements NumberButtonBgInterface{
 
     protected Context mContext;
 
-    protected FrameLayout mParent;
+    protected TextView mTextView;
 
-    TextView mTextView;
+    @NumberKeyboardSingleButton.ButtonContent
+    protected String mText;
 
-    String mText;
-
-    float TEXT_SCALE_RATIO = .2f;
-
+    protected float TEXT_SCALE_RATIO = .3f;
+    protected final float KEY_SCALE_RATIO = .8f;
 
     public NumberKeyboardSingleButton(Context context) {
         this(context, null);
@@ -42,6 +39,7 @@ public class NumberKeyboardSingleButton extends FrameLayout implements NumberBut
         this(context, attrs, 0);
     }
 
+    @SuppressWarnings("ResourceType")
     public NumberKeyboardSingleButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mContext = context;
@@ -57,33 +55,7 @@ public class NumberKeyboardSingleButton extends FrameLayout implements NumberBut
         init();
     }
 
-    private static final int RESIZE = 383;
-
-    Handler mHandler = new Handler(Looper.getMainLooper()) {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            switch (msg.what) {
-                case RESIZE:
-                    float scale = 1;
-                    if (msg.obj instanceof Float)
-                        scale = (float) msg.obj;
-                    float width = mParent.getMeasuredHeight() * scale;
-
-                    mTextView.setTextSize((mParent.getMeasuredHeight() * TEXT_SCALE_RATIO) * scale);
-
-                    mParent.setLayoutParams(new FrameLayout.LayoutParams((int) width, (int) width));
-                    mParent.invalidate();
-                    break;
-                default:
-                    break;
-            }
-        }
-    };
-
     protected void init() {
-        mParent = (FrameLayout) findViewById(R.id.parent);
-
         mTextView = (TextView) findViewById(R.id.keyboard_button_textview);
 
         ViewU.setClickListener(new OnClickListener() {
@@ -91,7 +63,7 @@ public class NumberKeyboardSingleButton extends FrameLayout implements NumberBut
             public void onClick(View v) {
                 onSet();
             }
-        }, mParent, mTextView, this);
+        }, mTextView, this);
 
         setButtonText(mText);
     }
@@ -105,19 +77,6 @@ public class NumberKeyboardSingleButton extends FrameLayout implements NumberBut
     }
 
     @Override
-    public void onPrepare() {
-        mHandler.sendEmptyMessage(RESIZE);
-    }
-
-    @Override
-    public void onScale(float scale) {
-        Message msg = new Message();
-        msg.what = RESIZE;
-        msg.obj = scale;
-        mHandler.sendMessage(msg);
-    }
-
-    @Override
     public void onSet() {
         mTextView.setBackgroundResource(R.drawable.first_anim_num_btn_bg_pressed);
     }
@@ -125,5 +84,33 @@ public class NumberKeyboardSingleButton extends FrameLayout implements NumberBut
     @Override
     public void onReset() {
         mTextView.setBackgroundResource(R.drawable.first_anim_num_btn_bg);
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int measureSpec =(Math.min(widthMeasureSpec,heightMeasureSpec)  );
+        int measureSize = measureSpec & View.MEASURED_SIZE_MASK;
+        measureSize *= KEY_SCALE_RATIO;
+        measureSpec = measureSpec & ~View.MEASURED_SIZE_MASK | measureSize;
+        super.onMeasure(measureSpec, measureSpec);
+
+        mTextView.setTextSize((measureSize * TEXT_SCALE_RATIO));
+    }
+
+    @StringDef({ButtonContent.K0, ButtonContent.K1, ButtonContent.K2, ButtonContent.K3, ButtonContent.K4, ButtonContent.K5, ButtonContent.K6
+            , ButtonContent.K7, ButtonContent.K8, ButtonContent.K9, ButtonContent.K_BACK, ButtonContent.K_BACKSPACE})
+    public @interface ButtonContent {
+        String K0 = "0";
+        String K1 = "1";
+        String K2 = "2";
+        String K3 = "3";
+        String K4 = "4";
+        String K5 = "5";
+        String K6 = "6";
+        String K7 = "7";
+        String K8 = "8";
+        String K9 = "9";
+        String K_BACK = "10";
+        String K_BACKSPACE = "11";
     }
 }

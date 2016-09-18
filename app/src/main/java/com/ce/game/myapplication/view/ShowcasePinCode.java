@@ -94,17 +94,17 @@ public class ShowcasePinCode extends FrameLayout implements NumberButtonClickInt
         refreshPinCodeRound(mLenCount);
     }
 
-    @Override
-    public void onPrepare() {
-        for (NumberKeyboardSingleButton b : mButtonList)
-            b.onPrepare();
-    }
-
-    @Override
-    public void onScale(float scale) {
-        for (NumberKeyboardSingleButton b : mButtonList)
-            b.onScale(scale);
-    }
+//    @Override
+//    public void onPrepare() {
+//        for (NumberKeyboardSingleButton b : mButtonList)
+//            b.onPrepare();
+//    }
+//
+//    @Override
+//    public void onScale(float scale) {
+////        for (NumberKeyboardSingleButton b : mButtonList)
+////            b.onScale(scale);
+//    }
 
     @Override
     public void onSet() {

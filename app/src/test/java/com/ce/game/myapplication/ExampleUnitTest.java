@@ -1,12 +1,14 @@
 package com.ce.game.myapplication;
 
+import com.ce.game.myapplication.view.NumberKeyboardSingleButton;
+
 import junit.framework.Assert;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * To work on unit tests, switch the Test Artifact in the Build Variants view.
@@ -37,4 +39,13 @@ public class ExampleUnitTest {
 
         Assert.assertEquals(test, "chengong90@gmail.com");
     }
+
+    @Test
+    public void anno() {
+        @NumberKeyboardSingleButton.ButtonContent
+        String tmp = "123";
+//        if(NumberKeyboardSingleButton.ButtonContent.class.getFields().equals(tmp))
+        assertEquals(tmp, NumberKeyboardSingleButton.ButtonContent.K3);
+    }
+
 }
