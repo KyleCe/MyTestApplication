@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.ce.game.myapplication.R;
 import com.ce.game.myapplication.util.DU;
+import com.ce.game.myapplication.util.ThreadPoolU;
 import com.ce.game.myapplication.util.ViewU;
 
 import java.util.concurrent.CountDownLatch;
@@ -137,8 +138,8 @@ public class AssistGuideView extends FrameLayout {
         mFirstSceneTask = new FirstSceneTask();
         mSecondSceneTask = new SecondSceneTask();
 
-        DU.execute(mFirstSceneTask);
-        DU.execute(mSecondSceneTask);
+        ThreadPoolU.execute(mFirstSceneTask);
+        ThreadPoolU.execute(mSecondSceneTask);
     }
 
     Handler mHandler = new Handler(Looper.getMainLooper()) {
@@ -151,14 +152,14 @@ public class AssistGuideView extends FrameLayout {
                     mHorizontalHand.clearAnimation();
                     ViewU.hideAndShow(mSecondSceneParent, mVerticalHand);
                     verticalHandAnim(mVerticalHand);
-                    DU.execute(mSecondSceneTask);
+                    ThreadPoolU.execute(mSecondSceneTask);
                     break;
                 case START_SECOND_SCENE:
                     mFirstDoneLatch = new CountDownLatch(mRepeatTimes);
                     mVerticalHand.clearAnimation();
                     ViewU.hideAndShow(mVerticalHand, mSecondSceneParent);
                     horizontalHanAnim(mHorizontalHand);
-                    DU.execute(mFirstSceneTask);
+                    ThreadPoolU.execute(mFirstSceneTask);
                     break;
                 default:
                     break;
@@ -184,7 +185,7 @@ public class AssistGuideView extends FrameLayout {
                 mSecondDoneLatch.await();
                 mHandler.sendEmptyMessage(START_FIRST_SCENE);
             } catch (InterruptedException e) {
-                DU.sd("second", "interrupted" + e + DU.time());
+                DU.sd("second", "interrupted" + e );
             }
         }
     }

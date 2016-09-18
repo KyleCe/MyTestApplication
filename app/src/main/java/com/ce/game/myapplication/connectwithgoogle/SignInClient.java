@@ -8,6 +8,7 @@ import android.webkit.WebViewClient;
 
 import com.ce.game.myapplication.util.DU;
 import com.ce.game.myapplication.util.HttpUtils;
+import com.ce.game.myapplication.util.ThreadPoolU;
 
 import junit.framework.Assert;
 
@@ -59,7 +60,7 @@ public class SignInClient extends WebViewClient {
 
             final String getUserInfoUrl = GET_USER_INFO_URI_PREFIX + accessToken;
 
-            DU.execute(new Runnable() {
+            ThreadPoolU.execute(new Runnable() {
                 @Override
                 public void run() {
                     try {

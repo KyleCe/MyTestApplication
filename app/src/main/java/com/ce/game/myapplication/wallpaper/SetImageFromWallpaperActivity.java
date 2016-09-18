@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import com.ce.game.myapplication.R;
 import com.ce.game.myapplication.util.BitmapU;
 import com.ce.game.myapplication.util.DU;
+import com.ce.game.myapplication.util.ThreadPoolU;
 
 import java.io.File;
 import java.io.IOException;
@@ -95,7 +96,7 @@ public class SetImageFromWallpaperActivity extends AppCompatActivity {
 
     protected void onSetWallpaper() {
 
-        DU.execute(new Runnable() {
+        ThreadPoolU.execute(new Runnable() {
             @Override
             public void run() {
                 try {
