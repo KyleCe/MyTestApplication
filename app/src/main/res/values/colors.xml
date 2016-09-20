@@ -74,4 +74,14 @@
     <color name="guide_view_5_colleague">#1bb92a</color>
     <color name="guide_view_5_guest">#f0bb1d</color>
     <color name="guide_view_5_btn_text">#46a3fe</color>
+
+
+    <color name="privacy_detect_base_green">#21c34c</color>
+    <color name="privacy_detect_sub_circle_color">#80ffffff</color>
+    <color name="privacy_detect_progress_control_color_stage1">#ff672b</color>
+    <color name="privacy_detect_progress_control_color_stage1_end">#db2f2f</color>
+    <color name="privacy_detect_progress_control_color_stage2">#f5a629</color>
+    <color name="privacy_detect_progress_control_color_stage2_end">#e8642a</color>
+    <color name="privacy_detect_progress_control_color_stage3">#2ac75c</color>
+    <color name="privacy_detect_progress_control_color_stage3_end">#21a34c</color>
 </resources>

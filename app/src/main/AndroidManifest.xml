@@ -191,6 +191,8 @@
         </activity>
         <activity android:name=".act.AllKeyboardActivity">
         </activity>
+        <activity android:name=".act.CircleProgressActivity">
+        </activity>
     </application>
 
 </manifest>

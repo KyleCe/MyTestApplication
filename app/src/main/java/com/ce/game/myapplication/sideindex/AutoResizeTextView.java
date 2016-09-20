@@ -35,7 +35,7 @@ import android.widget.TextView;
 //
 //    private SparseIntArray mTextCachedSizes;
 //
-//    private TextPaint mPaint;
+//    private TextPaint mLinePaint;
 //
 //    private float mMaxTextSize;
 //
@@ -69,7 +69,7 @@ import android.widget.TextView;
 //    }
 //
 //    private void initialize() {
-//        mPaint = new TextPaint(getPaint());
+//        mLinePaint = new TextPaint(getPaint());
 //        mMaxTextSize = getTextSize();
 //        mAvailableSpaceRect = new RectF();
 //        mTextCachedSizes = new SparseIntArray();
@@ -186,14 +186,14 @@ import android.widget.TextView;
 //        @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 //        @Override
 //        public int onTestSize(int suggestedSize, RectF availableSPace) {
-//            mPaint.setTextSize(suggestedSize);
+//            mLinePaint.setTextSize(suggestedSize);
 //            String text = getText().toString();
 //            boolean singleline = getMaxLines() == 1;
 //            if (singleline) {
-//                mTextRect.bottom = mPaint.getFontSpacing();
-//                mTextRect.right = mPaint.measureText(text);
+//                mTextRect.bottom = mLinePaint.getFontSpacing();
+//                mTextRect.right = mLinePaint.measureText(text);
 //            } else {
-//                StaticLayout layout = new StaticLayout(text, mPaint,
+//                StaticLayout layout = new StaticLayout(text, mLinePaint,
 //                        mWidthLimit, Layout.Alignment.ALIGN_NORMAL, mSpacingMult,
 //                        mSpacingAdd, true);
 //                // return early if we have more lines

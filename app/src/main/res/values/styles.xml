@@ -72,5 +72,18 @@
         <item name="android:layout_height">1dp</item>
         <item name="android:layout_weight">8</item>
     </style>
+    <declare-styleable name="CircularProgressBar">
+        <attr name="cpb_progress" format="integer" />
+        <attr name="cpb_progressbar_color" format="color" />
+        <attr name="cpb_background_progressbar_color" format="color" />
+        <attr name="cpb_progressbar_width" format="dimension" />
+        <attr name="cpb_background_progressbar_width" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="CircularProgressView">
+        <attr name="progress" format="integer" />
+        <attr name="progress_text_size" format="dimension" />
+        <attr name="progress_text_color" format="color" />
+        <attr name="progress_base_color" format="color" />
+    </declare-styleable>
 
 </resources>

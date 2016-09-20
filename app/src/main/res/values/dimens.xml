@@ -88,4 +88,13 @@
     <dimen name="new_keyboard_num_gap_y_alias">12dp</dimen>
     <dimen name="new_keyboard_num_gap_x_alias">15dp</dimen>
 
+    <dimen name="default_stroke_width">2dp</dimen>
+    <dimen name="default_background_stroke_width">7dp</dimen>
+    <dimen name="progressXY">147dp</dimen>
+    <dimen name="default_progress_size">100dp</dimen>
+    <dimen name="default_progress_sub_circle_stroke_width">1dp</dimen>
+    <dimen name="default_progress_bounds_stroke_width">4dp</dimen>
+    <dimen name="default_progress_padding">4dp</dimen>
+
+
 </resources>
