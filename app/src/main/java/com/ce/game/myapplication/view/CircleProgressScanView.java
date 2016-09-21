@@ -31,6 +31,7 @@ public class CircleProgressScanView extends CircleProgressView implements Handle
     protected long mRepeatPeriod = 200;
     protected boolean mComplete = false;
     protected int mTargetProgress = 6;
+    protected CompleteCallback mScanCompleteCallback = CompleteCallback.NULL;
 
     public CircleProgressScanView(Context context) {
         this(context, null);
@@ -55,7 +56,7 @@ public class CircleProgressScanView extends CircleProgressView implements Handle
 
         // background
         mShaderPaint.setStyle(Paint.Style.FILL);
-        int[] gradientColor = parseColorToDraw(!mComplete ? 99 : mProgress);
+        int[] gradientColor = mCircleProcessSlaver.parseColorToDraw(!mComplete ? 99 : mProgress);
         LinearGradient shader = new LinearGradient(cx - alter, cy - alter, cx + alter, cy + alter,
                 gradientColor[0], gradientColor[1], Shader.TileMode.CLAMP);
         mShaderPaint.setShader(shader);
@@ -137,6 +138,16 @@ public class CircleProgressScanView extends CircleProgressView implements Handle
         mTargetProgress = targetProgress;
     }
 
+    @Deprecated
+    @Override
+    public void setCompleteCallback(CompleteCallback completeCallback) {
+        mCompleteCallback = CompleteCallback.NULL;
+    }
+
+    public void setScanCompleteCallback(CompleteCallback scanCompleteCallback) {
+        mScanCompleteCallback = scanCompleteCallback;
+    }
+
     @Override
     public void onWindowFocusChanged(boolean hasWindowFocus) {
         super.onWindowFocusChanged(hasWindowFocus);
@@ -149,7 +160,8 @@ public class CircleProgressScanView extends CircleProgressView implements Handle
         switch (msg.what) {
             case START_ANIMATION:
                 setStartProgress(0);
-                setProgressWithAnimation(100, (int) mRepeatPeriod, new Animator.AnimatorListener() {
+                setProgressWithAnimation(CircleProcessSlaver.DEFAULT_COMPLETE_PROCESS
+                        , (int) mRepeatPeriod, new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationStart(Animator animation) {
                         mRepeatCount++;
@@ -183,8 +195,9 @@ public class CircleProgressScanView extends CircleProgressView implements Handle
 
     private void endingProcess() {
         mComplete = true;
-        setStartProgress(100);
-        int repeatFactor = 0 < mTargetProgress && mTargetProgress < 100 ? (100 - mTargetProgress) / 20 : 3;
+        setStartProgress(CircleProcessSlaver.DEFAULT_COMPLETE_PROCESS);
+        int repeatFactor = 0 < mTargetProgress && mTargetProgress < CircleProcessSlaver.DEFAULT_COMPLETE_PROCESS
+                ? (CircleProcessSlaver.DEFAULT_COMPLETE_PROCESS - mTargetProgress) / 20 : 3;
         setProgressWithAnimation(mTargetProgress, (int) mRepeatPeriod * repeatFactor, new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
@@ -193,7 +206,7 @@ public class CircleProgressScanView extends CircleProgressView implements Handle
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                mCompleteCallback.onComplete();
+                mScanCompleteCallback.onComplete();
             }
 
             @Override

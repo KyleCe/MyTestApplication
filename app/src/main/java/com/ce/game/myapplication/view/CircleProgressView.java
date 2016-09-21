@@ -22,7 +22,6 @@ import android.view.animation.DecelerateInterpolator;
 
 import com.ce.game.myapplication.R;
 
-import static com.ce.game.myapplication.R.color.privacy_detect_base_green;
 
 /**
  * Created by KyleCe on 2016/8/10.
@@ -52,16 +51,12 @@ public class CircleProgressView extends View implements CircleProgressInterface 
     protected Paint mProgressCirclePaint;
     protected Paint mScanPointerPaint;
     protected boolean mDisplayScanPointer = false;
+    protected boolean mDisplayCompleteIcon = true;
 
     protected int mBaseColor;
-    protected int[] COLOR_RANGE = {60, 85};
-    protected int[] STAGE_COLOR = {
-            getResources().getColor(R.color.privacy_detect_progress_control_color_stage1),
-            getResources().getColor(R.color.privacy_detect_progress_control_color_stage1_end),
-            getResources().getColor(R.color.privacy_detect_progress_control_color_stage2),
-            getResources().getColor(R.color.privacy_detect_progress_control_color_stage2_end),
-            getResources().getColor(R.color.privacy_detect_progress_control_color_stage3),
-            getResources().getColor(R.color.privacy_detect_progress_control_color_stage3_end)};
+    protected int[] mColorRange;
+    protected int[] mStageColor;
+    protected CircleProcessSlaver mCircleProcessSlaver;
     protected final int DEFAULT_SIZE = (int) getResources().getDimension(R.dimen.default_progress_size);
     protected int mSubCircleColor = getResources().getColor(R.color.privacy_detect_sub_circle_color);
     protected int mDefaultStokeWidth = getResources().getDimensionPixelOffset(R.dimen.default_progress_sub_circle_stroke_width);
@@ -70,6 +65,9 @@ public class CircleProgressView extends View implements CircleProgressInterface 
     protected int mTextColor;
     protected Bitmap mCompleteBitmap;
     protected float BITMAP_X_Y_RATIO = .6765f;
+
+    protected int mStartProcess = 0;
+    protected int mEndProcess = 100;
 
     protected CompleteCallback mCompleteCallback = CompleteCallback.NULL;
 
@@ -87,15 +85,15 @@ public class CircleProgressView extends View implements CircleProgressInterface 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CircularProgressView);
         mProgress = typedArray.getFloat(R.styleable.CircularProgressView_progress, mProgress);
         mBaseColor = typedArray.getColor(R.styleable.CircularProgressView_progress_base_color
-                , getResources().getColor(privacy_detect_base_green));
+                , getResources().getColor(R.color.privacy_detect_base_green));
         mTextColor = typedArray.getColor(R.styleable.CircularProgressView_progress_text_color
                 , getResources().getColor(R.color.white));
         typedArray.recycle();
 
-        init();
+        init(context);
     }
 
-    protected void init() {
+    protected void init(Context context) {
         mLinePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mLinePaint.setTextSize(50);
 
@@ -120,6 +118,10 @@ public class CircleProgressView extends View implements CircleProgressInterface 
         mScanPointerPaint.setStyle(Paint.Style.FILL);
 
         mCompleteBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.circle_progress_complete);
+
+        mCircleProcessSlaver = new CircleProcessSlaver(context);
+        mStageColor = mCircleProcessSlaver.getSTAGE_COLOR();
+        mColorRange = mCircleProcessSlaver.getPROCESS_RANGE_FOR_COLOR_STAGE();
     }
 
     @Override
@@ -158,7 +160,7 @@ public class CircleProgressView extends View implements CircleProgressInterface 
 
         // background
         mShaderPaint.setStyle(Paint.Style.FILL);
-        int[] gradientColor = parseColorToDraw(mProgress);
+        int[] gradientColor = mCircleProcessSlaver.parseColorToDraw(mProgress);
         LinearGradient shader = new LinearGradient(cx - alter, cy - alter, cx + alter, cy + alter,
                 gradientColor[0], gradientColor[1], Shader.TileMode.CLAMP);
         mShaderPaint.setShader(shader);
@@ -176,7 +178,7 @@ public class CircleProgressView extends View implements CircleProgressInterface 
 
         float endAngle = 360 * mProgress / 100;
 
-        if (mDisplayScanPointer && mProgress != 100) {
+        if (mDisplayScanPointer && mProgress != mEndProcess) {
             SweepGradient gradient = new SweepGradient(cx, cy, mColors4Alpha, null);
             float rotate = endAngle + mStartAngle;
             Matrix gradientMatrix = new Matrix();
@@ -208,7 +210,7 @@ public class CircleProgressView extends View implements CircleProgressInterface 
         // bounds width and height
         int textWidth = bounds.width();
         int textHeight = bounds.height();
-        int startX = (canvasWidth - textWidth) >> 1;
+        int startX = ((canvasWidth - textWidth) >> 1) -( (mPadding + mBoundsWidth) >> 1);
         int startY = (canvasHeight + textHeight) >> 1;
         if (mInterpolator != INTERPOLATOR_UNSET) mTextPaint.setTextSize(0);
         canvas.drawText(String.valueOf((int) mProgress), startX, startY, mTextPaint);
@@ -220,7 +222,7 @@ public class CircleProgressView extends View implements CircleProgressInterface 
         path.arcTo(oval, mStartAngle, mProgress != 100 ? endAngle : endAngle - .1f, true);
         canvas.drawPath(path, mProgressCirclePaint);
 
-        if (mProgress != 100) {
+        if (mProgress != mEndProcess) {
             double e_x = cx + boundsRadius * Math.cos(Math.toRadians(endAngle + mStartAngle));
             double e_y = cy + boundsRadius * Math.sin(Math.toRadians(endAngle + mStartAngle));
             canvas.drawCircle((float) e_x, (float) e_y, (mBoundsWidth << 1), mTextPaint);
@@ -238,13 +240,6 @@ public class CircleProgressView extends View implements CircleProgressInterface 
         }
     }
 
-    protected int[] parseColorToDraw(float progress) {
-        if (progress < COLOR_RANGE[0]) return new int[]{STAGE_COLOR[0], STAGE_COLOR[1]};
-        else if (COLOR_RANGE[0] <= progress && progress <= COLOR_RANGE[1])
-            return new int[]{STAGE_COLOR[2], STAGE_COLOR[3]};
-        else return new int[]{STAGE_COLOR[4], STAGE_COLOR[5]};
-    }
-
     @Override
     public void setStartProgress(int progress) {
         mProgress = progress;
@@ -252,9 +247,21 @@ public class CircleProgressView extends View implements CircleProgressInterface 
     }
 
     @Override
+    public void onSetStartEndProcess(int startProgress, int endProcess) {
+        setStartProgress(startProgress);
+        if (endProcess > 0) mEndProcess = endProcess;
+    }
+
+    @Override
     public void showScanPointer() {
         setDisplayScanPointer(true);
         invalidate();
+    }
+
+
+    @Override
+    public void setDisplayCompleteIcon(boolean displayCompleteIcon) {
+        mDisplayCompleteIcon = displayCompleteIcon;
     }
 
     @Override
@@ -296,7 +303,7 @@ public class CircleProgressView extends View implements CircleProgressInterface 
      */
     @Deprecated
     public void setProgress(float progress) {
-        this.mProgress = (progress <= 100) ? progress : 100;
+        this.mProgress = (progress <= mEndProcess) ? progress : mEndProcess;
         invalidate();
     }
 
@@ -325,7 +332,7 @@ public class CircleProgressView extends View implements CircleProgressInterface 
      * @param duration The length of the animation, in milliseconds.
      */
     public void setProgressWithAnimation(float progress, int duration, Animator.AnimatorListener animatorListener) {
-        if (100 < progress) progress = 100;
+        if (CircleProcessSlaver.DEFAULT_COMPLETE_PROCESS < progress) progress = mEndProcess;
         if (progress < 0) progress = 0;
 
         duration *= (int) progress / 20 == 0 ? 1 : (int) progress / 20;
@@ -338,7 +345,8 @@ public class CircleProgressView extends View implements CircleProgressInterface 
             objectAnimator.addListener(animatorListener);
         }
         objectAnimator.start();
-        if (progress == 100) addScaleCompleteAnimator(this, progress, duration, objectAnimator);
+        if (progress == CircleProcessSlaver.DEFAULT_COMPLETE_PROCESS && mDisplayCompleteIcon)
+            addScaleCompleteAnimator(this, progress, duration, objectAnimator);
     }
 
     private void addScaleCompleteAnimator(final Object o, float progress, final int duration, ObjectAnimator objectAnimator) {
