@@ -17,7 +17,8 @@
         android:id="@+id/circle_progress"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
         app:progress="10"
         app:progress_base_color="@color/privacy_detect_base_green"
         app:progress_text_color="@android:color/white"
@@ -30,6 +31,13 @@
         android:layout_gravity="center_horizontal"
         android:background="#9effff"
         android:visibility="gone"
+        />
+    <com.ce.game.myapplication.view.CircleProgressScanView
+        android:id="@+id/circularProgressbarPermanent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerInParent="true"
         />
 
 </RelativeLayout>

@@ -31,18 +31,18 @@ import static com.ce.game.myapplication.R.color.privacy_detect_base_green;
  */
 public class CircleProgressView extends View implements CircleProgressInterface {
 
-    private float mProgress = 0;
+    protected float mProgress = 0;
     protected final int INTERPOLATOR_UNSET = 0;
-    private float mInterpolator = INTERPOLATOR_UNSET;
+    protected float mInterpolator = INTERPOLATOR_UNSET;
     protected static final float TEXT_SCALE_RATIO = .5f;
     protected static final float FIRST_SUB_CIRCLE_RATIO = .73f;
     protected static final float SECOND_SUB_CIRCLE_RATIO = .37f;
     protected static final float EDGE_RATIO = 0.70675f;
 
-    private int[] mColors4Alpha = {0x00000000, 0x00000000, 0x00000000, 0x50000000,};
+    protected int[] mColors4Alpha = {0x00000000, 0x00000000, 0x00000000, 0x50000000,};
 
     protected RectF mRectF;
-    private int mStartAngle = -90;
+    protected int mStartAngle = -90;
 
     protected float mTextSize;
 
@@ -328,7 +328,7 @@ public class CircleProgressView extends View implements CircleProgressInterface 
         if (100 < progress) progress = 100;
         if (progress < 0) progress = 0;
 
-        duration *= (int) progress / 20;
+        duration *= (int) progress / 20 == 0 ? 1 : (int) progress / 20;
 
         ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(this, "progress", progress);
         objectAnimator.setDuration(duration);
