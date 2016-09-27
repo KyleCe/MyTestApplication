@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_privacy_detection_pre_guide"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="false"
+    android:background="@android:color/transparent"
+    >
+
+    <com.ce.game.myapplication.view.CircleProgressView
+        android:id="@+id/circle_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        />
+
+    <com.ce.game.myapplication.view.CircleProgressScanView
+        android:id="@+id/circle_progress_scan_view"
+        android:layout_width="110dp"
+        android:layout_height="110dp"/>
+
+</FrameLayout>

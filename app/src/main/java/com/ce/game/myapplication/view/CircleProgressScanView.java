@@ -126,6 +126,10 @@ public class CircleProgressScanView extends CircleProgressView implements Handle
         }
     }
 
+    public void startScanAnimation() {
+        mHandler.sendEmptyMessage(START_ANIMATION);
+    }
+
     public void setMaxRepeatCount(int maxRepeatCount) {
         mMaxRepeatCount = maxRepeatCount;
     }
@@ -151,8 +155,7 @@ public class CircleProgressScanView extends CircleProgressView implements Handle
     @Override
     public void onWindowFocusChanged(boolean hasWindowFocus) {
         super.onWindowFocusChanged(hasWindowFocus);
-        if (hasWindowFocus) mHandler.sendEmptyMessage(START_ANIMATION);
-        else mHandler.removeCallbacksAndMessages(null);
+        if (!hasWindowFocus) mHandler.removeCallbacksAndMessages(null);
     }
 
     @Override

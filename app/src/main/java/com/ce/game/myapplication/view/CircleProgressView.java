@@ -70,6 +70,9 @@ public class CircleProgressView extends View implements CircleProgressInterface 
     protected int mEndProcess = 100;
 
     protected CompleteCallback mCompleteCallback = CompleteCallback.NULL;
+    protected float POINT_INDICATOR_INNER_RATIO = 0.0636f;/*7/110*/
+    protected float POINT_INDICATOR_OUTER_RATIO = 0.0909f;/*11/110*/
+    protected int mPointIndicatorInnerWidth;
 
     public CircleProgressView(Context context) {
         this(context, null);
@@ -147,6 +150,8 @@ public class CircleProgressView extends View implements CircleProgressInterface 
 
         mTextSize = minSize * TEXT_SCALE_RATIO;
         mCompleteBitmap = Bitmap.createScaledBitmap(mCompleteBitmap, minSize >> 1, (int) ((minSize >> 1) * BITMAP_X_Y_RATIO), true);
+//        mBoundsWidth = (int) (minSize * POINT_INDICATOR_OUTER_RATIO);
+//        mPointIndicatorInnerWidth = (int) (minSize * POINT_INDICATOR_INNER_RATIO);
     }
 
     @Override
@@ -173,8 +178,9 @@ public class CircleProgressView extends View implements CircleProgressInterface 
         mLinePaint.setStrokeWidth(mDefaultStokeWidth);
         canvas.drawCircle(cx, cy, baseRadius * FIRST_SUB_CIRCLE_RATIO, mLinePaint);
         canvas.drawCircle(cx, cy, baseRadius * SECOND_SUB_CIRCLE_RATIO, mLinePaint);
-        canvas.drawLine(cx - alter, cy - alter, cx + alter, cy + alter, mLinePaint);
-        canvas.drawLine(cx - alter, cy + alter, cx + alter, cy - alter, mLinePaint);
+        float crossRadius = baseRadius - mBoundsWidth;
+        canvas.drawLine(cx - crossRadius, cy, cx + crossRadius, cy, mLinePaint);
+        canvas.drawLine(cx, cy + crossRadius, cx, cy - crossRadius, mLinePaint);
 
         float endAngle = 360 * mProgress / 100;
 
@@ -210,7 +216,7 @@ public class CircleProgressView extends View implements CircleProgressInterface 
         // bounds width and height
         int textWidth = bounds.width();
         int textHeight = bounds.height();
-        int startX = ((canvasWidth - textWidth) >> 1) -( (mPadding + mBoundsWidth) >> 1);
+        int startX = ((canvasWidth - textWidth) >> 1) - ((mPadding + mBoundsWidth) >> 1);
         int startY = (canvasHeight + textHeight) >> 1;
         if (mInterpolator != INTERPOLATOR_UNSET) mTextPaint.setTextSize(0);
         canvas.drawText(String.valueOf((int) mProgress), startX, startY, mTextPaint);
@@ -227,7 +233,7 @@ public class CircleProgressView extends View implements CircleProgressInterface 
             double e_y = cy + boundsRadius * Math.sin(Math.toRadians(endAngle + mStartAngle));
             canvas.drawCircle((float) e_x, (float) e_y, (mBoundsWidth << 1), mTextPaint);
             mLinePaint.setColor(Color.parseColor("#50ffffff"));
-            canvas.drawCircle((float) e_x, (float) e_y, (mBoundsWidth << 1), mLinePaint);
+            canvas.drawCircle((float) e_x, (float) e_y, (mPointIndicatorInnerWidth << 1), mLinePaint);
         }
 
         if (mInterpolator != INTERPOLATOR_UNSET) {

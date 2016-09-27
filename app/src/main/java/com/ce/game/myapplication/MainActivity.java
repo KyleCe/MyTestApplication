@@ -1,16 +1,18 @@
 package com.ce.game.myapplication;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.AnimationSet;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.ce.game.myapplication.act.CircleProgressActivity;
 import com.ce.game.myapplication.util.DU;
 import com.ce.game.myapplication.view.PageRecyclerView;
 
@@ -44,6 +46,27 @@ public class MainActivity extends Activity {
         tvHello.setText("Front look !\n\t\t sometimes stay");
 
         guideToDebugActivity(null);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                testTranY(tvHello);
+            }
+        }, 200);
+    }
+
+
+    private void testTranY(View mScanView) {
+        int[] locations = new int[2];
+        mScanView.getLocationOnScreen(locations);
+        ObjectAnimator tran = ObjectAnimator.ofFloat(mScanView, View.TRANSLATION_Y, -200);
+
+        tran.setDuration(500);
+        tran.setRepeatCount(3);
+        tran.setRepeatMode(ValueAnimator.REVERSE);
+        tran.setInterpolator(new DecelerateInterpolator());
+        tran.start();
     }
 
     public void guideToDebugActivity(View view) {
@@ -63,7 +86,7 @@ public class MainActivity extends Activity {
 //        startActivity(new Intent(context, CenterHandActivity.class));
 //        startActivity(new Intent(context, GuideAnimActivity.class));
 //        startActivity(new Intent(context, AllKeyboardActivity.class));
-        startActivity(new Intent(context, CircleProgressActivity.class));
+//        startActivity(new Intent(context, CircleProgressActivity.class));
 //        startActivity(new Intent(context, TessActivity.class));
 //        startActivity(new Intent(context, SetImageFromWallpaperActivity.class));
 //        startActivity(new Intent(context, GoogleAccountActivity.class));
@@ -124,7 +147,8 @@ public class MainActivity extends Activity {
                     @Override
                     public void run() {
                         DU.t(getApplicationContext(), "builder");
-                    }})
+                    }
+                })
                 .build().start();
 
 //        mPhone.showItemCount(4);
