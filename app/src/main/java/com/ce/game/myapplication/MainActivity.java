@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +14,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.ce.game.myapplication.act.GuideAnimActivity;
 import com.ce.game.myapplication.util.DU;
 import com.ce.game.myapplication.view.PageRecyclerView;
 
@@ -84,7 +86,7 @@ public class MainActivity extends Activity {
 //        startActivity(new Intent(context, DecorViewWithColorDrawableActivity.class));
 //        startActivity(new Intent(context, LeadActivity.class));
 //        startActivity(new Intent(context, CenterHandActivity.class));
-//        startActivity(new Intent(context, GuideAnimActivity.class));
+        startActivity(new Intent(context, GuideAnimActivity.class));
 //        startActivity(new Intent(context, AllKeyboardActivity.class));
 //        startActivity(new Intent(context, CircleProgressActivity.class));
 //        startActivity(new Intent(context, TessActivity.class));

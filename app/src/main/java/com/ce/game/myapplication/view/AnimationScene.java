@@ -120,8 +120,6 @@ public class AnimationScene extends FrameLayout implements AnimationSceneInterfa
         mMyselfPhone = (PhoneViewWithList) findViewById(R.id.phone_myself);
         mLoverPhone = (PhoneViewWithText) findViewById(R.id.phone_lover);
 
-        mHandler.sendEmptyMessageDelayed(PREPARE, 20);
-
         mTextButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,6 +136,12 @@ public class AnimationScene extends FrameLayout implements AnimationSceneInterfa
 
     public void setSceneClickCallback(FirstAnimationSceneClickCallback sceneClickCallback) {
         mSceneClickCallback = sceneClickCallback;
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        mHandler.sendEmptyMessage(PREPARE);
     }
 
     Handler mHandler = new Handler(Looper.getMainLooper()) {
