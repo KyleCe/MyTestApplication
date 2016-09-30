@@ -14,9 +14,8 @@
     <!-- <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/> -->
     <!-- <uses-permission android:name="android.permission.GET_ACCOUNTS"/> -->
     <!-- <uses-permission android:name="android.permission.GET_TASKS"/> -->
-    <!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>-->
-    <!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>-->
-
+    <!-- <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/> -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> -->
     <!-- <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" tools:ignore="ProtectedPermissions" /> -->
     <application
         android:allowBackup="true"
@@ -193,16 +192,20 @@
         </activity>
         <activity android:name=".act.CircleProgressActivity">
         </activity>
-        <activity android:name=".act.PrivacyDetectionPreGuideActivity"
-                  android:configChanges="keyboardHidden|orientation"
-                  android:excludeFromRecents="true"
-                  android:launchMode="singleTask"
-                  android:screenOrientation="portrait"
-                  android:theme="@android:style/Theme.Translucent.NoTitleBar">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
+        <activity
+            android:name=".act.PrivacyDetectionPreGuideActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".act.FloatBackPressActivity">
         </activity>
     </application>
 

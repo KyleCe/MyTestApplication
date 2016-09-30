@@ -174,6 +174,7 @@ public class MessageProcessView extends FrameLayout implements MessageProcessVie
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
+        DU.pwa(TAG,"dispatch key event");
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) backPressed();
 
         return super.dispatchKeyEvent(event);

@@ -18,7 +18,7 @@
         android:orientation="vertical"
         >
 
-        <com.blablaapp.launcher.ui.privacy.CircleProgressAlwaysScanningView
+        <com.ce.game.myapplication.view.CircleProgressAlwaysScanningView
             android:id="@+id/progress_indicator"
             android:layout_width="133.5dp"
             android:layout_height="133.5dp"

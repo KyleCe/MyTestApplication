@@ -32,8 +32,9 @@ public class FloatViewModelTip extends FloatViewModel
                 WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.TYPE_TOAST
-                , WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
-                | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
+                ,/* WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+                |*/ /*WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
+                |*/ WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH
                 ,
                 PixelFormat.TRANSLUCENT
         );
