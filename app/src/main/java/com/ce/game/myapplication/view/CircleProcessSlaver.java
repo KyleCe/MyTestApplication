@@ -36,6 +36,10 @@ public class CircleProcessSlaver {
                 mContext.getResources().getColor(R.color.privacy_detect_progress_control_color_stage3_end)};
     }
 
+    public static boolean isProgressValueValid(int testingProgress){
+        return 0 <= testingProgress && testingProgress < DEFAULT_COMPLETE_PROCESS;
+    }
+
     public int[] parseColorToDraw(float progress) {
         if (progress < PROCESS_RANGE_FOR_COLOR_STAGE[0]) return new int[]{STAGE_COLOR[0], STAGE_COLOR[1]};
         else if (PROCESS_RANGE_FOR_COLOR_STAGE[0] <= progress && progress <= PROCESS_RANGE_FOR_COLOR_STAGE[1])

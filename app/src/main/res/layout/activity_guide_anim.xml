@@ -8,10 +8,15 @@
     android:background="@color/guide_view_5_general"
     tools:context="com.ce.game.myapplication.act.GuideAnimActivity">
 
-    <com.ce.game.myapplication.view.AnimationScene
-        android:id="@+id/animation_scene"
+    <!--<com.ce.game.myapplication.view.AnimationScene-->
+        <!--android:id="@+id/animation_scene"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--/>-->
+
+    <com.ce.game.myapplication.view.CircleProgressAutoScanView
+        android:id="@+id/auto_scan"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="match_parent"/>
 
 </FrameLayout>

@@ -542,4 +542,14 @@
     <string name="guide_view_5_let_go_button">@string/set_default_home_guide_button</string>
     <string name="guide_view_5_text_on_phone_screen">@string/fl_forth_title</string>
     <string name="guide_view_5_text_below_phone_second" translatable="false">Use different PIN Code into different accounts from Lock screen</string>
+
+
+    <string name="try_now">Try Now</string>
+    <string name="tips">Tips</string>
+
+    <string name="privacy_process_protecting">protecting</string>
+    <string name="privacy_process_result_content">All around protection</string>
+    <string name="privacy_process_result_content_second">According to your privacy detecting,\n we customize a guest account for you.Lock screen and have a try.</string>
+    <string name="privacy_process_result_try_now">@string/try_now</string>
+
 </resources>

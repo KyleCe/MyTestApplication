@@ -149,9 +149,6 @@ public class CircleProgressView extends View implements CircleProgressInterface 
         setMeasuredDimension(minSize, minSize);
 
         mTextSize = minSize * TEXT_SCALE_RATIO;
-        mCompleteBitmap = Bitmap.createScaledBitmap(mCompleteBitmap, minSize >> 1, (int) ((minSize >> 1) * BITMAP_X_Y_RATIO), true);
-//        mBoundsWidth = (int) (minSize * POINT_INDICATOR_OUTER_RATIO);
-//        mPointIndicatorInnerWidth = (int) (minSize * POINT_INDICATOR_INNER_RATIO);
     }
 
     @Override

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/process_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:filterTouchesWhenObscured="true"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    >
+
+    <LinearLayout
+        android:id="@+id/center_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        >
+
+        <com.blablaapp.launcher.ui.privacy.CircleProgressAlwaysScanningView
+            android:id="@+id/progress_indicator"
+            android:layout_width="133.5dp"
+            android:layout_height="133.5dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="100"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            />
+
+        <TextView
+            android:id="@+id/process_result_description_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/privacy_process_protecting"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="20dp"
+            android:textSize="24sp"
+            />
+
+        <TextView
+            android:id="@+id/process_result_description_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/privacy_process_result_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="16dp"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:visibility="invisible"
+            tools:visibility="visible"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/try_now"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/center_content"
+        android:gravity="center"
+        android:background="@drawable/first_anim_btn_bg"
+        android:text="@string/privacy_process_result_try_now"
+        android:layout_marginLeft="65dp"
+        android:layout_marginRight="65dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textSize="28sp"
+        android:textColor="@color/privacy_detect_base_green"
+        android:visibility="gone"
+        tools:visibility="visible"
+        />
+</RelativeLayout>
+
+

@@ -50,6 +50,6 @@ public class GifSplitActivity extends Activity {
 
         mGifView = (GifView) findViewById(R.id.gif1);
 
-        mGifView.setGifResource(type == Const.TYPE_ONE ? R.drawable.gif_5m : R.drawable.gif);
+//        mGifView.setGifResource(type == Const.TYPE_ONE ? R.drawable.gif_5m : R.drawable.gif);
     }
 }
