@@ -207,6 +207,8 @@
         </activity>
         <activity android:name=".act.FloatBackPressActivity">
         </activity>
+        <activity android:name=".act.SubtleAdjustActivity">
+        </activity>
     </application>
 
 </manifest>
