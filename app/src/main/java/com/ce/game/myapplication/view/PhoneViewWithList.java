@@ -58,7 +58,7 @@ public class PhoneViewWithList extends PhoneViewWithText {
     }
 
     private void init(final Context context) {
-        mContainer.inflate(context, R.layout.first_anim_phone_view_list_content, mContainer);
+        inflate(context, R.layout.first_anim_phone_view_list_content, mContainer);
 
         mRecyclerView = (RecyclerView) mContainer.findViewById(R.id.phone_frame_recycler_view);
 

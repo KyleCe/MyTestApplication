@@ -113,7 +113,7 @@ public class SettingHelper {
                 break;
             case 4:
                 home = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_HOME);
-                home = home.createChooser(home, null);
+                home = Intent.createChooser(home, null);
                 break;
             case 5:
                 isMyLauncherCurrentAndDefault(context);

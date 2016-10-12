@@ -84,8 +84,7 @@ public class ViewU {
      * @param alpha [0..255]
      */
     private static boolean legalAlpha(int alpha) {
-        if (0 <= alpha && alpha <= 255) return true;
-        return false;
+        return 0 <= alpha && alpha <= 255;
     }
 
     public static void clearAnimation(View... views) {

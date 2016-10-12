@@ -211,7 +211,6 @@ public class LeaderView extends FrameLayout {
     public boolean dispatchTouchEvent(MotionEvent ev) {
         if (mView == null) return true;
 
-        return mStartY < ev.getY() && ev.getY() < mStopY ?
-                super.dispatchTouchEvent(ev) : true;
+        return !(mStartY < ev.getY() && ev.getY() < mStopY) || super.dispatchTouchEvent(ev);
     }
 }

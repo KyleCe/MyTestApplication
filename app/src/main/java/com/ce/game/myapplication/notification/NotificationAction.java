@@ -4,5 +4,5 @@ import android.content.Intent;
 
 public interface NotificationAction {
 
-    public void onNotification(final Intent intent);
+    void onNotification(final Intent intent);
 }

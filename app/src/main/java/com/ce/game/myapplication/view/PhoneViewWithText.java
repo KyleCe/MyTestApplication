@@ -5,6 +5,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.StringRes;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.view.View;
 import android.widget.TextView;
 
 import com.ce.game.myapplication.R;
@@ -32,7 +33,7 @@ public class PhoneViewWithText extends PhoneView implements TextCustomInterface 
     public PhoneViewWithText(final Context context, final AttributeSet attrs, final int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        mContainer.inflate(context, R.layout.first_anim_phone_view_text_content, mContainer);
+        inflate(context, R.layout.first_anim_phone_view_text_content, mContainer);
 
         mTextView = (TextView) mContainer.findViewById(R.id.phone_frame_text);
 

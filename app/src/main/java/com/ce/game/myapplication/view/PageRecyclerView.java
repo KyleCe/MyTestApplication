@@ -67,7 +67,7 @@ public class PageRecyclerView extends RecyclerView {
      * @param pageMargin 间距(px)
      */
     public void setPageMargin(int pageMargin) {
-        this.pageMargin = pageMargin;
+        PageRecyclerView.pageMargin = pageMargin;
     }
 
     @Override

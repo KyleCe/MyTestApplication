@@ -248,10 +248,7 @@ public class TimeU {
      * @deprecated
      */
     public static boolean isValidate(String str) {
-        if (str != null && str.length() > 0) {
-            return true;
-        }
-        return false;
+        return str != null && str.length() > 0;
     }
 
 

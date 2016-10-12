@@ -10,8 +10,6 @@ import android.widget.FrameLayout;
 
 import com.ce.game.myapplication.util.AboutPhoneU;
 
-import static com.facebook.FacebookSdk.getApplicationContext;
-
 /**
  * Created by KyleCe on 2016/5/23.
  *
@@ -39,7 +37,7 @@ public class DecorViewTest extends FrameLayout {
         Path path = new Path();
         canvas.drawARGB(128,125,0,0);
 
-        int navHeight = new AboutPhoneU().getNavH(getApplicationContext());
+        int navHeight = new AboutPhoneU().getNavH(getContext());
         if (navHeight != 0) {
             int screenHeight = new AboutPhoneU().getRealScreenHeightIncludeVirtualButtonBar(getContext());
             int startY = screenHeight - navHeight;
