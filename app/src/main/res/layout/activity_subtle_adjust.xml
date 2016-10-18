@@ -5,7 +5,7 @@
     android:id="@+id/activity_suttle_adjust"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_green_light"
+    android:background="@android:color/black"
     tools:context="com.ce.game.myapplication.act.SubtleAdjustActivity">
 
     <TextView
@@ -83,4 +83,11 @@
 
     </LinearLayout>
 
+
+    <com.ce.game.myapplication.view.ShimmerTextView
+        android:id="@+id/shimmer"
+        android:layout_width="wrap_content"
+        android:text="shimmer text"
+        android:gravity="center"
+        android:layout_height="30dp"/>
 </RelativeLayout>

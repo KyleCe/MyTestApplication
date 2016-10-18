@@ -209,6 +209,8 @@
         </activity>
         <activity android:name=".act.SubtleAdjustActivity">
         </activity>
+        <activity android:name=".act.ShimmerActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -28,6 +28,7 @@ import com.ce.game.myapplication.R;
 import com.ce.game.myapplication.userguideanim.FloatViewModelTip;
 import com.ce.game.myapplication.util.DU;
 import com.ce.game.myapplication.util.ThreadPoolU;
+import com.ce.game.myapplication.view.ShimmerTextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,6 +37,9 @@ public class SubtleAdjustActivity extends Activity implements Handler.Callback {
 
     @BindView(R.id.text_for_multi_link)
     protected TextView mLinkText;
+
+    protected ShimmerTextView mShimmerTextView;
+
 //
 //    @BindView(R.id.image_view)
     protected ImageView mImageView;
@@ -67,6 +71,15 @@ public class SubtleAdjustActivity extends Activity implements Handler.Callback {
                 msg.what = 0;
                 msg.obj = b;
                 mHandler.sendMessage(msg);
+            }
+        });
+
+        mShimmerTextView = (ShimmerTextView) findViewById(R.id.shimmer);
+
+        mShimmerTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mHandler.sendEmptyMessage(0);
             }
         });
     }
@@ -116,15 +129,19 @@ public class SubtleAdjustActivity extends Activity implements Handler.Callback {
             case 0:
                 mImageView.setImageBitmap((Bitmap) msg.obj);
                 DU.pwa("w h", mImageView.getWidth(), mImageView.getHeight());
-                break;
 
+                mShimmerTextView.startShimmer();
+                mHandler.sendEmptyMessageDelayed(1,5000);
+                break;
+            case 1:
+                mShimmerTextView.stopShimmer();
+                break;
             default:
                 break;
         }
 
         return false;
     }
-
 
     @NonNull
     public static Bitmap generateTimeImageBitmap(Context context, int hour, int minute) {

@@ -84,4 +84,8 @@
     <color name="privacy_detect_progress_control_color_stage2_end">#e8642a</color>
     <color name="privacy_detect_progress_control_color_stage3">#2ac75c</color>
     <color name="privacy_detect_progress_control_color_stage3_end">#21a34c</color>
+
+    <color name="shimmer_start_color">#60ffffff</color>
+    <color name="shimmer_end_color">#ffffff</color>
+
 </resources>
