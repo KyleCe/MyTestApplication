@@ -211,6 +211,8 @@
         </activity>
         <activity android:name=".act.ShimmerActivity">
         </activity>
+        <activity android:name=".act.OneLineActivity">
+        </activity>
     </application>
 
 </manifest>
