@@ -211,7 +211,13 @@
         </activity>
         <activity android:name=".act.ShimmerActivity">
         </activity>
-        <activity android:name=".act.OneLineActivity">
+        <activity android:name=".act.OneLineActivity"
+                  android:taskAffinity=".one"
+            >
+        </activity>
+        <activity android:name=".act.EditTextActivity"
+            android:taskAffinity=".one"
+            >
         </activity>
     </application>
 

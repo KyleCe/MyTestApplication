@@ -27,8 +27,9 @@ public class OneLineActivity extends Activity {
         setContentView(R.layout.activity_one_line);
         ButterKnife.bind(this);
 
+        throw new RuntimeException("exception test");
 
-        spanText();
+//        spanText();
     }
 
     private void spanText() {

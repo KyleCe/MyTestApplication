@@ -81,6 +81,9 @@ public class FloatViewModelTip extends FloatViewModel
         mLayoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
         mLayoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
 
+//        mLayoutParams.type = WindowManager.LayoutParams.TYPE_PHONE;
+        mLayoutParams.softInputMode = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN;
+
         mLayoutParams.gravity = Gravity.CENTER_VERTICAL | Gravity.END | Gravity.RIGHT;
     }
 
