@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.ce.game.myapplication">
+<manifest package="com.ce.game.myapplication"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- <uses-permission android:name="android.permission.READ_MEDIA_STORAGE"/> -->
     <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/> -->
@@ -211,13 +211,15 @@
         </activity>
         <activity android:name=".act.ShimmerActivity">
         </activity>
-        <activity android:name=".act.OneLineActivity"
-                  android:taskAffinity=".one"
-            >
+        <activity
+            android:name=".act.OneLineActivity"
+            android:taskAffinity=".one">
         </activity>
-        <activity android:name=".act.EditTextActivity"
-            android:taskAffinity=".one"
-            >
+        <activity
+            android:name=".act.EditTextActivity"
+            android:taskAffinity=".one">
+        </activity>
+        <activity android:name=".act.KotlinActivity">
         </activity>
     </application>
 
