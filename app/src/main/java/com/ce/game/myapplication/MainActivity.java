@@ -14,7 +14,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.ce.game.myapplication.act.FloatBackPressActivity;
+import com.ce.game.myapplication.act.KotlinActivity;
 import com.ce.game.myapplication.util.DU;
 import com.ce.game.myapplication.view.PageRecyclerView;
 
@@ -90,7 +90,8 @@ public class MainActivity extends Activity {
 //        startActivity(new Intent(context, FloatBackPressActivity.class));
 //        startActivity(new Intent(context, SubtleAdjustActivity.class));
 //        startActivity(new Intent(context, ShimmerActivity.class));
-        startActivity(new Intent(context, FloatBackPressActivity.class));
+//        startActivity(new Intent(context, FloatBackPressActivity.class));
+        startActivity(new Intent(context, KotlinActivity.class));
 //        startActivity(new Intent(context, AllKeyboardActivity.class));
 //        startActivity(new Intent(context, CircleProgressActivity.class));
 //        startActivity(new Intent(context, TessActivity.class));
